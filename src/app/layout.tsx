@@ -1,5 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Fragment_Mono, Instrument_Serif, Inter } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  Fragment_Mono,
+  Playfair_Display,
+  Public_Sans,
+} from "next/font/google";
 
 import {
   generateMetadata,
@@ -15,16 +20,26 @@ import { ScrollLayout } from "@/layouts/scroll-layout";
 
 import "@/app/globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Brand typefaces (owner brand sheet, 2026-11-14 — ADR-0031):
+// Public Sans for paragraphs and UI, Playfair Display Medium for titles,
+// Cormorant Garamond for subtitles and the italic accent word.
+const publicSans = Public_Sans({
+  variable: "--font-public-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  weight: "400",
-  style: "italic",
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
+  weight: "500",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant-garamond",
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -67,7 +82,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${instrumentSerif.variable} ${fragmentMono.variable}`}
+        className={`${publicSans.variable} ${playfairDisplay.variable} ${cormorantGaramond.variable} ${fragmentMono.variable}`}
       >
         {/* Before anything is parsed: marks a returning visitor's choice so the
             server-rendered consent banner is hidden before its first paint. */}

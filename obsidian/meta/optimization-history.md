@@ -167,13 +167,21 @@ node tools/measure.mjs relay --hosted             # Lighthouse + scroll, PC + mo
 node tools/measure.mjs relay --hosted --as-bot    # the robot form (kept apart from people records)
 node tools/measure.mjs relay --only scroll --devices mobile --runs 1 --no-build   # iterate on a freeze
 node tools/fps-probe.mjs <url>                    # phone stream fps, rest + touch scroll (120 Hz panel)
-node tools/ios-toolbar-probe.mjs --url <url> --out <dir> --sel canvas.mix-blend-screen
+node tools/ios-toolbar-probe.mjs --url <url> --out <dir> --sel canvas.mix-blend-multiply
 node tools/resize-check.mjs relay --out <dir>     # live resize = fresh load
 node tools/axe-sweep.mjs <url> --device both      # contrast sampled through the entrance
 ```
 
-Scope `ios-toolbar-probe` with `--sel canvas.mix-blend-screen`: unscoped, its
+Scope `ios-toolbar-probe` with `--sel canvas.mix-blend-multiply` (it was
+`mix-blend-screen` before the light re-theme, ADR-0031): unscoped, its
 rotation step picks the statement dot-field canvas and reports a false "✖ rotate".
+
+> [!warning] Not yet measured after the light re-theme (2026-11-14)
+> The stream canvas now carries a CSS `filter: invert(1)` with
+> `mix-blend-mode: multiply` (was `screen`, no filter). That is one extra
+> compositor filter pass on a full-viewport layer. Re-run `fps-probe` and
+> `measure.mjs --hosted` before the next launch; if phones drop frames, move the
+> inversion into the composer's output pass instead of CSS.
 
 The pipeline's scroll test waits for Lenis to unlock; an owner's "first scroll"
 straight after the loader is a different moment — probe it explicitly.

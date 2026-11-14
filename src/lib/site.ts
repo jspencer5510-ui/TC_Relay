@@ -43,5 +43,5 @@ export const siteConfig = {
     "business process automation",
   ],
   /** Browser theme-color (address bar / PWA) — the page background. */
-  themeColor: "#000000",
+  themeColor: "#e4e2dd", // brand paper — matches --background (ADR-0031)
 } as const;

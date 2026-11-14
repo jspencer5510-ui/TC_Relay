@@ -17,7 +17,7 @@ export interface WidgetProps {
 /** ms before a widget in stagger slot `order` starts to rise. */
 export const widgetDelay = (order: number) => (order + 2) * REVEAL.step;
 
-/** Widget shell — 26 radius, #0c0d0e fill, 7% hairline (3488:22351 et al.). */
+/** Widget shell — 26 radius, white fill, 7% ink hairline (3488:22351 et al.; light re-theme ADR-0031). */
 export const Widget = ({
   labelledBy,
   order,

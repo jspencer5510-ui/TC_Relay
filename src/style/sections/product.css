@@ -1,34 +1,36 @@
 /* product section tokens — same three tiers as src/app/globals.css.
    Names are prefixed with the section (--raw-product-*, --product-*, --<tw-namespace>-product-*).
-   Shared tokens live in globals.css; do not redefine them here. */
+   Shared tokens live in globals.css; do not redefine them here.
+   Light re-theme (ADR-0031): values are the brand palette; comments that cite
+   lime / white / black describe the original dark Figma frames, not the value. */
 
 /* TIER 1 — RAW */
 :root {
-  --raw-product-color-hairline: rgba(255, 255, 255, 0.09); /* Hairline 3488:21998, axis 3488:22023 */
-  --raw-product-color-card: #0c0d0e; /* Visual fill 3488:22004 */
-  --raw-product-color-card-border: rgba(255, 255, 255, 0.07); /* Visual border + rule 3488:22007 */
-  --raw-product-color-trace-rule: rgba(255, 255, 255, 0.05); /* Hairline 3488:22011 */
-  --raw-product-color-chart-baseline: rgba(255, 255, 255, 0.08); /* Baseline 3488:22115 */
-  --raw-product-color-index: rgba(200, 247, 81, 0.4); /* Row number 3488:22001 */
-  --raw-product-color-span-from: #96c435; /* Span gradient start 3488:22009 */
-  --raw-product-color-span-short: rgba(255, 255, 255, 0.8); /* Span 3488:22013 */
-  --raw-product-color-pending: rgba(200, 247, 81, 0.18); /* Pending fill 3488:22021 */
-  --raw-product-color-pending-border: rgba(200, 247, 81, 0.55); /* Pending border 3488:22021 */
-  --raw-product-color-baseline-today: rgba(200, 247, 81, 0.45); /* Baseline / today 3529:2 */
+  --raw-product-color-hairline: rgba(30, 30, 30, 0.09); /* Hairline 3488:21998, axis 3488:22023 */
+  --raw-product-color-card: #ffffff; /* Visual fill 3488:22004 */
+  --raw-product-color-card-border: rgba(30, 30, 30, 0.07); /* Visual border + rule 3488:22007 */
+  --raw-product-color-trace-rule: rgba(30, 30, 30, 0.05); /* Hairline 3488:22011 */
+  --raw-product-color-chart-baseline: rgba(30, 30, 30, 0.08); /* Baseline 3488:22115 */
+  --raw-product-color-index: rgba(219, 74, 43, 0.4); /* Row number 3488:22001 */
+  --raw-product-color-span-from: #e57b64; /* Span gradient start 3488:22009 */
+  --raw-product-color-span-short: rgba(30, 30, 30, 0.8); /* Span 3488:22013 */
+  --raw-product-color-pending: rgba(219, 74, 43, 0.18); /* Pending fill 3488:22021 */
+  --raw-product-color-pending-border: rgba(219, 74, 43, 0.55); /* Pending border 3488:22021 */
+  --raw-product-color-baseline-today: rgba(219, 74, 43, 0.45); /* Baseline / today 3529:2 */
   /* Chart cubes 3888:5925 → 5960 — the face gradients of the group exports */
-  --raw-product-color-cube-left-from: #1b1d1f;
-  --raw-product-color-cube-left-to: #0a0b0c;
-  --raw-product-color-cube-right-from: #383c3f;
-  --raw-product-color-cube-right-to: #181a1c;
-  --raw-product-color-cube-top-from: #666b6f;
-  --raw-product-color-cube-top-to: #404447;
-  --raw-product-color-cube-accent-left-from: #232a14;
-  --raw-product-color-cube-accent-left-to: #0c0f07;
-  --raw-product-color-cube-accent-right-from: #55662b;
-  --raw-product-color-cube-accent-right-to: #222a12;
-  --raw-product-color-cube-accent-top-from: #8aa845;
-  --raw-product-color-cube-accent-top-to: #55672a;
-  --raw-product-color-cap: rgba(214, 218, 221, 0.9); /* cap, #D6DADD at 90 % */
+  --raw-product-color-cube-left-from: #ffffff;
+  --raw-product-color-cube-left-to: #ffffff;
+  --raw-product-color-cube-right-from: #aba8a3;
+  --raw-product-color-cube-right-to: #ffffff;
+  --raw-product-color-cube-top-from: #ffffff;
+  --raw-product-color-cube-top-to: #e4e2dd;
+  --raw-product-color-cube-accent-left-from: #fbebe7;
+  --raw-product-color-cube-accent-left-to: #ffffff;
+  --raw-product-color-cube-accent-right-from: #f1baae;
+  --raw-product-color-cube-accent-right-to: #fbece8;
+  --raw-product-color-cube-accent-top-from: #e78672;
+  --raw-product-color-cube-accent-top-to: #f1baae;
+  --raw-product-color-cap: rgba(171, 168, 163, 0.9); /* cap, stone at 90 % (light re-theme) */
   --raw-product-font-size-26: 1.625rem; /* Row title 3488:22002 */
   --raw-product-font-size-24: 1.5rem; /* Row title at 1024 (3603:3154) */
   --raw-product-font-size-20: 1.25rem; /* Row title at 768 (3832:7499) */
@@ -60,7 +62,7 @@
   --product-card-border: var(--raw-product-color-card-border);
   --product-trace-rule: var(--raw-product-color-trace-rule);
   --product-chart-baseline: var(--raw-product-color-chart-baseline);
-  --product-tick: var(--raw-color-white-a16);
+  --product-tick: var(--raw-color-ink-a12);
   --product-index: var(--raw-product-color-index);
   --product-span-from: var(--raw-product-color-span-from);
   --product-span-short: var(--raw-product-color-span-short);
@@ -80,7 +82,7 @@
   --product-cube-accent-top-from: var(--raw-product-color-cube-accent-top-from);
   --product-cube-accent-top-to: var(--raw-product-color-cube-accent-top-to);
   --product-cap-dim: var(--raw-product-color-cap);
-  --product-cap-accent: var(--raw-color-lime-400);
+  --product-cap-accent: var(--raw-color-rust-500);
   --product-type-row-title: var(--raw-product-font-size-26);
   --product-line-row-title: var(--raw-product-line-height-32);
   --product-letter-spacing-row-title: var(--raw-letter-spacing-minus-1);

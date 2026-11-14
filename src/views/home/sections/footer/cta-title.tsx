@@ -16,10 +16,10 @@ export const CtaTitle = ({
   title: FooterContent["cta"]["title"];
   delay?: number;
 }) => (
-  <h2 className="absolute top-19 left-10 w-162.5 overflow-clip text-footer-cta-title leading-footer-cta-title font-semibold tracking-wordmark text-on-accent w1024:top-15 w1024:left-6 w1024:w-102.25 w768:top-17 w768:w-156 w390:top-15 w390:left-5 w390:w-63.5">
+  <h2 className="absolute top-19 left-10 w-162.5 overflow-clip text-footer-cta-title leading-footer-cta-title font-display font-medium tracking-wordmark text-on-accent w1024:top-15 w1024:left-6 w1024:w-102.25 w768:top-17 w768:w-156 w390:top-15 w390:left-5 w390:w-63.5">
     <CueLineRise stage="top" delay={delay}>
       {title.before}
-      <span className="font-serif text-footer-cta-accent leading-footer-cta-title font-normal italic">
+      <span className="font-serif text-footer-cta-accent leading-footer-cta-title font-medium italic">
         {title.accent}
       </span>
       {title.after}

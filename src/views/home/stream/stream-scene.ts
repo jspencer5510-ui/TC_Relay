@@ -80,9 +80,11 @@ export const CONFIG = {
   dof: 0.55,
   dofSize: 2.2,
   twinkle: 2.4,
-  brightness: 0.79,
-  heat: 1.2,
-  /** Share of particles, and of filaments, woven in the second (blue) hue. */
+  /** Light page (ADR-0031): the canvas prints as ink, so brightness and bloom
+   *  darken rather than glow — tuned down from 0.79 / 1.2 / 0.68 / 0.07. */
+  brightness: 0.5,
+  heat: 0.9,
+  /** Share of particles, and of filaments, woven in the second hue (stone). */
   altShare: 0.45,
   altStrands: 0.32,
   lineBase: 0.16,
@@ -101,9 +103,9 @@ export const CONFIG = {
   /** Entrance: the head draws this far down the curve (design px) over revealMs. */
   revealPx: 2600,
   revealMs: 2200,
-  bloomStr: 0.68,
+  bloomStr: 0.32,
   bloomRadius: 0.57,
-  bloomThresh: 0.07,
+  bloomThresh: 0.18,
 };
 
 /** Colour roles: main stream, second hue, hot pinch, far end, white glints. */

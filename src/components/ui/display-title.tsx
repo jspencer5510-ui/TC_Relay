@@ -7,7 +7,7 @@ import type { Tags } from "@/types/springs";
 export interface TitleParts {
   /** Copy before the serif word, including its trailing space. */
   before: string;
-  /** The italic Instrument Serif word. */
+  /** The italic Cormorant Garamond word. */
   accent: string;
   /** Copy after the serif word (often just "."). */
   after: string;
@@ -24,8 +24,8 @@ export interface DisplayTitleProps extends TitleParts {
 }
 
 /**
- * Inter Semi Bold title with a white → grey vertical gradient and one solid
- * Instrument Serif italic word (Hero 3488:21933, section heads 3488:21996).
+ * Playfair Display Medium title with an ink vertical gradient and one solid
+ * Cormorant Garamond italic word (Hero 3488:21933, section heads 3488:21996).
  * The serif run sits on the same baseline with `leading-none`, so its larger
  * size does not grow the line box past Figma's line height.
  *
@@ -56,11 +56,11 @@ export const DisplayTitle = ({
       WebkitMaskImage:
         "linear-gradient(90deg, black calc(var(--reveal) - 40%), transparent var(--reveal))",
     }}
-    className={`bg-linear-to-b/srgb from-title-gradient-from to-title-gradient-to bg-clip-text font-semibold tracking-title text-transparent ${className}`}
+    className={`bg-linear-to-b/srgb from-title-gradient-from to-title-gradient-to bg-clip-text font-display font-medium tracking-title text-transparent ${className}`}
   >
     {before}
     <span
-      className={`font-serif leading-none font-normal text-title-accent italic ${accentClassName}`}
+      className={`font-serif leading-none font-medium text-title-accent italic ${accentClassName}`}
     >
       {accent}
     </span>

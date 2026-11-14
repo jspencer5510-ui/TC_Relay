@@ -1,58 +1,35 @@
 /* hero section tokens — same three tiers as src/app/globals.css.
    Names are prefixed with the section (--raw-hero-*, --hero-*, --<tw-namespace>-hero-*).
-   Shared tokens live in globals.css; do not redefine them here. */
+   Shared tokens live in globals.css; do not redefine them here.
+   Light re-theme (ADR-0031): values are the brand palette; comments that cite
+   lime / white / black describe the original dark Figma frames, not the value. */
 
 /* TIER 1 — RAW */
 :root {
-  --raw-hero-color-ink-100: #f4f5f6; /* chip copy 3488:21932, bar meta 3542:25180 */
-  --raw-hero-color-chip-border: rgba(
-    200,
-    247,
-    81,
-    0.45
-  ); /* Release chip 3488:21930 */
-  --raw-hero-color-tick: rgba(255, 255, 255, 0.14); /* Tick 3488:21953 */
-  --raw-hero-color-window: #0c0d0e; /* Product window 3542:24365 */
+  --raw-hero-color-ink-100: #1e1e1e; /* chip copy 3488:21932, bar meta 3542:25180 */
+  --raw-hero-color-chip-border: rgba(219, 74, 43, 0.45); /* Release chip 3488:21930 */
+  --raw-hero-color-tick: rgba(30, 30, 30, 0.14); /* Tick 3488:21953 */
+  --raw-hero-color-window: #ffffff; /* Product window 3542:24365 */
   /* Product window 3542:24365 stroke — GRADIENT_LINEAR (transform [[.5,.5,0],[-.5,.5,.5]] =
      t = (u+v)/2, which is exactly CSS "to bottom right"): lime .5 @0 → white .07 @.6 → @1.
      Figma lerps rgb and alpha separately; the in-between stops reproduce that. */
   --raw-hero-gradient-window-stroke: linear-gradient(
     to bottom right,
-    rgba(200, 247, 81, 0.5) 0%,
-    rgba(207, 248, 103, 0.4462) 7.5%,
-    rgba(214, 249, 124, 0.3925) 15%,
-    rgba(221, 250, 146, 0.3387) 22.5%,
-    rgba(228, 251, 168, 0.285) 30%,
-    rgba(234, 252, 190, 0.2313) 37.5%,
-    rgba(241, 253, 212, 0.1775) 45%,
-    rgba(248, 254, 233, 0.1238) 52.5%,
-    rgba(255, 255, 255, 0.07) 60%,
-    rgba(255, 255, 255, 0.07) 100%
+    rgba(219, 74, 43, 0.5) 0%,
+    rgba(195, 68, 41, 0.4462) 7.5%,
+    rgba(172, 63, 40, 0.3925) 15%,
+    rgba(148, 58, 38, 0.3387) 22.5%,
+    rgba(124, 52, 36, 0.285) 30%,
+    rgba(101, 46, 35, 0.2313) 37.5%,
+    rgba(77, 41, 33, 0.1775) 45%,
+    rgba(54, 36, 32, 0.1238) 52.5%,
+    rgba(30, 30, 30, 0.07) 60%,
+    rgba(30, 30, 30, 0.07) 100%
   );
-  --raw-hero-color-rule: rgba(
-    255,
-    255,
-    255,
-    0.07
-  ); /* Rule 3542:25182 / 3542:25185 */
-  --raw-hero-color-corner-dot: rgba(
-    255,
-    255,
-    255,
-    0.2
-  ); /* Corner dot 3542:25183 */
-  --raw-hero-color-tool-active-border: rgba(
-    255,
-    255,
-    255,
-    0.18
-  ); /* Tool 3542:25201 */
-  --raw-hero-color-zoom-border: rgba(
-    255,
-    255,
-    255,
-    0.12
-  ); /* Zoom 3542:25199, Wait chip 3542:25226 */
+  --raw-hero-color-rule: rgba(30, 30, 30, 0.07); /* Rule 3542:25182 / 3542:25185 */
+  --raw-hero-color-corner-dot: rgba(30, 30, 30, 0.2); /* Corner dot 3542:25183 */
+  --raw-hero-color-tool-active-border: rgba(30, 30, 30, 0.18); /* Tool 3542:25201 */
+  --raw-hero-color-zoom-border: rgba(30, 30, 30, 0.12); /* Zoom 3542:25199, Wait chip 3542:25226 */
 
   --raw-hero-font-size-72: 4.5rem; /* Headline sans 3488:21933 */
   --raw-hero-font-size-78: 4.875rem; /* Headline serif word 3488:21933 */
@@ -85,31 +62,26 @@
   --raw-hero-blur-10: 0.625rem;
   --raw-hero-blur-chip: 0.25rem; /* Release chip background blur 8 (3888:4878) */
   /* Glass (not in Figma): the window and its cards let the particle stream through */
-  --raw-hero-color-window-glass: rgba(12, 13, 14, 0.5);
-  --raw-hero-color-card-glass: rgba(22, 23, 26, 0.5);
+  --raw-hero-color-window-glass: rgba(255, 255, 255, 0.6);
+  --raw-hero-color-card-glass: rgba(255, 255, 255, 0.6);
   --raw-hero-blur-window: 1.5rem; /* 24 */
   --raw-hero-blur-card: 0.75rem; /* 12 */
 
   /* Connectors 3542:25236 grey branch; packet halos (motion — not in Figma). */
-  --raw-hero-color-connector-grey: rgba(135, 135, 135, 0.6);
-  --raw-hero-color-connector-grey-45: rgba(
-    135,
-    135,
-    135,
-    0.45
-  ); /* Edge 3838:2 … at 768 / 390 */
-  --raw-hero-color-packet-halo: rgba(200, 247, 81, 0.28);
-  --raw-hero-color-packet-grey-halo: rgba(155, 160, 166, 0.22);
+  --raw-hero-color-connector-stone: rgba(171, 168, 163, 0.84);
+  --raw-hero-color-connector-stone-45: rgba(171, 168, 163, 0.63); /* Edge 3838:2 … at 768 / 390 */
+  --raw-hero-color-packet-halo: rgba(219, 74, 43, 0.28);
+  --raw-hero-color-packet-stone-halo: rgba(171, 168, 163, 0.308);
 
   --raw-hero-shadow-node-glow:
-    0 0 1rem 0 rgba(214, 248, 76, 0.18),
-    0 0.625rem 1.375rem -0.25rem rgba(0, 0, 0, 0.55);
+    0 0 1rem 0 rgba(219, 74, 43, 0.18),
+    0 0.625rem 1.375rem -0.25rem rgba(30, 30, 30, 0.165);
 }
 
 /* TIER 2 — SEMANTIC */
 :root {
   --hero-ink: var(--raw-hero-color-ink-100);
-  --hero-chip-fill: var(--raw-color-white-a04);
+  --hero-chip-fill: var(--raw-color-ink-a04);
   --hero-chip-border: var(--raw-hero-color-chip-border);
   --hero-tick: var(--raw-hero-color-tick);
   --hero-window: var(--raw-hero-color-window);
@@ -121,28 +93,28 @@
   --hero-window-ring: var(--raw-hero-gradient-window-stroke);
   --hero-window-ring-mask: linear-gradient(#000 0 0) padding-box exclude, linear-gradient(#000 0 0);
   --hero-rule: var(--raw-hero-color-rule);
-  --hero-bar-divider: var(--raw-color-white-a16);
+  --hero-bar-divider: var(--raw-color-ink-a12);
   --hero-corner-dot: var(--raw-hero-color-corner-dot);
-  --hero-tool-fill: var(--raw-color-white-a05);
-  --hero-tool-border: var(--raw-color-white-a10);
-  --hero-tool-active-fill: var(--raw-color-white-a10);
+  --hero-tool-fill: var(--raw-color-ink-a04);
+  --hero-tool-border: var(--raw-color-ink-a12);
+  --hero-tool-active-fill: var(--raw-color-ink-a08);
   --hero-tool-active-border: var(--raw-hero-color-tool-active-border);
-  --hero-zoom-fill: var(--raw-color-white-a06);
+  --hero-zoom-fill: var(--raw-color-ink-a04);
   --hero-zoom-border: var(--raw-hero-color-zoom-border);
   --hero-wait-chip: var(--raw-hero-color-card-glass);
   --hero-node: var(--raw-hero-color-card-glass);
   --hero-label: var(--raw-hero-color-card-glass);
   --hero-card-frost: var(--raw-hero-blur-card);
-  --hero-node-border: var(--raw-color-white-a10);
-  --hero-run-live: var(--raw-color-lime-400);
-  --hero-run-idle: var(--raw-color-neutral-400);
-  --hero-wait-dot: var(--raw-color-neutral-500);
-  --hero-connector: var(--raw-color-lime-400);
-  --hero-connector-grey: var(--raw-hero-color-connector-grey);
-  --hero-packet: var(--raw-color-lime-400);
+  --hero-node-border: var(--raw-color-ink-a12);
+  --hero-run-live: var(--raw-color-rust-500);
+  --hero-run-idle: var(--raw-color-stone);
+  --hero-wait-dot: var(--raw-color-stone);
+  --hero-connector: var(--raw-color-rust-500);
+  --hero-connector-grey: var(--raw-hero-color-connector-stone);
+  --hero-packet: var(--raw-color-rust-500);
   --hero-packet-halo: var(--raw-hero-color-packet-halo);
-  --hero-packet-grey: var(--raw-color-neutral-400);
-  --hero-packet-grey-halo: var(--raw-hero-color-packet-grey-halo);
+  --hero-packet-grey: var(--raw-color-stone);
+  --hero-packet-grey-halo: var(--raw-hero-color-packet-stone-halo);
 
   --hero-type-title: var(--raw-hero-font-size-72);
   --hero-type-title-accent: var(--raw-hero-font-size-78);
@@ -157,7 +129,7 @@
   --hero-corner-window: var(--raw-hero-radius-28);
 
   --hero-elevation-node-glow: var(--raw-hero-shadow-node-glow);
-  --hero-float-behind: var(--raw-color-black-a50);
+  --hero-float-behind: var(--raw-color-ink-a12);
   --hero-float-behind-blur: var(--raw-hero-blur-10);
   --hero-chip-frost: var(--raw-hero-blur-chip);
   --hero-corner-tool-behind: var(--raw-hero-radius-6);
@@ -205,7 +177,7 @@
     --hero-type-title: var(--raw-hero-font-size-36);
     --hero-type-title-accent: var(--raw-hero-font-size-40);
     --hero-line-title: var(--raw-hero-line-height-46);
-    --hero-connector-grey: var(--raw-hero-color-connector-grey-45);
+    --hero-connector-grey: var(--raw-hero-color-connector-stone-45);
   }
 }
 

@@ -1,5 +1,7 @@
 /* preloader tokens — same three tiers as src/app/globals.css.
-   The plate grows out of the Relay logo tile (the Statement mark). */
+   The plate grows out of the Relay logo tile (the Statement mark).
+   Light re-theme (ADR-0031): values are the brand palette; comments that cite
+   lime / white / black describe the original dark Figma frames, not the value. */
 
 /* TIER 1 — primitives */
 :root {

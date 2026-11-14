@@ -135,20 +135,53 @@ every case (motion is spring-based, so there are no keyframes to co-locate).
 
 ## Current theme state
 
-The starter ships a **minimal** theme on purpose — the convention is the
-deliverable, not a palette. It defines:
+**Light, brand palette** (owner brand sheet, 2026-11-14 — [[decisions-log]] ADR-0031).
+The site was dark-on-lime; it is now ink on paper with one orange accent. There is
+no `prefers-color-scheme` override — the design is light-only.
 
-- **Tier 1:** a small neutral ramp (`--raw-color-white`, `--raw-color-neutral-100/900/950`)
-  and two durations (`--raw-duration-fast/normal`).
-- **Tier 2:** `--background`, `--foreground`, `--duration-fast`, `--duration-normal`,
-  with a dark-mode override via `@media (prefers-color-scheme: dark)`.
-- **Bindings:** `--color-background`, `--color-foreground`, `--font-sans`,
-  plus `--leading-display` (1.1 — the clip floor for [[text-engine]]) and
-  `--ease-entrance`.
+| Brand colour | Tier 1 | Semantic roles it feeds |
+|---|---|---|
+| `#E4E2DD` paper | `--raw-color-paper` | `--background` (page) |
+| `#FFFFFF` white | `--raw-color-white` | `--surface-raised`, `--surface-badge`, `--on-accent`; glass is white at 40–85 % |
+| `#1E1E1E` ink | `--raw-color-ink` | `--foreground`, title gradient top; borders are ink at 8–18 % |
+| `#ABA8A3` stone | `--raw-color-stone` | hairlines, dots, idle markers, the stream's second hue |
+| `#DB4A2B` brand orange | `--raw-color-rust-500` | `--title-accent` (large serif word), `--accent-marker`, logo, stream |
 
-There is deliberately **no brand palette**. Add one per project as
-`--raw-color-brand-*` primitives plus the semantic roles that name their purpose.
-The `@layer base/components/utilities` blocks are empty — fill them per project.
+**Derived for contrast — not in the brand sheet, keep them:**
+
+| Tier 1 | Value | Why |
+|---|---|---|
+| `--raw-color-rust-600` | `#C8462A` | `--accent`: CTA fills and small accent text. White on it 4.81:1, it on white 4.81:1. The brand `#DB4A2B` gives 4.18:1 — fails AA for 16 px labels. |
+| `--raw-color-ink-500` | `#5D5C5A` | `--foreground-muted` — 5.16:1 on paper. Stone on paper is 1.83:1, unusable for text. |
+| `--raw-color-ink-450` | `#646360` | `--foreground-dim` — 4.64:1 on paper; also icon/“failed” grey (6:1 on white). |
+| `--raw-color-ink-700` | `#3A3A39` | display-title gradient, lower stop |
+| `--raw-color-rust-50` | `#F7E4DE` | `--accent-soft`, pale accent wash |
+
+Known soft spot: the nav link hover (`hover:text-accent`) is 3.72:1 on paper —
+transient state, under the 4.5 bar; switch it to a darker shade if an audit flags it.
+
+**Section token files** (`src/style/sections/*.css`) were converted by rule
+(lime → orange; white overlays → ink overlays; dark glass → white glass; dark
+solids → white; lime↔white / lime↔black ramps → orange↔ink / orange↔white) and
+then hand-tuned (text on the orange panels is white; product cubes are
+white/paper/stone). Their comments still cite the original dark Figma values.
+
+**The particle stream** renders additively on black as before; the canvas is CSS
+`invert` + `mix-blend-multiply`, and `particle-stream.tsx` feeds the scene the
+**complement** of each `--stream-*` token, so it prints in the token's own colour.
+Brightness and bloom are tuned down for paper (see `getlayers.json`).
+
+## Typography
+
+| Role | Typeface | Binding | Used by |
+|---|---|---|---|
+| Titles, h1/h2 | **Playfair Display Medium** (500) | `--font-playfair-display` → `--font-display` → `font-display` | `DisplayTitle`, statement title, footer CTA title, error / 404 |
+| Subtitles, the italic accent word | **Cormorant Garamond** (400/500, roman + italic) | `--font-cormorant-garamond` → `--font-serif` → `font-serif` | accent word in every display title; hero subtitle (`text-subtitle`, 22 px — its small x-height reads like ~18 px sans) |
+| Paragraphs, UI | **Public Sans** (variable) | `--font-public-sans` → `--font-sans`; `body` default | everything else |
+| Data labels | Fragment Mono (kept from the template) | `--font-fragment-mono` → `--font-mono` | timestamps, chips, run ids |
+
+All four load through `next/font/google` in `src/app/layout.tsx` (self-hosted at
+build, no runtime request to Google).
 
 ## Motion: springs first, CSS for trivial state
 
@@ -183,11 +216,6 @@ Conditions — all three, or it is a spring:
 
 If you are reaching past this list, you want `<Hover>` — see
 [[components/animation-springs]].
-
-## Typography
-
-Font: **Onest** (`next/font/google`), bound to `--font-onest` → `--font-sans`.
-Loaded in `src/app/layout.tsx` and exposed on `<body>` as `--font-onest`.
 
 ## Styling rules
 

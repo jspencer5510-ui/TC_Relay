@@ -102,7 +102,7 @@ export const Hero = ({
           tag="p"
           variant="fade"
           delay={LOAD.copy.subhead}
-          className="absolute top-100.5 left-20 w-117.75 text-lead leading-lead text-foreground-muted w1024:top-88.5 w1024:left-12 w1024:w-95 w768:top-39.5 w768:left-36 w768:w-120.25 w768:text-center w390:top-35.5 w390:left-7.75 w390:w-82 w390:text-body w390:leading-body"
+          className="absolute top-100.5 left-20 w-117.75 font-serif text-subtitle leading-lead font-medium text-foreground-muted w1024:top-88.5 w1024:left-12 w1024:w-95 w768:top-39.5 w768:left-36 w768:w-120.25 w768:text-center w390:top-35.5 w390:left-7.75 w390:w-82 w390:text-body w390:leading-body"
         >
           {subhead}
         </Reveal>

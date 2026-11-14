@@ -11,17 +11,18 @@
         "crimson-contour",
         "rift-stone"
       ],
-      "brief": "S-curve ribbon of glowing filaments + sparks + DOF bokeh, bloom, lime instead of cyan (user reference image)",
+      "brief": "S-curve ribbon of glowing filaments + sparks + DOF bokeh, bloom, lime instead of cyan (user reference image) — light re-theme 2026-11-14: brand orange + stone on paper; canvas inverted and multiply-blended (ADR-0031)",
       "source": "src/views/home/stream/stream-scene.ts",
-      "tint": "colour roles from --stream-* tokens (main=--accent, alt=sky #52c8ff, core=--accent-soft)",
+      "tint": "colour roles from --stream-* tokens (main=rust-500 #db4a2b, alt=stone #aba8a3, core=rust-600, spark=ink); particle-stream feeds their complements to the inverted canvas",
       "path": "src/views/home/stream/stream-path.ts — wide hero swing → S through the Integrations tile gap → few wide bends past the column edges → exit left above the footer",
       "tuning": "none on site — values baked into CONFIG (panel removed)",
       "config": {
-        "bloomStr": 0.68,
+        "bloomStr": 0.32,
         "bloomRadius": 0.57,
-        "bloomThresh": 0.07,
+        "bloomThresh": 0.18,
         "size": 2.1,
-        "brightness": 0.79
+        "brightness": 0.5,
+        "heat": 0.9
       }
     }
   ],

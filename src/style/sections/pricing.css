@@ -1,38 +1,40 @@
 /* pricing section tokens — same three tiers as src/app/globals.css.
    Names are prefixed with the section (--raw-pricing-*, --pricing-*, --<tw-namespace>-pricing-*).
-   Shared tokens live in globals.css; do not redefine them here. */
+   Shared tokens live in globals.css; do not redefine them here.
+   Light re-theme (ADR-0031): values are the brand palette; comments that cite
+   lime / white / black describe the original dark Figma frames, not the value. */
 
 /* TIER 1 — primitives (09 Pricing 3488:22781) */
 :root {
-  --raw-pricing-color-card: #0c0d0e; /* Run meter 3488:22789, tiers 3488:22810 */
-  --raw-pricing-color-card-border: rgba(255, 255, 255, 0.07);
-  --raw-pricing-color-track: rgba(255, 255, 255, 0.08); /* Track 3488:22792 */
-  --raw-pricing-color-fill-from: rgba(200, 247, 81, 0.35); /* Filled 3488:22793 */
-  --raw-pricing-color-fill-to: rgba(200, 247, 81, 0.95);
-  --raw-pricing-color-tick: rgba(255, 255, 255, 0.14); /* Tick 3488:22795 */
-  --raw-pricing-color-tick-active: rgba(255, 255, 255, 0.3); /* Tick 3488:22797 */
-  --raw-pricing-color-hairline: rgba(255, 255, 255, 0.09); /* Rule 3488:22801 (the tier-card hairline above the buttons was removed from the design) */
-  --raw-pricing-color-button: rgba(255, 255, 255, 0.07); /* Tier button 3488:22827 */
-  --raw-pricing-color-button-border: rgba(255, 255, 255, 0.16);
-  --raw-pricing-color-button-text: #f4f5f6;
-  --raw-pricing-color-button-shade: rgba(0, 0, 0, 0.55); /* Tier button 3488:22827 drop shadow */
+  --raw-pricing-color-card: #ffffff; /* Run meter 3488:22789, tiers 3488:22810 */
+  --raw-pricing-color-card-border: rgba(30, 30, 30, 0.07);
+  --raw-pricing-color-track: rgba(30, 30, 30, 0.08); /* Track 3488:22792 */
+  --raw-pricing-color-fill-from: rgba(219, 74, 43, 0.35); /* Filled 3488:22793 */
+  --raw-pricing-color-fill-to: rgba(219, 74, 43, 0.95);
+  --raw-pricing-color-tick: rgba(30, 30, 30, 0.14); /* Tick 3488:22795 */
+  --raw-pricing-color-tick-active: rgba(30, 30, 30, 0.3); /* Tick 3488:22797 */
+  --raw-pricing-color-hairline: rgba(30, 30, 30, 0.09); /* Rule 3488:22801 (the tier-card hairline above the buttons was removed from the design) */
+  --raw-pricing-color-button: rgba(255, 255, 255, 0.75); /* Tier button 3488:22827 — white glass on the light page */
+  --raw-pricing-color-button-border: rgba(30, 30, 30, 0.16);
+  --raw-pricing-color-button-text: #1e1e1e;
+  --raw-pricing-color-button-shade: rgba(30, 30, 30, 0.08); /* Tier button 3488:22827 drop shadow, softened for paper */
   /* Tier / Team stroke: linear lime 0.5 @0 -> white 0.07 @60% -> white 0.07, diagonal
      (gradientTransform [[.5,.5,0],[-.5,.5,.5]] = CSS "to bottom right"). Figma lerps rgb and alpha
      separately; stops are pre-composited over the card fill every 10% so CSS interpolates opaque sRGB.
      Painted as a 1px .stroke-ring that slides to the selected plan's card. */
   --raw-pricing-featured-stroke: linear-gradient(
     to bottom right in srgb,
-    #6a8230 0%,
-    #607237 10%,
-    #56613b 20%,
-    #49513a 30%,
-    #3c4035 40%,
-    #2d2f2c 50%,
-    #1d1e1f 60%,
-    #1d1e1f 100%
+    #eda596 0%,
+    #efafa2 10%,
+    #f1b9ad 20%,
+    #f4c6bc 30%,
+    #aba8a3 40%,
+    #aba8a3 50%,
+    #ffffff 60%,
+    #ffffff 100%
   );
-  --raw-pricing-color-check: #a7a7a7; /* tier list check icon */
-  --raw-pricing-color-check-light: #9ba0a6; /* Team list check icon */
+  --raw-pricing-color-check: #646360; /* tier list check icon */
+  --raw-pricing-color-check-light: #646360; /* Team list check icon */
   /* Tier button shadow sits behind the 7% glass fill (showShadowBehindNode) — drawn as a blurred
      layer: rect inset by the -4 spread, offset y10, blur 26 -> sigma 13. */
   --raw-pricing-blur-button-shade: 0.8125rem; /* 13 */
@@ -45,9 +47,9 @@
   --raw-pricing-radius-tag: 0.5rem; /* Tag 3488:22845 */
 
   /* Team card button (3488:22829): lime glow only — its dark drop shadow is the shared CTA one */
-  --raw-pricing-shadow-button-glow: 0 0 1.125rem 0 rgba(214, 248, 76, 0.18);
+  --raw-pricing-shadow-button-glow: 0 0 1.125rem 0 rgba(219, 74, 43, 0.18);
   --raw-pricing-shadow-featured:
-    0 0 1.5rem 0 rgba(214, 248, 76, 0.12), 0 1.125rem 2.75rem -0.625rem rgba(0, 0, 0, 0.6);
+    0 0 1.5rem 0 rgba(219, 74, 43, 0.12), 0 1.125rem 2.75rem -0.625rem rgba(30, 30, 30, 0.18);
 }
 
 /* TIER 2 — semantic */

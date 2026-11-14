@@ -1,17 +1,19 @@
 /* statement section tokens — same three tiers as src/app/globals.css.
    Names are prefixed with the section (--raw-statement-*, --statement-*, --<tw-namespace>-statement-*).
-   Shared tokens live in globals.css; do not redefine them here. */
+   Shared tokens live in globals.css; do not redefine them here.
+   Light re-theme (ADR-0031): values are the brand palette; comments that cite
+   lime / white / black describe the original dark Figma frames, not the value. */
 
 /* TIER 1 — RAW */
 :root {
-  --raw-statement-color-plate: #c8f752; /* Contrast plate 3492:4 */
-  --raw-statement-color-dot: rgba(10, 11, 9, 0.175111); /* Dot field ellipse 3559:3 */
-  --raw-statement-color-ink-55: rgba(10, 11, 9, 0.55); /* Kicker 3488:22128, ruler labels 3488:22260 */
-  --raw-statement-color-ink-50: rgba(10, 11, 9, 0.5); /* Ruler caption 3488:22259 */
-  --raw-statement-color-mark-border: rgba(10, 11, 9, 0.25); /* Mark border 3488:22130 */
-  --raw-statement-color-mark-from: #252721; /* Mark gradient start 3488:22130 */
-  --raw-statement-color-stem-from: rgba(10, 11, 9, 0.85); /* Drop line 3488:22135 */
-  --raw-statement-color-stem-to: rgba(10, 11, 9, 0.2); /* Drop line 3488:22135 */
+  --raw-statement-color-plate: #c8462a; /* Contrast plate 3492:4 — accessible brand orange (white 4.81:1) */
+  --raw-statement-color-dot: rgba(255, 255, 255, 0.2751); /* Dot field ellipse 3559:3 */
+  --raw-statement-color-white: #ffffff; /* Kicker 3488:22128, ruler labels 3488:22260 */
+  --raw-statement-color-white-a95: rgba(255, 255, 255, 0.95); /* Ruler caption 3488:22259 */
+  --raw-statement-color-mark-border: rgba(255, 255, 255, 0.35); /* Mark border 3488:22130 */
+  --raw-statement-color-mark-from: #e4e2dd; /* Mark gradient start 3488:22130 */
+  --raw-statement-color-stem-from: rgba(255, 255, 255, 0.85); /* Drop line 3488:22135 */
+  --raw-statement-color-stem-to: rgba(255, 255, 255, 0.3); /* Drop line 3488:22135 */
   --raw-statement-radius-plate: 2rem; /* 32 */
   --raw-statement-radius-mark: 1.5rem; /* 24 */
   --raw-statement-font-size-12: 0.75rem; /* Kicker at 390 (3893:3603) */
@@ -23,13 +25,13 @@
 :root {
   --statement-plate: var(--raw-statement-color-plate);
   --statement-dot: var(--raw-statement-color-dot);
-  --statement-ink-muted: var(--raw-statement-color-ink-55);
-  --statement-ink-caption: var(--raw-statement-color-ink-50);
+  --statement-ink-muted: var(--raw-statement-color-white);
+  --statement-ink-caption: var(--raw-statement-color-white-a95);
   --statement-mark-border: var(--raw-statement-color-mark-border);
   --statement-mark-from: var(--raw-statement-color-mark-from);
   --statement-stem-from: var(--raw-statement-color-stem-from);
   --statement-stem-to: var(--raw-statement-color-stem-to);
-  --statement-flash: var(--raw-statement-color-ink-55);
+  --statement-flash: var(--raw-statement-color-white);
   --statement-corner-plate: var(--raw-statement-radius-plate);
   --statement-corner-mark: var(--raw-statement-radius-mark);
   --statement-kicker-size: var(--type-label);

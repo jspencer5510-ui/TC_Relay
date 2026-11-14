@@ -89,10 +89,23 @@ const useBuildGate = (live: boolean) => {
   return live || early;
 };
 
-/** The four colour roles come from the `--stream-*` tokens. */
+/**
+ * `#rrggbb` → its sRGB complement. The page is light (ADR-0031): the scene
+ * still renders additively on black, and the canvas is CSS-`invert`ed and
+ * `multiply`-blended, so black prints nothing and every stroke prints as ink
+ * on the paper. Feeding the scene each role's complement makes the inverted
+ * output land on the token's own colour.
+ */
+const complement = (hex: string): string => {
+  const value = Number.parseInt(hex.replace("#", ""), 16);
+  if (Number.isNaN(value)) return hex;
+  return `#${(0xffffff ^ value).toString(16).padStart(6, "0")}`;
+};
+
+/** The colour roles come from the `--stream-*` tokens, complemented for the inverted canvas. */
 const readColors = (el: Element): StreamColors => {
   const style = getComputedStyle(el);
-  const token = (name: string) => style.getPropertyValue(name).trim();
+  const token = (name: string) => complement(style.getPropertyValue(name).trim());
   return {
     colMain: token("--stream-main"),
     colAlt: token("--stream-alt"),
@@ -103,11 +116,12 @@ const readColors = (el: Element): StreamColors => {
 };
 
 /**
- * The lime 3D particle stream under the whole page (./stream-scene). The
+ * The brand-orange 3D particle stream under the whole page (./stream-scene). The
  * canvas is fixed to the viewport, above the backdrop and under every
  * section; the stream itself is laid out in page coordinates (./stream-path)
- * and scrolls with the page. Opaque black blended with `screen`, so black
- * adds nothing and the bloom glows over the backdrop without an alpha pass;
+ * and scrolls with the page. Opaque black, CSS-inverted to white and blended
+ * with `multiply`, so the clear colour prints nothing on the light page and
+ * the bloom prints as a soft ink haze without an alpha pass (ADR-0031);
  * glass surfaces (the hero window, the Product → Proof slab) frost it.
  *
  * three.js loads on demand after hydration — never for a crawler or a lab
@@ -312,7 +326,7 @@ export const ParticleStream = () => {
     <canvas
       ref={ref}
       aria-hidden
-      className="pointer-events-none fixed top-0 left-0 h-lvh w-full mix-blend-screen"
+      className="pointer-events-none fixed top-0 left-0 h-lvh w-full invert mix-blend-multiply"
       style={boxHeight > 0 ? { height: boxHeight } : undefined}
     />
   );

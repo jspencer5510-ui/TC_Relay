@@ -16,6 +16,31 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-11-14 — Light re-theme: brand palette and typefaces
+
+The site moves from dark-on-lime to the owner's light brand sheet — paper
+`#E4E2DD`, white, ink `#1E1E1E`, stone `#ABA8A3`, orange `#DB4A2B` — with
+**Playfair Display Medium** titles, **Cormorant Garamond** subtitles and accent
+words, and **Public Sans** body copy. Decision and trade-offs: [[decisions-log]]
+ADR-0031. Palette, derived contrast shades and font roles: [[design-system]].
+
+- `globals.css` Tier 1 rebuilt around the brand colours plus five derived
+  contrast shades; every Tier 2 role remapped. No class strings changed for colour.
+- All ten `src/style/sections/*.css` files re-themed (~140 literals) by rule,
+  then hand-tuned; misleading primitive names renamed to match their values.
+- 70 SVGs and 11 glow PNGs in `public/assets` recoloured; avatar photos untouched.
+  Favicons, app icons, `icon.svg`, `manifest.json`, `browserconfig.xml` and
+  `open-graph.png` re-made in the new palette.
+- The particle stream prints as ink on paper: canvas `invert` +
+  `mix-blend-multiply`, complemented colour roles, brightness/bloom tuned down.
+- Signals heatmap mock data moved to stone with the load folded into alpha.
+- New `text-subtitle` (22 px) for the Cormorant hero subtitle.
+
+Not re-measured yet: performance (the stream canvas gained a CSS filter — see
+[[optimization-history]]) and a full axe contrast sweep through the entrances.
+
+---
+
 ## 2026-11-14 — Next 16.4.6, clean audit, stricter lint, contact route and cookie fixes
 
 - **Security.** `next` / `eslint-config-next` 16.3.1 → 16.4.6 (critical RCE via

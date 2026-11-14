@@ -1,33 +1,35 @@
 /* signals section tokens — same three tiers as src/app/globals.css.
    Names are prefixed with the section (--raw-signals-*, --signals-*, --<tw-namespace>-signals-*).
-   Shared tokens live in globals.css; do not redefine them here. */
+   Shared tokens live in globals.css; do not redefine them here.
+   Light re-theme (ADR-0031): values are the brand palette; comments that cite
+   lime / white / black describe the original dark Figma frames, not the value. */
 
 /* Tier 1 — primitives (07 Signals 3488:22342) */
 :root {
   /* Widget fill 3488:22351 / stroke */
-  --raw-signals-color-widget: #0c0d0e;
-  --raw-signals-color-widget-border: rgba(255, 255, 255, 0.07);
+  --raw-signals-color-widget: #ffffff;
+  --raw-signals-color-widget-border: rgba(30, 30, 30, 0.07);
   /* Load (today) end stop 3488:22366 */
-  --raw-signals-color-accent-a72: rgba(200, 247, 81, 0.72);
+  --raw-signals-color-accent-a72: rgba(219, 74, 43, 0.72);
   /* Today rule 3531:71 */
-  --raw-signals-color-accent-a75: rgba(200, 247, 81, 0.75);
+  --raw-signals-color-accent-a75: rgba(219, 74, 43, 0.75);
   /* Next run fill / stroke 3488:22416 */
-  --raw-signals-color-accent-a06: rgba(200, 247, 81, 0.06);
-  --raw-signals-color-accent-a40: rgba(200, 247, 81, 0.4);
-  /* Its drop shadow (0 8 22 -4 #000/50) as Figma shows it through the 6% fill:
+  --raw-signals-color-accent-a06: rgba(219, 74, 43, 0.06);
+  --raw-signals-color-accent-a40: rgba(219, 74, 43, 0.4);
+  /* Its drop shadow (0 8 22 -4 rgba(30, 30, 30, 0.3)/50) as Figma shows it through the 6% fill:
      measured shade ramp inside the chip, top → 65% → bottom */
-  --raw-signals-color-black-a08: rgba(0, 0, 0, 0.08);
-  --raw-signals-color-black-a25: rgba(0, 0, 0, 0.25);
+  --raw-signals-color-ink-a02: rgba(30, 30, 30, 0.024);
+  --raw-signals-color-ink-a08: rgba(30, 30, 30, 0.075);
   /* Label plate 3488:22711 */
-  --raw-signals-color-plate: rgba(11, 11, 11, 0.9);
+  --raw-signals-color-plate: rgba(255, 255, 255, 0.85);
   /* Ring track 3488:22428, failed-hard curve / crossing marker 3488:22446, map dot 3488:22459 */
-  --raw-signals-color-ring-track: #383b3e;
-  --raw-signals-color-accent-a90: rgba(200, 247, 81, 0.9);
-  --raw-signals-color-curve-failed: #606468;
-  --raw-signals-color-marker: #0f1112;
-  --raw-signals-color-map-dot: rgba(166, 166, 166, 0.38);
+  --raw-signals-color-ring-track: #e4e2dd;
+  --raw-signals-color-accent-a90: rgba(219, 74, 43, 0.9);
+  --raw-signals-color-curve-failed: #646360;
+  --raw-signals-color-marker: #ffffff;
+  --raw-signals-color-map-dot: rgba(171, 168, 163, 0.532);
   /* Motion only (brief: settle glow on today's peak, region pings) — invisible at rest */
-  --raw-signals-shadow-glow: 0 0 0.875rem 0.125rem rgba(200, 247, 81, 0.55);
+  --raw-signals-shadow-glow: 0 0 0.875rem 0.125rem rgba(219, 74, 43, 0.55);
   --raw-signals-radius-widget: 1.5rem; /* 24 (3888:6607, all four frames) */
   --raw-signals-radius-load: 0.25rem; /* 4 */
   --raw-signals-radius-rule: 0.0625rem; /* 1 */
@@ -53,7 +55,7 @@
 :root {
   --signals-widget: var(--card-glass); /* glass (not in Figma): was the raw fill */
   --signals-widget-border: var(--raw-signals-color-widget-border);
-  --signals-load-today-from: var(--raw-color-lime-400);
+  --signals-load-today-from: var(--raw-color-rust-500);
   --signals-load-today-to: var(--raw-signals-color-accent-a72);
   --signals-today-rule: var(--raw-signals-color-accent-a75);
   --signals-chip: var(--raw-signals-color-accent-a06);
@@ -62,8 +64,8 @@
     linear-gradient(var(--signals-chip), var(--signals-chip)),
     linear-gradient(
       in srgb to bottom,
-      var(--raw-signals-color-black-a08),
-      var(--raw-signals-color-black-a25) 65%
+      var(--raw-signals-color-ink-a02),
+      var(--raw-signals-color-ink-a08) 65%
     );
   --signals-plate: var(--raw-signals-color-plate);
   --signals-ring-track: var(--raw-signals-color-ring-track);

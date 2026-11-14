@@ -103,7 +103,7 @@ export const CookiePreferencesModal = () => {
         <div
           aria-hidden
           onMouseDown={closeModal}
-          className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+          className="absolute inset-0 bg-foreground/30 backdrop-blur-sm"
         />
         <animated.div
           role="dialog"

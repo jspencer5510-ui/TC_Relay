@@ -81,9 +81,11 @@ see [[folder-structure]].
 
 All of them are rendered from the logo mark (`public/assets/nav/nav-logo-mark.svg`):
 `icon.svg` is the mark itself, the PNG/ICO sizes are the same tile rasterised,
-`apple-icon-180x180.png` and `maskable-icon-512x512.png` are full-bleed lime
-squares with the glyph in the safe zone, and `open-graph.png` (**1200×630**) is
-the hero line on the page's black, dot-grid, lime-bloom backdrop.
+`apple-icon-180x180.png` and `maskable-icon-512x512.png` are full-bleed brand-orange
+squares with the white glyph in the safe zone, and `open-graph.png` (**1200×630**) is
+the hero line (Playfair + Cormorant) on the paper, dot-grid, soft-orange backdrop.
+Re-made for the light re-theme (ADR-0031); `manifest.json` / `browserconfig.xml`
+and `site.ts → themeColor` are paper `#e4e2dd`.
 
 ## Related
 

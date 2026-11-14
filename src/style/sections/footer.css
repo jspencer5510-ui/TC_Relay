@@ -1,24 +1,26 @@
 /* footer section tokens — same three tiers as src/app/globals.css.
    Names are prefixed with the section (--raw-footer-*, --footer-*, --<tw-namespace>-footer-*).
-   Shared tokens live in globals.css; do not redefine them here. */
+   Shared tokens live in globals.css; do not redefine them here.
+   Light re-theme (ADR-0031): values are the brand palette; comments that cite
+   lime / white / black describe the original dark Figma frames, not the value. */
 
 /* TIER 1 — primitives */
 :root {
-  --raw-footer-color-panel-from: #202326; /* Brand panel 3488:22873 gradient 0% */
-  --raw-footer-color-panel-via: #111214; /* 55% */
-  --raw-footer-color-panel-to: #0a0b0c; /* 100% */
-  --raw-footer-color-white-a12: rgba(255, 255, 255, 0.12); /* Brand panel border */
-  --raw-footer-color-white-a14: rgba(255, 255, 255, 0.14); /* panel hairline 3488:22895, social chip border */
-  --raw-footer-color-white-a09: rgba(255, 255, 255, 0.09); /* page hairlines 3488:22904 / 22921 */
-  --raw-footer-color-white-a80: rgba(255, 255, 255, 0.8); /* social chip label */
-  --raw-footer-color-white-a25: rgba(255, 255, 255, 0.25); /* logo mark border 3488:22891 */
-  --raw-footer-color-mark-from: #e2ff8f; /* logo mark gradient 0% */
-  --raw-footer-color-ink-a45: rgba(10, 11, 9, 0.45); /* Work email placeholder 3488:22901 */
-  --raw-footer-color-ink-a50: rgba(10, 11, 9, 0.5); /* what now 3488:22897 */
-  --raw-footer-color-ink-a62: rgba(10, 11, 9, 0.62); /* eyebrow text on the lime panel: a50 measured 3.53:1 */
-  --raw-footer-color-ink-a60: rgba(10, 11, 9, 0.6); /* CTA copy 3488:22899 */
-  --raw-footer-color-signup: #fafbfc; /* Signup 3488:22900 */
-  --raw-footer-color-ink-a15: rgba(10, 11, 9, 0.15); /* Signup focus ring (motion) */
+  --raw-footer-color-panel-from: #ffffff; /* Brand panel 3488:22873 gradient 0% */
+  --raw-footer-color-panel-via: #f3f2ef; /* 55% */
+  --raw-footer-color-panel-to: #e4e2dd; /* 100% */
+  --raw-footer-color-ink-a12: rgba(30, 30, 30, 0.12); /* Brand panel border */
+  --raw-footer-color-ink-a14: rgba(30, 30, 30, 0.14); /* panel hairline 3488:22895, social chip border */
+  --raw-footer-color-ink-a09: rgba(30, 30, 30, 0.09); /* page hairlines 3488:22904 / 22921 */
+  --raw-footer-color-ink-a80: rgba(30, 30, 30, 0.8); /* social chip label */
+  --raw-footer-color-ink-a25: rgba(30, 30, 30, 0.25); /* logo mark border 3488:22891 */
+  --raw-footer-color-mark-from: #db4a2b; /* logo mark gradient 0% */
+  --raw-footer-color-ink-a60: rgba(30, 30, 30, 0.6); /* Work email placeholder 3488:22901 */
+  --raw-footer-color-white-a90: rgba(255, 255, 255, 0.92); /* what now 3488:22897 */
+  --raw-footer-color-white: #ffffff; /* eyebrow text on the lime panel: a50 measured 3.53:1 */
+  --raw-footer-color-white-a92: rgba(255, 255, 255, 0.92); /* CTA copy 3488:22899 */
+  --raw-footer-color-signup: #ffffff; /* Signup 3488:22900 */
+  --raw-footer-color-white-a45: rgba(255, 255, 255, 0.45); /* Signup focus ring (motion) */
 
   --raw-footer-font-size-36: 2.25rem; /* CTA title 3488:22898 */
   --raw-footer-font-size-40: 2.5rem; /* CTA title serif word */
@@ -40,20 +42,20 @@
   --footer-panel-from: var(--raw-footer-color-panel-from);
   --footer-panel-via: var(--raw-footer-color-panel-via);
   --footer-panel-to: var(--raw-footer-color-panel-to);
-  --footer-panel-border: var(--raw-footer-color-white-a12);
-  --footer-panel-hairline: var(--raw-footer-color-white-a14);
-  --footer-social-fill: var(--raw-color-white-a10);
-  --footer-social-border: var(--raw-footer-color-white-a14);
-  --footer-social-label: var(--raw-footer-color-white-a80);
-  --footer-hairline: var(--raw-footer-color-white-a09);
-  --footer-mark-border: var(--raw-footer-color-white-a25);
+  --footer-panel-border: var(--raw-footer-color-ink-a12);
+  --footer-panel-hairline: var(--raw-footer-color-ink-a14);
+  --footer-social-fill: var(--raw-color-ink-a08);
+  --footer-social-border: var(--raw-footer-color-ink-a14);
+  --footer-social-label: var(--raw-footer-color-ink-a80);
+  --footer-hairline: var(--raw-footer-color-ink-a09);
+  --footer-mark-border: var(--raw-footer-color-ink-a25);
   --footer-mark-from: var(--raw-footer-color-mark-from);
-  --footer-mark-to: var(--raw-color-lime-400);
-  --footer-ink-placeholder: var(--raw-footer-color-ink-a45);
-  --footer-ink-eyebrow: var(--raw-footer-color-ink-a62);
-  --footer-ink-copy: var(--raw-footer-color-ink-a60);
+  --footer-mark-to: var(--raw-color-rust-500);
+  --footer-ink-placeholder: var(--raw-footer-color-ink-a60);
+  --footer-ink-eyebrow: var(--raw-footer-color-white);
+  --footer-ink-copy: var(--raw-footer-color-white-a92);
   --footer-signup-fill: var(--raw-footer-color-signup);
-  --footer-signup-ring: var(--raw-footer-color-ink-a15);
+  --footer-signup-ring: var(--raw-footer-color-white-a45);
 
   --footer-type-cta-title: var(--raw-footer-font-size-36);
   --footer-type-cta-accent: var(--raw-footer-font-size-40);

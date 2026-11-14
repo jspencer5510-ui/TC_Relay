@@ -17,6 +17,38 @@ Template: [[templates/adr-note]].
 
 ---
 
+## ADR-0031 — Light re-theme to the owner's brand palette and typefaces
+
+**Status:** Accepted · 2026-11-14 · supersedes the dark-only theme (Tier 2 comment
+in `globals.css`); the token architecture (ADR-0015) is unchanged
+
+**Decision.** The design is light-only: paper page, white surfaces, ink text,
+stone hairlines, one orange accent. Fonts: Playfair Display Medium (titles),
+Cormorant Garamond (subtitles, italic accent word), Public Sans (body);
+Fragment Mono stays for data labels. The three-tier tokens carried the change —
+Tier 1 and Tier 2 were rewritten, markup classes were not.
+
+**Deviations from the brand sheet, on purpose (contrast, WCAG AA):**
+- `--accent` is `#C8462A`, a 10 % deeper orange than `#DB4A2B`: white CTA labels
+  on the brand orange are 4.18:1. The exact brand orange is used where text
+  isn't small — marks, the logo, the stream, the large serif accent word.
+- Muted / dim text are `#5D5C5A` / `#646360`, blends of ink and stone: stone
+  itself is 1.83:1 on paper and only works for lines and dots.
+
+**The stream.** Additive glow on black has no direct light equivalent. Rather
+than rewrite the shaders, the canvas is CSS-inverted and multiply-blended and
+fed complemented colours, so the scene code and its performance work stay as
+they were. Cost: one compositor filter pass — to be measured
+([[optimization-history]]).
+
+**Kept from the template:** the Relay copy, layout, motion and the mono label face.
+The brand sheet names "Thinking Christian"; renaming the product is a separate
+content change.
+
+**When building.** Use the semantic roles (`text-foreground-muted`,
+`bg-accent`, …), never the brand hexes. New text on orange is white; new small
+orange text uses `text-accent`, not the brand orange.
+
 ## ADR-0030 — Lint enforces "no `any`" in app code; the engine is exempt
 
 **Status:** Accepted · 2026-11-14 · supersedes the starter's blanket rule-offs in `eslint.config.mjs`

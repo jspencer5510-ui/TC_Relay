@@ -57,7 +57,7 @@ export const StatementTitle = ({ lead, accent, tail }: StatementTitleProps) => {
   return (
     <h2
       id="statement-title"
-      className="absolute top-27 left-20 w-320 text-center font-sans text-section-title leading-statement-title font-semibold tracking-title text-on-accent w1024:top-21 w1024:left-12 w1024:w-232 w768:top-19 w768:left-10 w768:w-172 w390:top-12 w390:left-5 w390:w-87.5"
+      className="absolute top-27 left-20 w-320 text-center font-display text-section-title leading-statement-title font-medium tracking-title text-on-accent w1024:top-21 w1024:left-12 w1024:w-232 w768:top-19 w768:left-10 w768:w-172 w390:top-12 w390:left-5 w390:w-87.5"
     >
       <span className="block">
         {leadWords.map((w, i) => [i > 0 && " ", word(w, i)])}
@@ -66,7 +66,7 @@ export const StatementTitle = ({ lead, accent, tail }: StatementTitleProps) => {
         {word(
           accent,
           accentIndex,
-          "origin-bottom-left font-serif text-section-title-accent font-normal italic",
+          "origin-bottom-left font-serif text-section-title-accent font-medium italic",
         )}
         {tailWords.map((w, i) => [" ", word(w, leadWords.length + i)])}
       </span>

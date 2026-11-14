@@ -1,15 +1,17 @@
 /* proof section tokens — same three tiers as src/app/globals.css.
    Names are prefixed with the section (--raw-proof-*, --proof-*, --<tw-namespace>-proof-*).
-   Shared tokens live in globals.css; do not redefine them here. */
+   Shared tokens live in globals.css; do not redefine them here.
+   Light re-theme (ADR-0031): values are the brand palette; comments that cite
+   lime / white / black describe the original dark Figma frames, not the value. */
 
 /* Tier 1 — primitives */
 :root {
-  --raw-proof-color-hairline: rgba(255, 255, 255, 0.09); /* Hairline 3488:22729, 3488:22765 */
-  --raw-proof-color-tick: rgba(255, 255, 255, 0.25); /* Column tick 3488:22766 */
-  --raw-proof-color-trend-border: rgba(200, 247, 81, 0.45); /* Trend pill 3488:22738 */
-  --raw-proof-color-hour-dim: rgba(244, 245, 246, 0.06); /* Hour 3488:22760 */
-  --raw-proof-color-track: rgba(255, 255, 255, 0.07); /* Track 3488:22763 */
-  --raw-proof-color-fill-from: #e8ff9f; /* Filled 3488:22764 */
+  --raw-proof-color-hairline: rgba(30, 30, 30, 0.09); /* Hairline 3488:22729, 3488:22765 */
+  --raw-proof-color-tick: rgba(30, 30, 30, 0.25); /* Column tick 3488:22766 */
+  --raw-proof-color-trend-border: rgba(219, 74, 43, 0.45); /* Trend pill 3488:22738 */
+  --raw-proof-color-hour-dim: rgba(30, 30, 30, 0.06); /* Hour 3488:22760 */
+  --raw-proof-color-track: rgba(30, 30, 30, 0.07); /* Track 3488:22763 */
+  --raw-proof-color-fill-from: #f0a593; /* Filled 3488:22764 — pale rust (rust↔white 50%) */
   --raw-proof-font-size-56: 3.5rem; /* 62,000 3488:22731 */
   --raw-proof-line-height-60: 3.75rem;
   --raw-proof-font-size-44: 2.75rem; /* 62,000 3603:4144 (1024 frame) */
@@ -18,8 +20,8 @@
   --raw-proof-line-height-44: 2.75rem;
   --raw-proof-font-size-28: 1.75rem; /* 62,000 3893:4229 (390 frame) */
   --raw-proof-line-height-34: 2.125rem;
-  --raw-proof-color-card: #0c0d0e; /* Proof card 3943:695 (390 frame) */
-  --raw-proof-color-card-border: rgba(255, 255, 255, 0.07);
+  --raw-proof-color-card: #ffffff; /* Proof card 3943:695 (390 frame) */
+  --raw-proof-color-card-border: rgba(30, 30, 30, 0.07);
   --raw-proof-radius-24: 1.5rem; /* Proof card */
   --raw-proof-radius-8: 0.5rem; /* Trend pill */
   --raw-proof-radius-6: 0.375rem; /* Hour */
@@ -33,7 +35,7 @@
   --proof-hour-dim: var(--raw-proof-color-hour-dim);
   --proof-track: var(--raw-proof-color-track);
   --proof-fill-from: var(--raw-proof-color-fill-from);
-  --proof-fill-to: var(--raw-color-lime-400);
+  --proof-fill-to: var(--raw-color-rust-500);
   --proof-type-stat: var(--raw-proof-font-size-56);
   --proof-line-stat: var(--raw-proof-line-height-60);
   --proof-corner-trend: var(--raw-proof-radius-8);
@@ -47,7 +49,7 @@
    trend outline for the shared subtle hairline (Trend pill 3603:4189). */
 @media (width <= 1200px) {
   :root {
-    --proof-trend-border: var(--raw-color-white-a10);
+    --proof-trend-border: var(--raw-color-ink-a12);
     --proof-type-stat: var(--raw-proof-font-size-44);
     --proof-line-stat: var(--raw-proof-line-height-48);
   }
