@@ -21,8 +21,8 @@ export const footerMock = {
   },
   /** `short` is the 768 / 390 copy. */
   statuses: [
-    { label: "calm, thoughtful, theological", short: "calm, thoughtful, theological" },
-    { label: "scripture as the final authority", short: "scripture, the final authority" },
+    { label: "calm, thoughtful", short: "calm, thoughtful" },
+    { label: "not left, not right", short: "not left, not right" },
     {
       label: "son, scripture, and spirit",
       short: "son, scripture, spirit",
@@ -31,14 +31,14 @@ export const footerMock = {
   company: {
     name: "Thinking Christian",
     copy: "Calm, thoughtful, theological conversations.",
-    compliance: "As an Amazon Associate, Thinking Christian earns from qualifying purchases.",
+    compliance: "info@thinkingchristian.org",
   },
   columns: [
     {
       title: "listen",
       links: [
         { label: "Podcast", href: "https://www.thinkingchristian.org/podcast" },
-        { label: "All Episodes", href: "https://www.thinkingchristian.org/episodes" },
+        { label: "Episodes", href: "https://www.thinkingchristian.org/episodes" },
         { label: "Guests", href: "https://www.thinkingchristian.org/guests" },
         { label: "Series", href: "https://www.thinkingchristian.org/series" },
       ],
@@ -48,32 +48,31 @@ export const footerMock = {
       links: [
         { label: "Questions", href: "https://www.thinkingchristian.org/questions" },
         { label: "Articles", href: "https://www.thinkingchristian.org/articles" },
-        { label: "Scripture & Theology", href: "https://www.thinkingchristian.org/scripture" },
+        { label: "Scripture", href: "https://www.thinkingchristian.org/scripture" },
         { label: "Books", href: "https://www.thinkingchristian.org/books" },
       ],
     },
     {
       title: "resources",
       links: [
-        { label: "The Framework", href: "https://www.thinkingchristian.org/framework" },
-        { label: "Study Guides", href: "https://www.thinkingchristian.org/studyguides" },
+        { label: "Framework", href: "https://www.thinkingchristian.org/framework" },
+        { label: "Guides", href: "https://www.thinkingchristian.org/studyguides" },
         { label: "Glossary", href: "https://www.thinkingchristian.org/glossary" },
-        { label: "Useful to God", href: "https://www.thinkingchristian.org/useful-to-god" },
       ],
     },
     {
       title: "about",
       links: [
         { label: "About", href: "https://www.thinkingchristian.org/about" },
-        { label: "James Spencer", href: "https://www.thinkingchristian.org/james" },
-        { label: "Statement of Faith", href: "https://www.thinkingchristian.org/about/faith" },
-        { label: "Privacy Policy", href: "https://www.thinkingchristian.org/privacy" },
+        { label: "James", href: "https://www.thinkingchristian.org/james" },
+        { label: "Faith", href: "https://www.thinkingchristian.org/about/faith" },
+        { label: "Privacy", href: "https://www.thinkingchristian.org/privacy" },
       ],
     },
   ],
   legal: {
-    copyright: "© 2026 Thinking Christian. All rights reserved.",
-    origin: "info@thinkingchristian.org",
+    copyright: "© 2026 Thinking Christian",
+    origin: "As an Amazon Associate, Thinking Christian earns from qualifying purchases.",
   },
 } as const;
 

@@ -8,7 +8,7 @@ export const productMock = {
   },
   trace: {
     index: "01",
-    title: "More than misinformation. Mis-formation.",
+    title: "More than misinformation. Mis‑formation.",
     body: "In 2018, accusations of doctrinal drift were leveled against some of our faculty and administrators, me included. I watched a simple narrative displace a complicated reality.",
     run: "thinking christian",
     summary: "slow, deliberate, theological",
@@ -28,23 +28,23 @@ export const productMock = {
     day: "2018",
     sender: "James Spencer",
     time: "",
-    message: "I wrote articles I intended to publish, and my wife read them and told me I couldn't.",
+    message: "My wife read them and told me I couldn't.",
     fields: [
       { key: "too", value: "angry" },
       { key: "too", value: "unnuanced" },
       { key: "too", value: "untheological" },
     ],
-    approve: "Read the full story",
-    hold: "Digital Discernment",
+    approve: "Rewrite",
+    hold: "Hold",
     waiting: "she was right",
   },
   chart: {
     index: "03",
     title: "A different sort of response",
     body: "Thinking Christian emerged as slow, deliberate, theological discussion. Faithful Christian witness depends on that kind of discernment.",
-    caption: "unsettling convention",
-    average: "one topic at a time",
-    days: ["masculinity", "politics", "technology", "culture", "scripture", "history"],
+    caption: "six topics",
+    average: "one at a time",
+    days: ["MA", "PO", "TE", "CU", "SC", "HI"],
   },
 } as const;
 

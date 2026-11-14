@@ -9,7 +9,7 @@ export const pricingMock = {
   /** `size` — 14/20 (`label`) or 16/24 (`body`) feature lines. */
   tiers: [
     {
-      name: "01 / the podcast",
+      name: "01 / podcast",
       price: "Listen",
       period: "the thinking christian podcast",
       featured: true,
@@ -29,10 +29,10 @@ export const pricingMock = {
       featured: false,
       tag: "coming soon",
       features: [
-        { label: "Thinking Christian: Into the Text", size: "body" },
-        { label: "a Bible podcast reading Scripture", size: "body" },
-        { label: "closely, in context,", size: "body" },
-        { label: "and against ourselves", size: "body" },
+        { label: "Into the Text", size: "body" },
+        { label: "a Bible podcast", size: "body" },
+        { label: "Scripture, read closely", size: "body" },
+        { label: "in context", size: "body" },
       ],
       cta: { label: "Watch on YouTube", href: "https://www.youtube.com/@thinking_christian?sub_confirmation=1" },
     },

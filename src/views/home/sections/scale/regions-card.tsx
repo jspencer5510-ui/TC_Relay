@@ -102,7 +102,12 @@ export const RegionsCard = ({
               {row.city}
             </FocusText>
             <LaneBar
-              fillWidthClassName={BARS[i].width}
+              fillWidthClassName={
+                /* non-numeric shares (ADR-0032) are not a ranking: equal bars */
+                Number.isNaN(Number.parseInt(row.share, 10))
+                  ? BARS[0].width
+                  : BARS[i].width
+              }
               fillClassName={BARS[i].fill}
               share={row.share}
               delay={0.8 * (index + 3 + i) * REVEAL.step}

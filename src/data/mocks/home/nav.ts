@@ -30,7 +30,7 @@ export const navMock = {
       note: "Why Thinking Christian exists",
     },
   ],
-  status: "into the text, coming soon",
+  status: "youtube, coming soon",
   cta: { label: "Read the Framework", href: "https://www.thinkingchristian.org/framework" },
 } as const;
 

@@ -22,9 +22,9 @@ export const heroMock = {
       { name: "code", icon: "/assets/hero/hero-tool-extra.svg" },
     ],
     /** The Framework's four practices (thinkingchristian.org/framework). */
-    trigger: { title: "Recognizing God's Reality", source: "01 / allegiance" },
+    trigger: { title: "God's Reality", source: "01 / recognizing" },
     condition: { title: "Theological Disposition", source: "02 / cultivating" },
-    log: { title: "Practicing Theo-Logic", source: "03 / reasoning" },
+    log: { title: "Theo-Logic", source: "03 / practicing" },
     /** Labels on the fan-out from 01 to 02 and 03. */
     branches: { yes: "and", no: "and" },
     approval: { title: "Disciplined Inquiry", source: "04 / committing" },
@@ -35,18 +35,18 @@ export const heroMock = {
      * (LiveRuns uses it as-is when it isn't a clock time).
      */
     runs: [
-      { time: "01", name: "(un)biblical masculinity", duration: "read", live: true },
-      { time: "02", name: "christians & politics", duration: "explore", live: false },
-      { time: "03", name: "technology & media", duration: "read", live: false },
+      { time: "01", name: "masculinity", duration: "read", live: true },
+      { time: "02", name: "politics", duration: "explore", live: false },
+      { time: "03", name: "technology", duration: "read", live: false },
     ],
     /** The live feed keeps cycling the topics. */
     runPool: [
-      { time: "04", name: "literature, film, & culture", duration: "listen" },
-      { time: "05", name: "scripture & theology", duration: "explore" },
+      { time: "04", name: "culture", duration: "listen" },
+      { time: "05", name: "scripture", duration: "explore" },
       { time: "06", name: "church history", duration: "listen" },
-      { time: "01", name: "(un)biblical masculinity", duration: "read" },
-      { time: "02", name: "christians & politics", duration: "explore" },
-      { time: "03", name: "technology & media", duration: "read" },
+      { time: "01", name: "masculinity", duration: "read" },
+      { time: "02", name: "politics", duration: "explore" },
+      { time: "03", name: "technology", duration: "read" },
     ],
     /** Unused for index labels; kept for the feed's clock-time mode. */
     runGaps: [47, 73, 38, 91, 56],

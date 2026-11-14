@@ -122,9 +122,10 @@
 }
 @media (width <= 580px) {
   :root {
-    --footer-type-cta-title: var(--raw-footer-font-size-32);
-    --footer-type-cta-accent: var(--raw-footer-font-size-32);
-    --footer-line-cta-title: var(--raw-footer-line-height-42);
+    /* 26 on phones: the Thinking Christian title runs longer (ADR-0032) */
+    --footer-type-cta-title: var(--raw-footer-font-size-26);
+    --footer-type-cta-accent: var(--raw-footer-font-size-26);
+    --footer-line-cta-title: var(--raw-footer-line-height-34);
     --footer-type-wordmark: var(--raw-font-size-20);
     --footer-line-wordmark: var(--raw-line-height-28);
     --footer-corner-chip: var(--raw-footer-radius-4);

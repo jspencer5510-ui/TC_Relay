@@ -67,7 +67,7 @@ export const Hero = ({
           (light re-content, ADR-0032): the Thinking Christian copy is ~3× the
           frame's, so it stacks instead of sitting on fixed Figma tops. Same
           column origin / width per frame as the original layout. */}
-        <div className="absolute top-20 left-20 flex w-145 flex-col items-start gap-6 w1024:top-24 w1024:left-12 w1024:w-95 w1024:gap-5 w768:top-10 w768:left-1/2 w768:w-136 w768:-translate-x-1/2 w768:items-center w768:text-center w390:top-8 w390:w-87.5 w390:gap-4">
+        <div className="absolute top-20 left-20 flex w-132 flex-col items-start gap-6 w1024:top-24 w1024:left-12 w1024:w-95 w1024:gap-5 w768:top-10 w768:left-1/2 w768:w-136 w768:-translate-x-1/2 w768:items-center w768:text-center w390:top-8 w390:w-87.5 w390:gap-4">
           {/* Release chip 3488:21930 — padding less the 1px border Figma draws inside. */}
           <Reveal delay={LOAD.copy.chip}>
             <p className="flex h-9 items-center gap-3 overflow-clip rounded-hero-chip border border-hero-chip-border bg-hero-chip-fill backdrop-blur-hero-chip py-1.75 pr-3.25 pl-2.75 w1024:pr-3.75">

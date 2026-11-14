@@ -36,7 +36,7 @@ export const Nav = ({ brand, links, status, cta }: NavContent) => (
           className="size-7"
           priority
         />
-        <span className="text-wordmark leading-lead font-medium w768:text-lead w390:text-body w390:leading-body tracking-wordmark text-foreground">
+        <span className="whitespace-nowrap text-wordmark leading-lead font-medium w768:text-lead w390:sr-only tracking-wordmark text-foreground">
           {brand.name}
         </span>
       </Link>

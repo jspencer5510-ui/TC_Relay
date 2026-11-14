@@ -8,12 +8,12 @@ export const integrationsMock = {
    * 390 frame. Six topics plus the articles index.
    */
   apps: [
-    { name: "masculinity", initials: "MA", active: false, in1024: true, in390: true },
+    { name: "masculinity", initials: "MA", active: false, in1024: true, in390: false },
     { name: "politics", initials: "PO", active: true, in1024: true, in390: true },
-    { name: "technology", initials: "TE", active: false, in1024: true, in390: true },
-    { name: "culture", initials: "CU", active: false, in1024: true, in390: false },
+    { name: "technology", initials: "TE", active: false, in1024: true, in390: false },
+    { name: "culture", initials: "CU", active: false, in1024: true, in390: true },
     { name: "scripture", initials: "SC", active: false, in1024: false, in390: true },
-    { name: "history", initials: "HI", active: false, in1024: false, in390: false },
+    { name: "history", initials: "HI", active: false, in1024: false, in390: true },
     { name: "questions", initials: "QU", active: false, in1024: true, in390: false },
     { name: "articles", initials: "+", active: false, in1024: true, in390: false },
   ],

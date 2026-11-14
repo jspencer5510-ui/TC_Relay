@@ -1,8 +1,8 @@
 /** 06 The Framework (Scale layout) — thinkingchristian.org (ADR-0032). */
 export const scaleMock = {
   head: {
-    badge: "the thinking christian framework",
-    title: { before: "How we think is as ", accent: "important", after: " as what we think." },
+    badge: "how we think is as important as what we think",
+    title: { before: "The Thinking Christian ", accent: "Framework", after: "." },
     aside:
       "Much of what shapes us doesn't present itself as a formal argument, but appears in the form of institutions, symbols, slogans, and stories that encourage us to love on our own terms rather than God's.",
   },
@@ -25,9 +25,9 @@ export const scaleMock = {
     label: "God's self-disclosure",
     /** `share` is shown as written when it isn't a number (lane-bar). */
     rows: [
-      { region: "son", city: "God's self-disclosure", share: "" },
-      { region: "scripture", city: "God's self-disclosure", share: "" },
-      { region: "spirit", city: "God's self-disclosure", share: "" },
+      { region: "son", city: "", share: "" },
+      { region: "scripture", city: "", share: "" },
+      { region: "spirit", city: "", share: "" },
     ],
     footnote: "God doesn't live in our world. We live in his.",
   },
