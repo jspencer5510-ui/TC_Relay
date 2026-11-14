@@ -36,6 +36,11 @@ browser-only sources (matchMedia, storage, hydration) inside motion code; each
 fix changes render timing and needs a visual QA pass, so they stay visible as
 warnings rather than being rewritten blind.
 
+`src/utils/animation/coords.ts` is tagged `#do-not-modify` in [[utils]] but is
+not in `paths.protected`; it was typed (type-only, no runtime change) to drop
+its `@ts-nocheck`. If the engine owner objects, revert that file and add it to
+`paths.protected` and this override instead.
+
 **When building.** New code must lint clean with no new warnings. Fixing an
 engine `any` needs sign-off (hard rule 2). Converting a warned effect: prefer
 `useSyncExternalStore` for media queries/storage, and QA the motion after.

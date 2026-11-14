@@ -66,8 +66,11 @@ CSS-string builders for viewport-height units with fallbacks
 
 ## `animation/coords.ts`
 
-Element-coordinate helpers — `getElementCoords`, `getScrollCoordsFromElement` —
-used internally by the scroll/animation system. Marked `@ts-nocheck`. `#do-not-modify`
+Element-coordinate helpers — `getElementCoords`, `getScrollCoordsFromElement`,
+`isElementVisible`. Vendored with the animation engine; as of 2026-11-14 nothing
+in `src/` imports them. Typed (`Element | null | undefined` params) instead of
+`@ts-nocheck` on 2026-11-14 — type-only, no runtime change (ADR-0030).
+`#do-not-modify` beyond that.
 
 ## `seo/generate-page-metadata.ts`
 

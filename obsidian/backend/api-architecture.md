@@ -89,8 +89,10 @@ Server Components instead (no client request at all).
 
 ## Example
 
-`app/api/contact/route.ts` — a contact/lead endpoint. Runs out of the box
-(logs server-side); set `CONTACT_ENDPOINT` to forward leads upstream.
+`app/api/contact/route.ts` — a contact/lead endpoint. Set `CONTACT_ENDPOINT` to
+forward leads upstream. Without it: in development it accepts the submission and
+logs only the message length (no personal data); in **production it returns
+`503 not_configured`** rather than reporting success and dropping the lead.
 
 ## Related
 
