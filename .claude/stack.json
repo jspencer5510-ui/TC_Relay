@@ -1,0 +1,91 @@
+{
+  "$schema": "./stack.schema.json",
+  "$doc": "The stack profile. Every path, package and command in this kit is read from here. Run /adapt to fill it in — do not hand-edit unless you know what you are changing. Reference: obsidian/architecture/stack-profile.md",
+  "adapted": true,
+  "adaptedAt": "2026-11-14",
+  "project": {
+    "name": "Relay landing (next16-claude-starter)",
+    "kind": "marketing-site"
+  },
+  "framework": {
+    "id": "nextjs",
+    "name": "Next.js (App Router)",
+    "version": "16.4.6",
+    "renderModel": "server-components"
+  },
+  "language": "ts",
+  "packageManager": "yarn",
+  "paths": {
+    "source": "src",
+    "routes": "src/app",
+    "views": "src/views",
+    "components": "src/components",
+    "styles": "src/app/globals.css",
+    "assets": "public/assets",
+    "staticRoot": "public",
+    "server": "src/app/api",
+    "env": "src/env.ts",
+    "protected": [
+      "src/components/animation/springs/**",
+      "src/hooks/animation/**"
+    ],
+    "routeEntryGlob": []
+  },
+  "extensions": {
+    "component": [
+      ".tsx",
+      ".ts"
+    ],
+    "style": [
+      ".css"
+    ]
+  },
+  "bindings": {
+    "styling": "tailwind-v4",
+    "motion": "@react-spring/web",
+    "textMotion": "spring-text-engine",
+    "smoothScroll": "lenis",
+    "state": "zustand",
+    "validation": "zod",
+    "image": "next/image",
+    "link": "next/link",
+    "router": "next/navigation",
+    "metadata": "next-metadata",
+    "envPublicPrefix": "NEXT_PUBLIC_"
+  },
+  "capabilities": {
+    "ssr": true,
+    "serverComponents": true,
+    "fileRouting": true,
+    "apiRoutes": true,
+    "imageOptimization": true,
+    "metadataApi": true,
+    "islands": false
+  },
+  "conventions": {
+    "routesDelegateToViews": true,
+    "namedExports": true,
+    "serverFirst": true,
+    "tokenTiers": true
+  },
+  "commands": {
+    "install": "yarn install --frozen-lockfile",
+    "dev": "yarn dev",
+    "build": "yarn build",
+    "start": "yarn start",
+    "lint": "yarn lint",
+    "typecheck": null,
+    "test": null
+  },
+  "notes": [
+    "Source is the GetLayers 'Relay' template (.getlayers/build.json), built on textura-agency/next16-claude-starter. The project's own vault (obsidian/) predates this kit and is canonical for project specifics: obsidian/frontend/animation-system.md and text-engine.md are the motion notes for THIS code; motion-system.md / text-motion.md are the kit's framework-neutral versions.",
+    "Style entry is src/app/globals.css; it @imports per-section CSS from src/style/sections/*.css. src/style/index.css is a commented-out legacy entry.",
+    "paths.protected is the vendored animation engine (AGENTS.md hard rule 2). One authorised refactor exists — see obsidian/meta/decisions-log.md ADR-0009.",
+    "Next 16: middleware.ts is proxy.ts (node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/proxy.md). Read node_modules/next/dist/docs before writing routing/metadata/data code.",
+    "The fixed full-page three.js scene lives in src/views/home/stream/ — performance work goes through the optimize-3d-scene skill.",
+    "Lint: no-explicit-any / ban-ts-comment / no-unused-vars are ON for app code and OFF only for paths.protected (ADR-0030); react-hooks/set-state-in-effect is a warning, not an error. verify.sh also enforces no-any outside the engine.",
+    "No typecheck script; `yarn build` runs the TypeScript check. `npx tsc --noEmit` works ad hoc.",
+    "CMS/DB vendor for this project is Payload + Supabase (project AGENTS.md rule 12) — use the payload-cms / supabase-db / supabase-auth skills (/db) rather than the kit's generic headless-cms / database / auth skills.",
+    "Node: .nvmrc pins 24.16.0; package.json engines >=20.19.0; works on 22.x."
+  ]
+}
