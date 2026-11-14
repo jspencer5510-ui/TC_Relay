@@ -21,8 +21,9 @@ export interface Run {
 
 export interface LiveRunsProps {
   runs: readonly Run[];
-  /** Name / duration pairs the live feed cycles through. */
-  pool: readonly { name: string; duration: string }[];
+  /** Rows the live feed cycles through; a row's own `time` (an index label)
+   *  wins over the computed clock time. */
+  pool: readonly { name: string; duration: string; time?: string }[];
   /** Seconds between consecutive run timestamps, cycled. */
   gaps: readonly number[];
 }
@@ -115,9 +116,9 @@ export const LiveRuns = ({ runs, pool, gaps }: LiveRunsProps) => {
     const id = window.setInterval(() => {
       setState((prev) => {
         const next = pool[prev.n % pool.length];
-        const time = toTime(
-          toSeconds(prev.feed[0].time) + gaps[prev.n % gaps.length],
-        );
+        const time =
+          next.time ??
+          toTime(toSeconds(prev.feed[0].time) + gaps[prev.n % gaps.length]);
         return {
           feed: [{ ...next, time, live: true }, ...prev.feed].slice(0, 4),
           n: prev.n + 1,

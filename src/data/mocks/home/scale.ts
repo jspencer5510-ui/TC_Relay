@@ -1,34 +1,35 @@
-/** 06 Scale — Figma 3488:22268. Copy is verbatim from the frame. */
+/** 06 The Framework (Scale layout) — thinkingchristian.org (ADR-0032). */
 export const scaleMock = {
   head: {
-    badge: "reliability",
-    title: { before: "", accent: "Boring", after: " in the ways that matter." },
+    badge: "the thinking christian framework",
+    title: { before: "How we think is as ", accent: "important", after: " as what we think." },
     aside:
-      "Credentials, retries, rate limits, residency. The parts nobody demos, and the parts that decide the year.",
+      "Much of what shapes us doesn't present itself as a formal argument, but appears in the form of institutions, symbols, slogans, and stories that encourage us to love on our own terms rather than God's.",
   },
   runtime: {
-    title: "One runtime, every app",
-    copy: "Relay holds the credentials, retries and rate limits, so a step behaves the same on Stripe or on the API you wrote last week.",
-    label: "one runtime, every connection",
-    caption: "credentials, retries, rate limits, replay",
-    /** Order matches the node layout: SL, ST, PG, HS. */
+    title: "Four practices, one response",
+    copy: "The Thinking Christian Framework is a way of identifying and analyzing the underlying patterns so that we can respond faithfully to God.",
+    label: "the four practices of the framework",
+    caption: "recognize, cultivate, practice, commit",
+    /** Order matches the node layout (four nodes around the mark). */
     apps: [
-      { code: "SL", name: "slack" },
-      { code: "ST", name: "stripe" },
-      { code: "PG", name: "postgres" },
-      { code: "HS", name: "hubspot" },
+      { code: "01", name: "reality" },
+      { code: "02", name: "disposition" },
+      { code: "03", name: "theo-logic" },
+      { code: "04", name: "inquiry" },
     ],
   },
   regions: {
-    title: "Runs where your data lives",
-    copy: "Pick Frankfurt, Virginia or Sydney. Payloads and logs stay in the region you chose, and the audit trail says so in writing.",
-    label: "where runs executed, last 24 hours",
+    title: "A life patterned on God",
+    copy: "Our aim is to cultivate a theological sense of the way the world works, and a life patterned on God's self-disclosure in Son, Scripture, and Spirit.",
+    label: "God's self-disclosure",
+    /** `share` is shown as written when it isn't a number (lane-bar). */
     rows: [
-      { region: "eu-central-1", city: "Frankfurt", share: "46%" },
-      { region: "us-east-1", city: "Virginia", share: "38%" },
-      { region: "ap-southeast-2", city: "Sydney", share: "16%" },
+      { region: "son", city: "God's self-disclosure", share: "" },
+      { region: "scripture", city: "God's self-disclosure", share: "" },
+      { region: "spirit", city: "God's self-disclosure", share: "" },
     ],
-    footnote: "a payload never leaves the lane it started in",
+    footnote: "God doesn't live in our world. We live in his.",
   },
 } as const;
 

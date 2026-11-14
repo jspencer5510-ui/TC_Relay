@@ -10,10 +10,6 @@ import { DepthLayer, HeroTilt } from "./hero-tilt";
 import { ProductWindow } from "./product-window";
 import { LOAD, TILT } from "./timeline";
 
-/** TypeText's own ms per character — the 1024 note hands it over explicitly so
-    the second line starts exactly where the first stops. */
-const TYPE_PER = 30;
-
 /**
  * 02 Hero — 1440 × 712 (Figma 3488:21055), directly under the nav.
  * Copy column at x80; the product window group (3542:24364) runs from x646
@@ -36,8 +32,6 @@ export const Hero = ({
   subhead,
   actions,
   note,
-  noteLines,
-  noteLines390,
   window: product,
 }: HeroContent) => (
   <section
@@ -69,126 +63,83 @@ export const Hero = ({
           />
         </DepthLayer>
 
-        {/* Release chip 3488:21930 — padding less the 1px border Figma draws inside. */}
-        <Reveal
-          delay={LOAD.copy.chip}
-          className="absolute top-30.5 left-20 w1024:top-40.5 w1024:left-12 w768:top-10 w768:left-[calc(var(--spacing)*57.875)] w390:top-8 w390:left-10.5"
-        >
-          <p className="flex h-9 items-center gap-3 overflow-clip rounded-hero-chip border border-hero-chip-border bg-hero-chip-fill backdrop-blur-hero-chip py-1.75 pr-3.25 pl-2.75 w1024:pr-3.75">
-            <span aria-hidden className="size-1.5 shrink-0 bg-accent" />
-            <TypeText
-              delay={LOAD.copy.chipType}
-              className="font-mono text-label leading-label whitespace-nowrap text-hero-ink"
-            >
-              {chip}
-            </TypeText>
-          </p>
-        </Reveal>
+        {/* Copy column — chip, title, subhead, actions, note in normal flow
+          (light re-content, ADR-0032): the Thinking Christian copy is ~3× the
+          frame's, so it stacks instead of sitting on fixed Figma tops. Same
+          column origin / width per frame as the original layout. */}
+        <div className="absolute top-20 left-20 flex w-145 flex-col items-start gap-6 w1024:top-24 w1024:left-12 w1024:w-95 w1024:gap-5 w768:top-10 w768:left-1/2 w768:w-136 w768:-translate-x-1/2 w768:items-center w768:text-center w390:top-8 w390:w-87.5 w390:gap-4">
+          {/* Release chip 3488:21930 — padding less the 1px border Figma draws inside. */}
+          <Reveal delay={LOAD.copy.chip}>
+            <p className="flex h-9 items-center gap-3 overflow-clip rounded-hero-chip border border-hero-chip-border bg-hero-chip-fill backdrop-blur-hero-chip py-1.75 pr-3.25 pl-2.75 w1024:pr-3.75">
+              <span aria-hidden className="size-1.5 shrink-0 bg-accent" />
+              <TypeText
+                delay={LOAD.copy.chipType}
+                className="font-mono text-label leading-label whitespace-nowrap text-hero-ink"
+              >
+                {chip}
+              </TypeText>
+            </p>
+          </Reveal>
 
-        <Reveal
-          delay={LOAD.copy.title}
-          className="absolute top-48.5 left-20 w-145 w1024:top-56.5 w1024:left-12 w1024:w-95 w768:top-25 w768:left-[calc(var(--spacing)*44.125)] w768:w-104 w390:top-23 w390:left-5 w390:w-87.5"
-        >
-          <DisplayTitle
-            tag="h1"
-            delay={LOAD.copy.title}
-            {...title}
-            className="h-42 text-hero-title leading-hero-title w1024:h-26 w768:h-11.5 w768:text-center w390:h-9.5"
-            accentClassName="text-hero-title-accent"
-          />
-        </Reveal>
-
-        <Reveal
-          tag="p"
-          variant="fade"
-          delay={LOAD.copy.subhead}
-          className="absolute top-100.5 left-20 w-117.75 font-serif text-subtitle leading-lead font-medium text-foreground-muted w1024:top-88.5 w1024:left-12 w1024:w-95 w768:top-39.5 w768:left-36 w768:w-120.25 w768:text-center w390:top-35.5 w390:left-7.75 w390:w-82 w390:text-body w390:leading-body"
-        >
-          {subhead}
-        </Reveal>
-
-        <Reveal
-          delay={LOAD.copy.actions}
-          className="absolute top-124.5 left-20 flex items-center gap-3 w1024:top-110.5 w1024:left-12 w768:top-59.5 w768:left-47 w390:top-57.5 w390:left-5 w390:w-87.5 w390:flex-col"
-        >
-          <PillButton
-            href={actions.primary.href}
-            size="lg"
-            className="w390:w-full w390:justify-center"
-          >
-            {actions.primary.label}
-          </PillButton>
-          <PillButton
-            href={actions.secondary.href}
-            variant="glass"
-            size="lg"
-            className="w390:w-full w390:justify-center"
-          >
-            <Image
-              src="/assets/hero/hero-play-icon.svg"
-              alt=""
-              width={16}
-              height={16}
-              className="size-4 shrink-0"
+          <Reveal delay={LOAD.copy.title}>
+            <DisplayTitle
+              tag="h1"
+              delay={LOAD.copy.title}
+              {...title}
+              className="text-hero-title leading-hero-title w768:text-center"
+              accentClassName="text-hero-title-accent"
             />
-            {actions.secondary.label}
-          </PillButton>
-        </Reveal>
+          </Reveal>
 
-        <Reveal
-          delay={LOAD.copy.note}
-          className="absolute top-142.5 left-20 w1024:top-127.5 w1024:left-12 w768:top-75.5 w768:left-[calc(var(--spacing)*45.25)] w390:top-88 w390:left-[calc(var(--spacing)*21.625)]"
-        >
-          {/* Trailing nowrap space (collapses, no width): 47 × 1ch rounds down a
-            whole ch in TypeText's round(down, …) and shaved the final "s". */}
-          <div className="flex w1024:hidden w768:flex w390:hidden">
+          <Reveal
+            tag="p"
+            variant="fade"
+            delay={LOAD.copy.subhead}
+            className="font-serif text-subtitle leading-lead font-medium text-foreground-muted w390:text-body w390:leading-body"
+          >
+            {subhead}
+          </Reveal>
+
+          <Reveal
+            delay={LOAD.copy.actions}
+            className="mt-2 flex items-center gap-3 w390:w-full w390:flex-col"
+          >
+            <PillButton
+              href={actions.primary.href}
+              size="lg"
+              className="w390:w-full w390:justify-center"
+            >
+              {actions.primary.label}
+            </PillButton>
+            <PillButton
+              href={actions.secondary.href}
+              variant="glass"
+              size="lg"
+              className="w390:w-full w390:justify-center"
+            >
+              <Image
+                src="/assets/hero/hero-play-icon.svg"
+                alt=""
+                width={16}
+                height={16}
+                className="size-4 shrink-0"
+              />
+              {actions.secondary.label}
+            </PillButton>
+          </Reveal>
+
+          <Reveal delay={LOAD.copy.note} className="flex">
+            {/* Trailing nowrap space (collapses, no width): TypeText rounds
+              its ch width down and would shave the final character. */}
             <TypeText
               tag="p"
               delay={LOAD.copy.noteType}
-              className="font-mono text-label leading-label whitespace-nowrap text-foreground-muted"
+              className="font-mono text-label leading-label whitespace-nowrap text-foreground-muted w390:text-hero-note w390:leading-hero-note"
             >
               {`${note} `}
             </TypeText>
-          </div>
-          {/* 1024 (3603:2158) breaks the note over two lines. TypeText clips one
-            line horizontally, so each line types on its own — the second picks
-            up exactly where the first ends, same ms per character. */}
-          <div className="hidden w1024:block w768:hidden">
-            {noteLines.map((line, i) => (
-              <div key={line} className="flex">
-                <TypeText
-                  tag="p"
-                  delay={
-                    LOAD.copy.noteType +
-                    (i === 0 ? 0 : TYPE_PER * (noteLines[0].length + 1))
-                  }
-                  per={TYPE_PER}
-                  className="font-mono text-label leading-label whitespace-nowrap text-foreground-muted"
-                >
-                  {i === 0 ? `${line} ` : line}
-                </TypeText>
-              </div>
-            ))}
-          </div>
-          {/* 390 (3893:2158): 12 / 1.3, two centred lines in a 217 column. */}
-          <div className="hidden w-54.25 w390:block">
-            {noteLines390.map((line, i) => (
-              <div key={line} className="flex justify-center">
-                <TypeText
-                  tag="p"
-                  delay={
-                    LOAD.copy.noteType +
-                    (i === 0 ? 0 : TYPE_PER * (noteLines390[0].length + 1))
-                  }
-                  per={TYPE_PER}
-                  className="font-mono text-hero-note leading-hero-note whitespace-nowrap text-foreground-muted"
-                >
-                  {i === 0 ? `${line} ` : line}
-                </TypeText>
-              </div>
-            ))}
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
         {/* Tick 3488:21953 / 3603:2159 and field marks 3488:21954 / 3488:21956 —
           the 1024 frame drops both marks. */}
@@ -210,7 +161,11 @@ export const Hero = ({
           />
         </div>
 
-        <ProductWindow {...product} />
+        {/* 768 / 390 stack the window under the copy; the longer copy pushes
+          it down by --hero-copy-extra (hero.css). */}
+        <div className="pointer-events-none absolute inset-0 translate-y-(--hero-copy-extra) [&>*]:pointer-events-auto">
+          <ProductWindow {...product} />
+        </div>
       </HeroTilt>
     </div>
   </section>

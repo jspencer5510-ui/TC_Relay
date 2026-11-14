@@ -17,16 +17,16 @@ import { PlanBoard } from "./plan-board";
  * 390 (3893:4285) is 2131 tall: head at y48 in the 350 column, run meter
  * (350 × 542) at y248, the cards stacked (417 / 423 / 417, gap 12) at y802.
  */
-export const Pricing = ({ head, meter, tiers }: PricingContent) => (
+export const Pricing = ({ head, tiers }: PricingContent) => (
   <section
     id="pricing"
-    aria-label="Pricing"
-    className="[content-visibility:auto] relative h-219.5 w1024:h-280 w768:h-417.5 w390:h-532.75"
+    aria-label="Listen, Watch, and Read"
+    className="[content-visibility:auto] relative h-139 w1024:h-200 w768:h-308.75 w390:h-394.25"
   >
     <SectionHead
       {...head}
       className="absolute top-0 left-20 w1024:top-20 w1024:left-12 w1024:w-232 w768:top-10 w768:left-10 w768:w-172 w390:top-12 w390:left-5 w390:w-87.5"
     />
-    <PlanBoard meter={meter} tiers={tiers} />
+    <PlanBoard tiers={tiers} />
   </section>
 );

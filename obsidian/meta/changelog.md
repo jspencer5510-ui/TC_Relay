@@ -16,6 +16,28 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-11-14 — Thinking Christian content (work in progress, branch `content/thinking-christian`)
+
+Homepage copy from thinkingchristian.org applied to the existing sections;
+brand renamed throughout (nav, footer, `site.ts`, manifest). Decision and
+section mapping: [[decisions-log]] ADR-0032.
+
+- Removed sections with no real content: Signals, Proof, the pricing run meter
+  (+ `run-meter`, `price-roll`, `swap-text`); their stream waypoints dropped.
+- Pricing cards → Listen / Watch / Read. Hero copy column now flows
+  (`--hero-copy-extra` pushes the window down at 768 / 390).
+- Footer signup form (it collected nothing) → `ContactLink` mailto row.
+- `LiveRuns` accepts fixed row labels; `LaneBar` shows non-numeric shares as
+  written; static lists keyed by index.
+
+**Known layout issues, not yet fixed:** hero copy runs under the window's first
+node at 1440; approval-card message wraps onto its fields and its two buttons
+overlap; chart caption + average collide; Scale head wraps onto the cards;
+footer Amazon disclosure overlaps the link columns. 1024 / 768 / 390 not yet
+checked.
+
+---
+
 ## 2026-11-14 — Light re-theme: brand palette and typefaces
 
 The site moves from dark-on-lime to the owner's light brand sheet — paper

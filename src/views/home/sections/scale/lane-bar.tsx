@@ -51,7 +51,10 @@ export const LaneBar = ({
   const on = phase === "play";
 
   const target = Number.parseInt(share, 10);
-  const suffix = share.slice(String(target).length);
+  /* a share that isn't a number (ADR-0032 content) is shown as written,
+     without the count-up */
+  const numeric = !Number.isNaN(target);
+  const suffix = numeric ? share.slice(String(target).length) : "";
 
   const [{ pulse }, pulseApi] = useSpring(() => ({
     pulse: 0,
@@ -106,7 +109,9 @@ export const LaneBar = ({
       <span className="absolute top-0 right-0 text-right whitespace-nowrap font-mono text-scale-mono leading-scale-mono text-foreground tabular-nums w390:top-2.5">
         <span className="sr-only">{share}</span>
         <animated.span aria-hidden="true">
-          {grow.to((g) => `${Math.round(g * target)}${suffix}`)}
+          {numeric
+            ? grow.to((g) => `${Math.round(g * target)}${suffix}`)
+            : share}
         </animated.span>
       </span>
     </animated.span>

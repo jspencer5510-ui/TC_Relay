@@ -1,78 +1,79 @@
-/** 10 Footer — Figma 3888:7053. Copy is verbatim from the frame. */
+/** 10 Footer — thinkingchristian.org footer (ADR-0032). */
 export const footerMock = {
   brand: {
-    name: "Relay",
+    name: "Thinking Christian",
     href: "/",
-    tagline: "Automation for the work that lives between your tools.",
-    socialLabel: "stay in touch",
+    tagline: "Unsettling convention. Cultivating conviction.",
+    socialLabel: "listen and watch",
     socials: [
-      { label: "in", name: "LinkedIn", href: "#linkedin" },
-      { label: "x", name: "X", href: "#x" },
-      { label: "gh", name: "GitHub", href: "#github" },
-      { label: "dc", name: "Discord", href: "#discord" },
+      { label: "yt", name: "YouTube", href: "https://www.youtube.com/@thinking_christian?sub_confirmation=1" },
+      { label: "ap", name: "Apple Podcasts", href: "https://podcasts.apple.com/us/podcast/thinking-christian-clear-theology-for-a-confusing-world/id1712162582" },
+      { label: "sp", name: "Spotify", href: "https://open.spotify.com/show/3PCi6K1PjPXzhrNVGAPTLX" },
+      { label: "@", name: "Email", href: "mailto:info@thinkingchristian.org" },
     ],
   },
   cta: {
-    eyebrow: "what now",
-    title: { before: "Pick the task you ", accent: "hate", after: " most." },
-    copy: "Bring one job nobody enjoys doing by hand. If Relay cannot run it by the end of the trial, we will tell you so.",
-    emailLabel: "Work email",
-    submit: "Start free",
+    eyebrow: "not left. not right. not leaving.",
+    title: { before: "Thinking Christian is ", accent: "for", after: " you." },
+    copy: "If you want to consider how God's word exposes the patterns keeping us from being conformed to the image of his Son, Thinking Christian is for you.",
+    email: "info@thinkingchristian.org",
+    contactLabel: "Contact Us",
   },
-  /** `short` is the 768 / 390 copy (3876:139 / 3876:142). */
+  /** `short` is the 768 / 390 copy. */
   statuses: [
-    { label: "all systems normal", short: "all systems normal" },
-    { label: "99% pass on the first attempt", short: "99% first-attempt pass" },
+    { label: "calm, thoughtful, theological", short: "calm, thoughtful, theological" },
+    { label: "scripture as the final authority", short: "scripture, the final authority" },
     {
-      label: "three regions, no cross border hops",
-      short: "three regions, no hops",
+      label: "son, scripture, and spirit",
+      short: "son, scripture, spirit",
     },
   ],
   company: {
-    name: "Relay Labs",
-    copy: "Independent, profitable, and boring on purpose since 2024.",
-    compliance: "SOC 2 Type II / audit log / data residency",
+    name: "Thinking Christian",
+    copy: "Calm, thoughtful, theological conversations.",
+    compliance: "As an Amazon Associate, Thinking Christian earns from qualifying purchases.",
   },
   columns: [
     {
-      title: "product",
+      title: "listen",
       links: [
-        { label: "Canvas", href: "#product" },
-        { label: "Apps", href: "#apps" },
-        { label: "Run history", href: "#run-history" },
-        { label: "Pricing", href: "#pricing" },
+        { label: "Podcast", href: "https://www.thinkingchristian.org/podcast" },
+        { label: "All Episodes", href: "https://www.thinkingchristian.org/episodes" },
+        { label: "Guests", href: "https://www.thinkingchristian.org/guests" },
+        { label: "Series", href: "https://www.thinkingchristian.org/series" },
       ],
     },
     {
-      title: "learn",
+      title: "explore",
       links: [
-        { label: "Docs", href: "#docs" },
-        { label: "Templates", href: "#templates" },
-        { label: "Changelog", href: "#changelog" },
-        { label: "Status", href: "#status" },
+        { label: "Questions", href: "https://www.thinkingchristian.org/questions" },
+        { label: "Articles", href: "https://www.thinkingchristian.org/articles" },
+        { label: "Scripture & Theology", href: "https://www.thinkingchristian.org/scripture" },
+        { label: "Books", href: "https://www.thinkingchristian.org/books" },
       ],
     },
     {
-      title: "company",
+      title: "resources",
       links: [
-        { label: "About", href: "#about" },
-        { label: "Careers", href: "#careers" },
-        { label: "Security", href: "#security" },
-        { label: "Contact", href: "#contact" },
+        { label: "The Framework", href: "https://www.thinkingchristian.org/framework" },
+        { label: "Study Guides", href: "https://www.thinkingchristian.org/studyguides" },
+        { label: "Glossary", href: "https://www.thinkingchristian.org/glossary" },
+        { label: "Useful to God", href: "https://www.thinkingchristian.org/useful-to-god" },
       ],
     },
     {
-      title: "legal",
+      title: "about",
       links: [
-        { label: "Privacy", href: "#privacy" },
-        { label: "Terms", href: "#terms" },
-        { label: "Cookies", href: "#cookies" },
+        { label: "About", href: "https://www.thinkingchristian.org/about" },
+        { label: "James Spencer", href: "https://www.thinkingchristian.org/james" },
+        { label: "Statement of Faith", href: "https://www.thinkingchristian.org/about/faith" },
+        { label: "Privacy Policy", href: "https://www.thinkingchristian.org/privacy" },
       ],
     },
   ],
   legal: {
-    copyright: "2026, all rights reserved",
-    origin: "built in Lisbon and Kraków",
+    copyright: "© 2026 Thinking Christian. All rights reserved.",
+    origin: "info@thinkingchristian.org",
   },
 } as const;
 

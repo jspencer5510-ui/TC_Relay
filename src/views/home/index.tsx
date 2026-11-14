@@ -18,10 +18,6 @@ import { Statement } from "@/views/home/sections/statement";
 import { statementMock } from "@/data/mocks/home/statement";
 import { Scale } from "@/views/home/sections/scale";
 import { scaleMock } from "@/data/mocks/home/scale";
-import { Signals } from "@/views/home/sections/signals";
-import { signalsMock } from "@/data/mocks/home/signals";
-import { Proof } from "@/views/home/sections/proof";
-import { proofMock } from "@/data/mocks/home/proof";
 import { Pricing } from "@/views/home/sections/pricing";
 import { pricingMock } from "@/data/mocks/home/pricing";
 import { Footer } from "@/views/home/sections/footer";
@@ -75,7 +71,7 @@ export const HomeView = ({ robot = false }: { robot?: boolean }) => (
         </Suspense>
         {/* section rhythm: 1.5× the frames' gaps (h-section-gap between blocks) */}
         <div aria-hidden="true" className="h-section-gap" />
-        {/* Product → Proof sit on one frosted slab (not in Figma), bled to the
+        {/* Product → Scale sit on one frosted slab (not in Figma), bled to the
             viewport's edges, so the stream underneath reads through it. */}
         <div className="relative">
           <div
@@ -104,22 +100,6 @@ export const HomeView = ({ robot = false }: { robot?: boolean }) => (
             <HydrateNear id="scale">
               <ScrollBlur leave>
                 <Scale {...scaleMock} />
-              </ScrollBlur>
-            </HydrateNear>
-          </Suspense>
-          <div aria-hidden="true" className="h-section-gap" />
-          <Suspense>
-            <HydrateNear id="signals">
-              <ScrollBlur enter leave>
-                <Signals {...signalsMock} />
-              </ScrollBlur>
-            </HydrateNear>
-          </Suspense>
-          <div aria-hidden="true" className="h-section-gap" />
-          <Suspense>
-            <HydrateNear id="proof">
-              <ScrollBlur enter leave>
-                <Proof {...proofMock} />
               </ScrollBlur>
             </HydrateNear>
           </Suspense>

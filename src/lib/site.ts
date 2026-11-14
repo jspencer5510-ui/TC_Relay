@@ -14,12 +14,12 @@ import { getServerEnv, publicEnv } from "@/env";
 const vercelProduction = getServerEnv().VERCEL_PROJECT_PRODUCTION_URL;
 
 export const siteConfig = {
-  name: "Relay",
-  /** Home `<title>`; inner pages render as "Page — Relay" (see `titleTemplate`). */
-  title: "Relay — the handoffs run themselves",
-  titleTemplate: "%s — Relay",
+  name: "Thinking Christian",
+  /** Home `<title>`; inner pages render as "Page — Thinking Christian" (see `titleTemplate`). */
+  title: "Thinking Christian | Unsettling Convention. Cultivating Conviction.",
+  titleTemplate: "%s — Thinking Christian",
   description:
-    "Relay runs the steps between your apps and only pings a person when it matters. Approvals in Slack, automatic retries, 240 apps connected.",
+    "Reading the Bible as the final authority for life and faith means questioning the assumptions of our culture, even our Christian culture. Calm, thoughtful, theological conversations.",
   /**
    * Public origin, no trailing slash. Drives canonical URLs, OG tags, the
    * sitemap, and JSON-LD. Set `NEXT_PUBLIC_SITE_URL` in production.
@@ -30,17 +30,17 @@ export const siteConfig = {
   /** Default Open Graph / Twitter share image (path under `public/`), 1200×630. */
   ogImage: "/open-graph.png",
   ogImageAlt:
-    "Relay — The handoffs run themselves. Relay runs the steps between your apps and only pings a person when it matters.",
-  /** X / Twitter handle, e.g. "@relay" — left unset until the account exists. */
+    "Thinking Christian — Unsettling convention. Cultivating conviction. Calm, thoughtful, theological.",
+  /** X / Twitter handle — left unset until confirmed. */
   twitterHandle: undefined as string | undefined,
-  author: "Relay Labs",
+  author: "James Spencer",
   keywords: [
-    "workflow automation",
-    "no-code automation",
-    "Slack approvals",
-    "integrations",
-    "Stripe automation",
-    "business process automation",
+    "Christian theology",
+    "biblical discernment",
+    "Christian podcast",
+    "Scripture and theology",
+    "Christians and politics",
+    "faith and technology",
   ],
   /** Browser theme-color (address bar / PWA) — the page background. */
   themeColor: "#e4e2dd", // brand paper — matches --background (ADR-0031)

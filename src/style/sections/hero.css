@@ -32,6 +32,11 @@
   --raw-hero-color-zoom-border: rgba(30, 30, 30, 0.12); /* Zoom 3542:25199, Wait chip 3542:25226 */
 
   --raw-hero-font-size-72: 4.5rem; /* Headline sans 3488:21933 */
+  --raw-hero-font-size-56: 3.5rem; /* Thinking Christian headline — twice Relay's length (ADR-0032) */
+  --raw-hero-font-size-60: 3.75rem; /* its serif word */
+  --raw-hero-line-height-64: 4rem;
+  --raw-hero-size-copy-extra-768: 9rem; /* longer copy pushes the window down (measured) */
+  --raw-hero-size-copy-extra-390: 12rem;
   --raw-hero-font-size-78: 4.875rem; /* Headline serif word 3488:21933 */
   --raw-hero-line-height-84: 5.25rem;
   --raw-hero-font-size-44: 2.75rem; /* Headline sans at 1024 (3603:2150) */
@@ -116,9 +121,10 @@
   --hero-packet-grey: var(--raw-color-stone);
   --hero-packet-grey-halo: var(--raw-hero-color-packet-stone-halo);
 
-  --hero-type-title: var(--raw-hero-font-size-72);
-  --hero-type-title-accent: var(--raw-hero-font-size-78);
-  --hero-line-title: var(--raw-hero-line-height-84);
+  --hero-type-title: var(--raw-hero-font-size-56);
+  --hero-type-title-accent: var(--raw-hero-font-size-60);
+  --hero-line-title: var(--raw-hero-line-height-64);
+  --hero-copy-extra: 0rem;
   --hero-type-note: var(--raw-hero-font-size-12);
   --hero-line-note: var(--raw-hero-line-height-note);
 
@@ -150,13 +156,15 @@
 @media (width <= 900px) {
   :root {
     --hero-nav: 4rem; /* 64 */
-    --hero-frame: 61rem; /* 976 */
+    --hero-copy-extra: var(--raw-hero-size-copy-extra-768);
+    --hero-frame: calc(61rem + var(--hero-copy-extra)); /* 976 + copy */
   }
 }
 @media (width <= 580px) {
   :root {
     --hero-nav: 3.5rem; /* 56 */
-    --hero-frame: 59.3125rem; /* 949 */
+    --hero-copy-extra: var(--raw-hero-size-copy-extra-390);
+    --hero-frame: calc(59.3125rem + var(--hero-copy-extra)); /* 949 + copy */
   }
 }
 

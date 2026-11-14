@@ -1,16 +1,32 @@
 {
-  "name": "Relay — automation for the work between your tools",
-  "short_name": "Relay",
-  "description": "Relay runs the steps between your apps and only pings a person when it matters.",
+  "name": "Thinking Christian — unsettling convention, cultivating conviction",
+  "short_name": "Thinking Christian",
+  "description": "Calm, thoughtful, theological conversations.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#e4e2dd",
   "theme_color": "#e4e2dd",
   "icons": [
-    { "src": "/android-icon-36x36.png", "sizes": "36x36", "type": "image/png" },
-    { "src": "/android-icon-48x48.png", "sizes": "48x48", "type": "image/png" },
-    { "src": "/android-icon-72x72.png", "sizes": "72x72", "type": "image/png" },
-    { "src": "/android-icon-96x96.png", "sizes": "96x96", "type": "image/png" },
+    {
+      "src": "/android-icon-36x36.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-icon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
     {
       "src": "/android-icon-144x144.png",
       "sizes": "144x144",

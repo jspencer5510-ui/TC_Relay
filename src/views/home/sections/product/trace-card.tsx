@@ -294,7 +294,7 @@ export const TraceCard = ({ trace }: Pick<ProductContent, "trace">) => {
 
       <span className="absolute top-65.75 left-55.75 h-px w-95 bg-product-hairline w1024:top-67.75 w1024:left-47.25 w1024:w-55 w768:top-67 w390:top-50 w390:left-37.25 w390:w-45" />
       {trace.axis.map((tick, i) => (
-        <span key={tick}>
+        <span key={`${i}-${tick}`}>
           <span
             className={`absolute top-66 h-1.25 w-px bg-product-tick w1024:top-68 w1024:h-0.75 w768:top-67.25 w390:top-50.25 w390:h-0.5 ${TICKS[i]}`}
           />

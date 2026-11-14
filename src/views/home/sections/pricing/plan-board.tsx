@@ -6,11 +6,9 @@ import { useEffect, useState } from "react";
 import type { PricingContent } from "@/data/mocks/home/pricing";
 import { REVEAL, SPRING_SOFT } from "@/lib/motion";
 
-import { INITIAL, RunMeter, planIndex } from "./run-meter";
 import { TierCard } from "./tier-card";
 
 type PlanBoardProps = {
-  meter: PricingContent["meter"];
   tiers: PricingContent["tiers"];
 };
 
@@ -31,7 +29,7 @@ const TIER_SIZE = [
 
 /** Card row box, shared by the cards and the two highlight layers. */
 const BOX =
-  "absolute top-120 left-20 h-99.5 w-320 w1024:top-151.5 w1024:left-12 w1024:h-108.5 w1024:w-232 w768:top-168.25 w768:left-10 w768:h-239.25 w768:w-172 w390:top-200.5 w390:left-5 w390:h-320.25 w390:w-87.5";
+  "absolute top-39.5 left-20 h-99.5 w-320 w1024:top-71.5 w1024:left-12 w1024:h-108.5 w1024:w-232 w768:top-59.5 w768:left-10 w768:h-239.25 w768:w-172 w390:top-62 w390:left-5 w390:h-320.25 w390:w-87.5";
 const GAP = "flex gap-5 w1024:gap-3 w768:flex-col";
 const ROW = `${BOX} ${GAP}`;
 /** A highlight layer stacked on the same columns, inside the box above. */
@@ -57,11 +55,11 @@ const useCanHover = () => {
  * (each card owns its layers; nothing slides across the row), so leaving a
  * card hands it back to the default one.
  */
-export const PlanBoard = ({ meter, tiers }: PlanBoardProps) => {
-  const [pos, setPos] = useState<number>(INITIAL);
+export const PlanBoard = ({ tiers }: PlanBoardProps) => {
   const [hover, setHover] = useState<number | null>(null);
   const canHover = useCanHover();
-  const selected = planIndex(pos, tiers);
+  /* no run meter (ADR-0032): the featured card carries the look at rest */
+  const selected = Math.max(0, tiers.findIndex((tier) => tier.featured));
   const lit = canHover && hover !== null ? hover : selected;
 
   /* one soft, overdamped spring per card: the selected plan's stroke and glow
@@ -75,12 +73,6 @@ export const PlanBoard = ({ meter, tiers }: PlanBoardProps) => {
   return (
     <>
       {/* the cards are simply there — only their contents animate in (client call) */}
-      <div
-        className="absolute top-39.5 left-20 h-75.5 w-320 overflow-clip rounded-pricing-card border border-pricing-card-border bg-pricing-card backdrop-blur-card w1024:top-71.5 w1024:left-12 w1024:h-77 w1024:w-232 w768:top-59.5 w768:left-10 w768:h-105.75 w768:w-172 w390:top-62 w390:left-5 w390:h-135.5 w390:w-87.5"
-      >
-        <RunMeter meter={meter} tiers={tiers} pos={pos} onPos={setPos} />
-      </div>
-
       <div aria-hidden="true" className={`pointer-events-none ${ROW}`}>
         {marks.map(({ o }, n) => (
           <animated.span

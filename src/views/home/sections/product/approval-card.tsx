@@ -250,7 +250,7 @@ export const ApprovalCard = ({
       <dl>
         {approval.fields.map((field, i) => (
           <animated.div
-            key={field.key}
+            key={`${i}-${field.key}`}
             className="absolute inset-0"
             style={fields[i]}
           >

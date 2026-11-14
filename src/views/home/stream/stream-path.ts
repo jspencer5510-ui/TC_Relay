@@ -82,8 +82,7 @@ const TAIL: readonly Waypoint[] = [
   { at: "product", x: -0.06, y: 0.5, z: 0.2, pinch: 1 },
   { at: "statement", x: 0.5, y: 0.3, z: -0.5 },
   { at: "scale", x: 0.92, y: 0.9, z: 0.2, pinch: 1 },
-  { at: "signals", x: 0.4, y: 0.75, z: -0.4 },
-  { at: "proof", x: -0.06, y: 0.6, z: 0.2, pinch: 1 },
+  // Signals and Proof were removed (ADR-0032); the path runs Scale → Pricing
   // one broad, symmetric arc through Pricing — the earlier apex sat close
   // under its entry and turned too sharply
   { at: "pricing", x: 0.46, y: -0.1, z: -0.2 },

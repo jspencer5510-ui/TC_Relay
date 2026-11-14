@@ -1,21 +1,21 @@
 import type { FooterContent } from "@/data/mocks/home/footer";
 
 import { CtaTitle } from "./cta-title";
-import { SignupForm } from "./signup-form";
+import { ContactLink } from "./contact-link";
 import { CUE, CueFocus, CueRise, CueType } from "./stage";
 
 /**
- * CTA panel 3488:22896 — 730 × 308 at (630, 96), lime fill; narrow
+ * CTA panel 3488:22896 — 730 × 308 at (630, 96); narrow
  * 3888:11495 — 457 × 278 at (519, 0); 768 3876:123 — 688 × 278 at (40, 330);
- * 390 3954:721 — 350 × 340 at (20, 321). It leads the footer timeline: panel,
- * then title (eyebrow typing with it), copy, form.
+ * 390 3954:721 — 350 × 340 at (20, 321), brand-orange fill. It leads the footer timeline: panel,
+ * then title (eyebrow typing with it), copy, contact row.
  */
 export const CtaPanel = ({
   eyebrow,
   title,
   copy,
-  emailLabel,
-  submit,
+  email,
+  contactLabel,
 }: FooterContent["cta"]) => (
   <CueRise
     stage="top"
@@ -40,7 +40,7 @@ export const CtaPanel = ({
       delay={CUE.form}
       className="absolute top-57 left-10 w1024:top-49.5 w1024:left-6 w390:top-65 w390:left-5"
     >
-      <SignupForm emailLabel={emailLabel} submit={submit} />
+      <ContactLink email={email} label={contactLabel} />
     </CueRise>
   </CueRise>
 );

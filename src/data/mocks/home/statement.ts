@@ -1,14 +1,15 @@
-/** 05 Statement — Figma 3488:22124. Copy is verbatim from the frame. */
+/** 05 Statement — "Not left. Not right. Not leaving." thinkingchristian.org (ADR-0032). */
 export const statementMock = {
-  kicker: "[ what we are actually selling ]",
+  kicker: "[ not left. not right. not leaving. ]",
   title: {
-    lead: "The best workflow is the one",
-    accent: "nobody mentions",
-    tail: " in standup.",
+    lead: "Refusing to settle for wholesomeness when only",
+    accent: "holiness",
+    tail: " will do.",
   },
-  caption: "one tick, one run",
+  caption: "conformed to the image of his Son",
   now: "now",
-  hours: ["09:00", "11:00", "13:00", "15:00", "17:00", "19:00"],
+  /** Ruler labels — the paragraph's arc, in its own words. */
+  hours: ["wholesomeness", "respectability", "slogans", "conventions", "conviction", "holiness"],
 } as const;
 
 export type StatementContent = typeof statementMock;

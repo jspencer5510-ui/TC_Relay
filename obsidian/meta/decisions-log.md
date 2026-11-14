@@ -17,6 +17,29 @@ Template: [[templates/adr-note]].
 
 ---
 
+## ADR-0032 — Thinking Christian copy on the existing section layouts
+
+**Status:** Proposed · 2026-11-14 · in progress on `content/thinking-christian`
+
+**Decision.** Reuse the template's sections and animated widgets for the
+thinkingchristian.org homepage copy rather than rebuild the page: hero →
+hero (Framework as the window's four nodes, topics in its feed); Integrations →
+topics; Product → "God doesn't live in our world" + James's story; Statement →
+wholesomeness / holiness; Scale → the Framework; Pricing → Listen / Watch /
+Read; Footer → the site footer. Sections with no real content — Signals,
+Proof, the run meter — are removed rather than filled with invented figures.
+
+**Rules.** Every line comes from the site, verbatim or a direct fragment; no
+invented numbers, quotes or links (links are copied from the saved page —
+`www.thinkingchristian.org`). Where a widget needs a value the site doesn't
+have, the widget changes (non-numeric `LaneBar`, fixed `LiveRuns` labels)
+instead of the content being made up.
+
+**Trade-off.** The widgets were drawn for a SaaS product, so some mappings
+are loose (the trace card, the approval card), and the copy is longer than
+the fixed Figma slots — see the known issues in [[changelog]]. A rebuild with
+sections shaped for this content remains the cleaner long-term option.
+
 ## ADR-0031 — Light re-theme to the owner's brand palette and typefaces
 
 **Status:** Accepted · 2026-11-14 · supersedes the dark-only theme (Tier 2 comment
