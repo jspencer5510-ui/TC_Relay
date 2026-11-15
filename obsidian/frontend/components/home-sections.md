@@ -50,6 +50,16 @@ measured from the owner's artwork; tile corner 6.125%.
 
 ## Waiting on the owner
 
+Measured slot sizes (CSS px; the page scales up to 1920, so export ≈ 2× the
+1920 size):
+
+| Asset | Ratio | 1440 → 1920 | 390 | Export |
+|---|---|---|---|---|
+| Book cover (`heroMock.book.cover`) | 2 : 3 | 350×525 → 467×700 | 225×338 | 1000×1500 |
+| Portrait (`storyMock.photo`) | 4 : 5 | 460×575 → 613×767 | 358×448 | 1280×1600 |
+| Framework row images | ≈ 2.3 : 1 | 760×328 → 1013×437 | 358 wide | 2000×864 |
+
+
 - Digital Discernment cover → `heroMock.book.cover`
 - Portrait → `storyMock.photo`
 - Images for Framework rows 01–04 (rows show placeholder graphics)
