@@ -16,6 +16,29 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-11-15 — Owner change doc applied (branch `content/thinking-christian`)
+
+Applied the owner's change table section by section. Map and new components:
+[[home-sections]]; decision: [[decisions-log]] ADR-0033.
+
+- Nav: five items with a Topics drop-down (`TopicsMenu`), no status pill,
+  "THE FRAMEWORK" CTA; wordmark hidden at 768 and below (logo mark only).
+- Hero: "THINKING CHRISTIAN" chip (0.219em tracking), Playfair semibold
+  headline with "conviction" in italic orange, caps CTAs, note removed; the
+  product window is replaced by the Digital Discernment cover (`HeroBook`).
+  Playfair now loads 500/600, roman + italic. New tokens `--tracking-eyebrow`.
+- Topic tiles are links to the six topic pages (Literature has no link yet).
+- "Content service" twice: Patterns (head only) and the Framework (rows
+  01–04 with "Explore the Framework" links); new `Story` section between them.
+- Statement: new copy; the tick ruler is now a straight line with seven words.
+- Body Building head; cards, Listen/Watch/Read and footer left as they were.
+
+Placeholders until the owner sends files: logo, book cover, portrait,
+Framework row images. Checked at 1440 / 1024 / 768 / 390; verify 0 FAIL,
+lint clean, build green.
+
+---
+
 ## 2026-11-14 — Thinking Christian content (work in progress, branch `content/thinking-christian`)
 
 Homepage copy from thinkingchristian.org applied to the existing sections;

@@ -17,6 +17,25 @@ Template: [[templates/adr-note]].
 
 ---
 
+## ADR-0033 — The owner's change doc supersedes the content mapping
+
+**Status:** Accepted · 2026-11-15 · supersedes the section mapping in ADR-0032
+(its rules — no invented content, links copied from the source — still hold)
+
+**Decision.** The owner's change table (Google Doc, 2026-11-14) is the source
+of truth for page structure and copy. Where it says to remove something but
+reuse it later (the product rows), the code stays and the page stops using it.
+Where it needs a file the owner hasn't sent (logo, book cover, portrait,
+row images), the slot is built for the real file with a clean stand-in and
+listed under "Waiting on the owner" in [[home-sections]].
+
+**Departures from the doc, on purpose.** "Christian & Politics" is set as
+"Christians & Politics" (the site's own spelling). The phone frame shows four
+of the six topic tiles and only the centre word on the statement line — the
+others don't fit 350 px; every topic stays reachable from the nav. The CTA and
+button caps are CSS `uppercase` on mixed-case text, so screen readers read
+words, not letters.
+
 ## ADR-0032 — Thinking Christian copy on the existing section layouts
 
 **Status:** Proposed · 2026-11-14 · in progress on `content/thinking-christian`

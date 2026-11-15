@@ -25,7 +25,7 @@ export const Integrations = ({
   <section
     id="integrations"
     aria-label="Integrations"
-    className="[content-visibility:auto] relative h-88.5 w1024:h-53 w768:h-57 w390:h-54 overflow-clip"
+    className="[content-visibility:auto] relative h-88.5 w1024:h-62 w768:h-64 w390:h-66 overflow-clip"
   >
     <p className="absolute top-24 left-20 w1024:top-8 w1024:left-12 w768:top-10 w768:left-10 w390:hidden font-mono text-label leading-label whitespace-nowrap text-foreground-muted">
       <TypeText>{caption}</TypeText>

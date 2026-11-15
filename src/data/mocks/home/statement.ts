@@ -1,15 +1,23 @@
-/** 05 Statement — "Not left. Not right. Not leaving." thinkingchristian.org (ADR-0032). */
+/** 05 Statement — "The framework in action" (doc 2026-11-14, ADR-0033). */
 export const statementMock = {
-  kicker: "[ not left. not right. not leaving. ]",
+  kicker: "The framework in action",
   title: {
-    lead: "Refusing to settle for wholesomeness when only",
-    accent: "holiness",
-    tail: " will do.",
+    lead: "Unsettling conventions,",
+    accent: "one topic",
+    tail: " at a time",
   },
-  caption: "conformed to the image of his Son",
-  now: "now",
-  /** Ruler labels — the paragraph's arc, in its own words. */
-  hours: ["wholesomeness", "respectability", "slogans", "conventions", "conviction", "holiness"],
+  caption: "biblically rooted, theologically savvy",
+  /** Centre word on the line (was "now"). */
+  now: "Thinking Christian",
+  /** Words under the line — three left of centre, three right (doc 2026-11-14). */
+  hours: [
+    "(un)biblical masculinity",
+    "christians & politics",
+    "technology & media",
+    "literature, film & culture",
+    "scripture & theology",
+    "church history",
+  ],
 } as const;
 
 export type StatementContent = typeof statementMock;

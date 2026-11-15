@@ -7,15 +7,18 @@ export const integrationsMock = {
    * Which frames draw each tile. `in1024` covers 1024 and 768; `in390` is the
    * 390 frame. Six topics plus the articles index.
    */
+  /**
+   * Topic tiles (doc 2026-11-14) — each links to its topic page. `in1024`
+   * covers 1024 and 768; `in390` is the phone row (four fit). Literature has
+   * no page yet, so it renders without a link.
+   */
   apps: [
-    { name: "masculinity", initials: "MA", active: false, in1024: true, in390: false },
-    { name: "politics", initials: "PO", active: true, in1024: true, in390: true },
-    { name: "technology", initials: "TE", active: false, in1024: true, in390: false },
-    { name: "culture", initials: "CU", active: false, in1024: true, in390: true },
-    { name: "scripture", initials: "SC", active: false, in1024: false, in390: true },
-    { name: "history", initials: "HI", active: false, in1024: false, in390: true },
-    { name: "questions", initials: "QU", active: false, in1024: true, in390: false },
-    { name: "articles", initials: "+", active: false, in1024: true, in390: false },
+    { name: "(Un)Biblical Masculinity", initials: "MA", href: "https://www.thinkingchristian.org/unmanly", active: false, in1024: true, in390: true },
+    { name: "Christians & Politics", initials: "PO", href: "https://www.thinkingchristian.org/politics", active: true, in1024: true, in390: true },
+    { name: "Technology & Media", initials: "TE", href: "https://www.thinkingchristian.org/technology", active: false, in1024: true, in390: true },
+    { name: "Literature, Film, & Culture", initials: "CU", href: "", active: false, in1024: true, in390: false },
+    { name: "Scripture & Theology", initials: "SC", href: "https://www.thinkingchristian.org/scripture", active: false, in1024: true, in390: true },
+    { name: "Church History", initials: "CH", href: "https://www.thinkingchristian.org/reformation", active: false, in1024: true, in390: false },
   ],
 } as const;
 

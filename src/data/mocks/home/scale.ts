@@ -1,10 +1,11 @@
 /** 06 The Framework (Scale layout) — thinkingchristian.org (ADR-0032). */
 export const scaleMock = {
+  /** Head per doc 2026-11-14; the two cards below stay as they are for now. */
   head: {
-    badge: "how we think is as important as what we think",
-    title: { before: "The Thinking Christian ", accent: "Framework", after: "." },
+    badge: "Body Building",
+    title: { before: "Defying the World. ", accent: "Following", after: " Jesus." },
     aside:
-      "Much of what shapes us doesn't present itself as a formal argument, but appears in the form of institutions, symbols, slogans, and stories that encourage us to love on our own terms rather than God's.",
+      "Refusing to love the world on the world's terms requires us to read Scripture as the final authority for life and faith.",
   },
   runtime: {
     title: "Four practices, one response",

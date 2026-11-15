@@ -20,13 +20,17 @@ import { POP, TIMELINE, useStatementSeen, WAVE } from "./use-statement-seen";
  * First left-, last right-aligned, rest centred.
  */
 const HOUR_POSITIONS = [
-  "left-20 w-20 text-left w1024:left-12 w768:left-10 w768:w-11 w390:left-5",
-  "left-74 w-20 text-center w1024:left-47.25 w768:left-36.75 w768:w-11 w390:left-21",
-  "left-138 w-20 text-center w1024:left-82.75 w768:left-63.75 w768:w-11 w390:hidden",
-  "left-202 w-20 text-center w1024:left-153.25 w768:left-117.25 w768:w-11 w390:left-65.5",
-  "left-266 w-20 text-center w1024:left-188.75 w768:left-144.25 w768:w-11 w390:left-81.5 w390:text-right",
-  "left-320 w-20 text-right w1024:left-224 w768:left-171 w768:w-11 w390:hidden",
+  /* seven slots spaced evenly along the line (1280 / 928 / 688 wide);
+     the centre slot is the "now" label */
+  "left-20 w-36 text-left w1024:left-12 w1024:w-24 w768:left-10 w768:w-20",
+  "left-55.25 w-36 text-center w1024:left-38.75 w1024:w-24 w768:left-30.5 w768:w-20",
+  "left-108.75 w-36 text-center w1024:left-77.25 w1024:w-24 w768:left-57.25 w768:w-20",
+  "left-215.25 w-36 text-center w1024:left-154.75 w1024:w-24 w768:left-114.75 w768:w-20",
+  "left-268.75 w-36 text-center w1024:left-193.25 w1024:w-24 w768:left-141.5 w768:w-20",
+  "left-304 w-36 text-right w1024:left-220 w1024:w-24 w768:left-162 w768:w-20",
 ] as const;
+/** Label slots along the line, as ruler fractions (for the reveal). */
+const LABEL_P = [0, 1 / 6, 2 / 6, 4 / 6, 5 / 6, 1] as const;
 
 /** Ruler length per frame (design px): 3888:6313, 3888:10710, 3855:2, 3893:3611. */
 const RULER_WIDTH = { 1440: 1280, 1024: 928, 768: 688, 390: 350 } as const;
@@ -34,27 +38,10 @@ const RULER_WIDTH = { 1440: 1280, 1024: 928, 768: 688, 390: 350 } as const;
 /** Tick slots every width/120; slot 60 is the gap under "now". */
 const SLOTS = 121;
 const NOW_SLOT = 60;
-const ticksFor = (width: number) =>
-  Array.from({ length: SLOTS }, (_, i) => ({
-    i,
-    p: i / (SLOTS - 1),
-    x: Number((1 + (i * width) / (SLOTS - 1)).toPrecision(6)),
-    top: i % 12 === 0 ? 0 : i % 6 === 0 ? 7 : 12,
-    width: i % 12 === 0 ? 2 : 1,
-  })).filter((t) => t.i !== NOW_SLOT);
-const TICKS = {
-  1440: ticksFor(RULER_WIDTH[1440]),
-  1024: ticksFor(RULER_WIDTH[1024]),
-  768: ticksFor(RULER_WIDTH[768]),
-  390: ticksFor(RULER_WIDTH[390]),
-} as const;
 
-/** Hour labels sit on every 24th slot. */
-const HOUR_SLOT = 24;
 const NOW_P = NOW_SLOT / (SLOTS - 1);
 
-/** Ticks are ink at 35% (3488:22136); the passing wave lifts them to 75%. */
-const TICK_REST = 0.35;
+/** The line sits at 75% ink (the old ticks' wave peak, 3488:22136). */
 const TICK_PEAK = 0.75;
 /** Wave head runs from just before the first tick to just past the last. */
 const WAVE_FROM = -0.12;
@@ -148,14 +135,6 @@ export const Ruler = ({ caption, now, hours }: RulerProps) => {
   const reveal = (w: number, p: number) =>
     shown ? 1 : clamp01((w - p + EDGE) / EDGE);
 
-  const tickStyle = (p: number) => ({
-    opacity: wave.to(
-      (w) => reveal(w, p) * (TICK_REST + (TICK_PEAK - TICK_REST) * crest(w, p)),
-    ),
-    scaleY: wave.to(
-      (w) => (0.2 + 0.8 * reveal(w, p)) * (1 + 0.5 * crest(w, p)),
-    ),
-  });
 
   /** Ring leaves "now" as the crest crosses it; the dot bumps under the crest. */
   const ringT = (w: SpringValue<number>) => w.to((v) => (v - NOW_P) / 0.22);
@@ -178,19 +157,19 @@ export const Ruler = ({ caption, now, hours }: RulerProps) => {
         fill="none"
         className="absolute top-121 left-19.75 h-4.5 w-320.5 max-w-none overflow-visible text-on-accent w1024:top-112 w1024:left-11.75 w1024:w-232.5 w768:top-110.5 w768:left-9.75 w768:w-172.5 w390:top-[calc(var(--spacing)*75.25)] w390:left-4.75 w390:w-88"
       >
-        {TICKS[frame].map((t) => (
-          <animated.path
-            key={t.i}
-            d={`M${t.x} ${t.top}V18`}
-            stroke="currentColor"
-            strokeWidth={t.width}
-            style={{
-              ...tickStyle(t.p),
-              transformBox: "fill-box",
-              transformOrigin: "bottom",
-            }}
-          />
-        ))}
+        {/* doc 2026-11-14: a straight line instead of the tick ruler,
+            drawn left → right by the same wave */}
+        <animated.path
+          d={`M0 17H${span}`}
+          stroke="currentColor"
+          strokeWidth={1}
+          style={{
+            transform: wave.to((w) => `scaleX(${clamp01((w - WAVE_FROM) / (1 - WAVE_FROM))})`),
+            transformBox: "fill-box",
+            transformOrigin: "left",
+            opacity: TICK_PEAK,
+          }}
+        />
       </svg>
       {/* "now" appears with its dot, once the stem has landed — not before */}
       <animated.p
@@ -198,7 +177,7 @@ export const Ruler = ({ caption, now, hours }: RulerProps) => {
           opacity: pop.scale.to((s) => Math.min(1, Math.max(0, s))),
           y: pop.scale.to((s) => (1 - Math.min(1, s)) * 6),
         }}
-        className="absolute top-117.5 left-172.5 h-5 w-15 text-center font-mono text-label leading-label text-on-accent w1024:top-119 w1024:left-120.5 w768:top-117 w768:left-92.75 w768:w-6.5 w390:top-[calc(var(--spacing)*82.75)] w390:left-45.5"
+        className="absolute top-127 left-156 w-48 text-center font-mono text-label leading-label text-on-accent w1024:top-119 w1024:left-110 w1024:w-36 w1024:text-hero-note w1024:leading-hero-note w768:top-117 w768:left-84 w768:w-24 w390:top-[calc(var(--spacing)*82.75)] w390:left-5 w390:w-87.5 w390:text-label w390:leading-label"
       >
         {now}
       </animated.p>
@@ -226,9 +205,9 @@ export const Ruler = ({ caption, now, hours }: RulerProps) => {
           <animated.li
             key={hour}
             style={{
-              opacity: wave.to((w) => reveal(w, (i * HOUR_SLOT) / (SLOTS - 1))),
+              opacity: wave.to((w) => reveal(w, LABEL_P[i] ?? 1)),
             }}
-            className={`absolute top-127 h-5 font-mono text-label leading-label text-statement-ink-muted w1024:top-119 w768:top-117 w390:top-[calc(var(--spacing)*82.75)] ${HOUR_POSITIONS[i]}`}
+            className={`absolute top-127 font-mono text-label leading-label text-statement-ink-muted w1024:top-119 w1024:text-hero-note w1024:leading-hero-note w768:top-117 w390:hidden ${HOUR_POSITIONS[i]}`}
           >
             {hour}
           </animated.li>

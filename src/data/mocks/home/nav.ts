@@ -2,36 +2,45 @@
  * 01 Navigation — Figma 3488:21037. Copy: thinkingchristian.org (ADR-0032); `code`
  * and `note` only feed the 390 menu card (not in Figma, user-picked variant).
  */
-export const navMock = {
-  brand: { name: "Thinking Christian", href: "/" },
+export type NavLink = {
+  label: string;
+  href: string;
+  code: string;
+  note: string;
+  /** Drop-down entries (desktop); the phone menu links to `href`. */
+  children?: readonly { label: string; href: string }[];
+};
+
+export const navMock: {
+  brand: { name: string; href: string; logo: string };
+  links: readonly NavLink[];
+  status: string;
+  cta: { label: string; href: string };
+} = {
+  /** `logo` — swap in the Thinking Christian logo file when supplied. */
+  brand: { name: "Thinking Christian", href: "/", logo: "/assets/nav/nav-logo-mark.svg" },
   links: [
-    {
-      label: "Podcast",
-      href: "https://www.thinkingchristian.org/podcast",
-      code: "PO",
-      note: "Long-form conversations on Scripture and theology",
-    },
+    { label: "Podcast", href: "https://www.thinkingchristian.org/podcast", code: "PO", note: "Long-form conversations" },
     {
       label: "Topics",
       href: "#integrations",
       code: "TO",
-      note: "Unsettling convention, one topic at a time",
+      note: "One topic at a time",
+      children: [
+        { label: "Scripture & Theology", href: "https://www.thinkingchristian.org/scripture" },
+        { label: "Christians & Politics", href: "https://www.thinkingchristian.org/politics" },
+        { label: "Technology", href: "https://www.thinkingchristian.org/technology" },
+        { label: "Discipleship", href: "https://www.thinkingchristian.org/discipleship" },
+        { label: "Masculinity", href: "https://www.thinkingchristian.org/unmanly" },
+      ],
     },
-    {
-      label: "Articles",
-      href: "https://www.thinkingchristian.org/articles",
-      code: "AR",
-      note: "Essays and short answers",
-    },
-    {
-      label: "About",
-      href: "https://www.thinkingchristian.org/about",
-      code: "AB",
-      note: "Why Thinking Christian exists",
-    },
+    { label: "Questions", href: "https://www.thinkingchristian.org/questions", code: "QU", note: "Short answers" },
+    { label: "Articles", href: "https://www.thinkingchristian.org/articles", code: "AR", note: "Essays" },
+    { label: "About", href: "https://www.thinkingchristian.org/about", code: "AB", note: "Thinking Christian" },
   ],
-  status: "youtube, coming soon",
-  cta: { label: "Read the Framework", href: "https://www.thinkingchristian.org/framework" },
-} as const;
+  /** No status pill (doc 2026-11-14); empty hides it. */
+  status: "",
+  cta: { label: "The Framework", href: "https://www.thinkingchristian.org/framework" },
+};
 
 export type NavContent = typeof navMock;

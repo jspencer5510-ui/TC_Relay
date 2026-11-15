@@ -80,6 +80,7 @@
   --raw-letter-spacing-minus-2: -0.125rem;
   --raw-letter-spacing-minus-1: -0.0625rem;
   --raw-letter-spacing-0-4: 0.025rem;
+  --raw-letter-spacing-219: 0.219em; /* doc: eyebrow tracking 219 (Canva/Figma ‰ of the em) */
 
   --raw-size-page: 90rem; /* Relay frame width, 1440 */
   --raw-size-page-inset: 5rem; /* 80 — every section's content edge */
@@ -174,6 +175,7 @@
   --letter-spacing-title: var(--raw-letter-spacing-minus-2);
   --letter-spacing-wordmark: var(--raw-letter-spacing-minus-1);
   --letter-spacing-badge: var(--raw-letter-spacing-0-4);
+  --letter-spacing-eyebrow: var(--raw-letter-spacing-219);
 
   --page-width: var(--raw-size-page);
   --page-inset: var(--raw-size-page-inset);
@@ -256,6 +258,7 @@
   --tracking-title: var(--letter-spacing-title);
   --tracking-wordmark: var(--letter-spacing-wordmark);
   --tracking-badge: var(--letter-spacing-badge);
+  --tracking-eyebrow: var(--letter-spacing-eyebrow);
 
   --container-page: var(--page-width);
   --spacing-page-inset: var(--page-inset);

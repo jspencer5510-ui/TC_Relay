@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { TopicsMenu } from "./topics-menu";
+
 import { PillButton } from "@/components/ui/pill-button";
 import { Reveal } from "@/components/ui/reveal";
 import type { NavContent } from "@/data/mocks/home/nav";
@@ -29,14 +31,14 @@ export const Nav = ({ brand, links, status, cta }: NavContent) => (
     >
       <Link href={brand.href} className="flex items-center gap-3">
         <Image
-          src="/assets/nav/nav-logo-mark.svg"
+          src={brand.logo}
           alt=""
           width={28}
           height={28}
           className="size-7"
           priority
         />
-        <span className="whitespace-nowrap text-wordmark leading-lead font-medium w768:text-lead w390:sr-only tracking-wordmark text-foreground">
+        <span className="whitespace-nowrap text-wordmark leading-lead font-medium w768:sr-only tracking-wordmark text-foreground">
           {brand.name}
         </span>
       </Link>
@@ -45,25 +47,33 @@ export const Nav = ({ brand, links, status, cta }: NavContent) => (
         <ul className="flex items-center gap-10 text-label leading-label w1024:gap-8 w768:gap-6 text-foreground-muted">
           {links.map((link) => (
             <li key={link.label}>
+              {link.children ? (
+                <TopicsMenu link={link} />
+              ) : (
               <Link
                 href={link.href}
                 className="whitespace-nowrap transition-colors duration-(--motion-fast) ease-entrance hover:text-accent"
               >
                 {link.label}
               </Link>
+              )}
             </li>
           ))}
         </ul>
       </nav>
 
       <div className="flex items-center gap-3 w390:gap-2">
-        <p className="flex h-11 items-center w768:hidden gap-2 overflow-clip rounded-full border border-border-glass bg-surface-status px-4 shadow-float">
-          <BreathingDot />
-          <span className="font-mono text-label leading-label whitespace-nowrap text-foreground">
-            {status}
-          </span>
-        </p>
-        <PillButton href={cta.href}>{cta.label}</PillButton>
+        {status && (
+          <p className="flex h-11 items-center w768:hidden gap-2 overflow-clip rounded-full border border-border-glass bg-surface-status px-4 shadow-float">
+            <BreathingDot />
+            <span className="font-mono text-label leading-label whitespace-nowrap text-foreground">
+              {status}
+            </span>
+          </p>
+        )}
+        <PillButton href={cta.href} className="uppercase tracking-badge">
+          {cta.label}
+        </PillButton>
         <NavMenu brand={brand} links={links} status={status} cta={cta} />
       </div>
     </Reveal>

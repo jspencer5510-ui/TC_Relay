@@ -5,6 +5,7 @@ import type { ProductContent } from "@/data/mocks/home/product";
 import { RowApproval } from "./row-approval";
 import { RowChart } from "./row-chart";
 import { RowTrace } from "./row-trace";
+import type { FeatureCopy } from "./feature-row";
 
 /** Hairline between blocks, draws from the left — 1280 × 1, white 9% (3488:21998, 22043, 22077). */
 const Hairline = ({ className = "" }: { className?: string }) => (
@@ -24,11 +25,29 @@ const Hairline = ({ className = "" }: { className?: string }) => (
  * 390 (3893:3087) — 1680 tall, content 350 from x20 y48: blocks 32 apart,
  * rows 389 / 429 / 403, 48 below.
  */
-export const Product = ({ head, trace, approval, chart }: ProductContent) => (
+type RowKind = "trace" | "approval" | "chart";
+
+export interface ProductSectionProps {
+  /** Anchor id (the stream path anchors to "product"). */
+  id: string;
+  label: string;
+  head: ProductContent["patterns"]["head"];
+  /** Feature rows; none renders the head alone (doc 2026-11-14). */
+  rows?: readonly (FeatureCopy & { kind: RowKind })[];
+  graphics: Pick<ProductContent, "trace" | "approval" | "chart">;
+}
+
+/**
+ * "Content service" section — head plus any number of feature rows, each
+ * reusing one of the three row visuals (ADR-0033: the page uses it twice,
+ * Patterns without rows and the Framework with 01–04). Height follows the
+ * content; the rows keep their per-frame heights.
+ */
+export const Product = ({ id, label, head, rows = [], graphics }: ProductSectionProps) => (
   <section
-    id="product"
-    aria-label="Product"
-    className="[content-visibility:auto] relative flex h-398.25 flex-col px-page-inset pt-24 w1024:h-373.25 w1024:pt-20 w768:h-500 w768:pt-11 w768:gap-4 w390:h-403.5 w390:gap-8 w390:pt-12"
+    id={id}
+    aria-label={label}
+    className="[content-visibility:auto] relative flex flex-col px-page-inset pt-24 pb-12 w1024:pt-20 w768:pt-11 w768:gap-4 w390:gap-8 w390:pt-12"
   >
     <SectionHead
       stackClassName="w768:gap-4"
@@ -36,14 +55,16 @@ export const Product = ({ head, trace, approval, chart }: ProductContent) => (
       badge={head.badge}
       title={head.title}
       aside={head.aside}
-      className="pb-16 w1024:pb-8 w768:pb-4 w390:pb-0"
+      className={rows.length ? "pb-16 w1024:pb-8 w768:pb-4 w390:pb-0" : ""}
     />
-    <Hairline />
-    <RowTrace trace={trace} />
-    {/* 390 has no hairline between rows (3893:3087) */}
-    <Hairline className="w390:hidden" />
-    <RowApproval approval={approval} />
-    <Hairline className="w390:hidden" />
-    <RowChart chart={chart} />
+    {rows.map((row, i) => {
+      const line = <Hairline key={`line-${row.index}`} className={i === 0 ? "" : "w390:hidden"} />;
+      const copy = { index: row.index, title: row.title, body: row.body, cta: row.cta };
+      if (row.kind === "trace")
+        return [line, <RowTrace key={row.index} trace={{ ...graphics.trace, ...copy }} />];
+      if (row.kind === "approval")
+        return [line, <RowApproval key={row.index} approval={{ ...graphics.approval, ...copy }} />];
+      return [line, <RowChart key={row.index} chart={{ ...graphics.chart, ...copy }} />];
+    })}
   </section>
 );

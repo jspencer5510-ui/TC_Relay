@@ -19,6 +19,8 @@ export interface DisplayTitleProps extends TitleParts {
   className?: string;
   /** Size of the serif run. */
   accentClassName?: string;
+  /** Typeface of the accent word: Cormorant (default) or Playfair. */
+  accentFamily?: "serif" | "display";
   /** ms before the focus-in starts. */
   delay?: number;
 }
@@ -41,6 +43,7 @@ export const DisplayTitle = ({
   after,
   className = "",
   accentClassName = "",
+  accentFamily = "serif",
   delay = 0,
 }: DisplayTitleProps) => (
   <InviewSeen
@@ -60,7 +63,7 @@ export const DisplayTitle = ({
   >
     {before}
     <span
-      className={`font-serif leading-none font-medium text-title-accent italic ${accentClassName}`}
+      className={`${accentFamily === "display" ? "font-display" : "font-serif font-medium"} leading-none text-title-accent italic ${accentClassName}`}
     >
       {accent}
     </span>

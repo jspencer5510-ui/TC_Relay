@@ -1,14 +1,21 @@
 /** 02 Hero — Figma 3488:21055. Copy: thinkingchristian.org homepage (ADR-0032). */
 export const heroMock = {
-  chip: "Calm, thoughtful, theological.",
-  title: { before: "Unsettling convention. ", accent: "Cultivating", after: " conviction." },
+  chip: "Thinking Christian",
+  title: { before: "Unsettling convention. Cultivating ", accent: "conviction", after: "." },
   subhead:
     "Reading the Bible as the final authority for life and faith means questioning the assumptions of our culture, even our Christian culture, so that we don't settle for a narrower vision than God's word offers.",
   actions: {
-    primary: { label: "Read the Framework", href: "https://www.thinkingchristian.org/framework" },
+    primary: { label: "Explore the Framework", href: "https://www.thinkingchristian.org/framework" },
     secondary: { label: "Listen to the Podcast", href: "https://www.thinkingchristian.org/podcast" },
   },
-  note: "Not left. Not right. Not leaving.",
+  /** Hero book (doc 2026-11-14). `cover`: path under public/ once supplied. */
+  book: {
+    title: "Digital Discernment",
+    author: "James Spencer",
+    note: "forthcoming",
+    href: "https://www.thinkingchristian.org/digitaldiscernment",
+    cover: null as string | null,
+  },
   window: {
     label: "The Thinking Christian Framework",
     title: "The Framework",

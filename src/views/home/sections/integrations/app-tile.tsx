@@ -6,6 +6,8 @@ import type { IntegrationsApp } from "@/data/mocks/home/integrations";
 import { SPRING_SOFT } from "@/lib/motion";
 
 type AppTileProps = Pick<IntegrationsApp, "name" | "initials"> & {
+  /** Topic page; empty renders the tile without a link. */
+  href?: string;
   /** Label alignment under the tile — first row item hugs left, last hugs right. */
   align: "start" | "center" | "end";
   /** The rail has reached this tile: pop in. */
@@ -17,6 +19,16 @@ type AppTileProps = Pick<IntegrationsApp, "name" | "initials"> & {
   /** Drawn in the 390 frame (slack, stripe, postgres, notion). */
   in390?: boolean;
 };
+
+/** Wraps the tile in a link when it has a page (doc 2026-11-14). */
+const TileLink = ({ href, children }: { href: string; children: React.ReactNode }) =>
+  href ? (
+    <a href={href} className="group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+      {children}
+    </a>
+  ) : (
+    <>{children}</>
+  );
 
 /** 390 (3893:3065 …): every label is centred under its tile. */
 const CENTRED_390 = "w390:left-1/2 w390:-translate-x-1/2 w390:text-center";
@@ -46,6 +58,7 @@ const frameClass = (in1024: boolean, in390: boolean) =>
 export const AppTile = ({
   name,
   initials,
+  href = "",
   align,
   shown,
   active,
@@ -70,6 +83,7 @@ export const AppTile = ({
       className={`relative size-15 w390:size-14 ${frameClass(in1024, in390)}`}
       style={{ opacity: pop.o }}
     >
+      <TileLink href={href}>
       <animated.div
         aria-hidden="true"
         className="relative size-15 w390:size-14 overflow-clip rounded-integrations-tile backdrop-blur-integrations-tile"
@@ -99,10 +113,11 @@ export const AppTile = ({
         </animated.span>
       </animated.div>
       <span
-        className={`absolute top-19.5 w1024:top-19 w390:top-17 w-20 font-mono text-label leading-label text-foreground-muted ${LABEL_ALIGN[align]}`}
+        className={`absolute top-19.5 w1024:top-19 w390:top-17 w-28 w1024:w-24 w390:w-21 font-mono text-label leading-label w1024:text-hero-note w1024:leading-hero-note text-foreground-muted transition-colors duration-(--motion-fast) ease-entrance group-hover:text-accent ${LABEL_ALIGN[align]}`}
       >
         {name}
       </span>
+      </TileLink>
     </animated.li>
   );
 };

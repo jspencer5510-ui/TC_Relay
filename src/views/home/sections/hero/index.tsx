@@ -3,11 +3,10 @@ import Image from "next/image";
 import { DisplayTitle } from "@/components/ui/display-title";
 import { PillButton } from "@/components/ui/pill-button";
 import { Reveal } from "@/components/ui/reveal";
-import { TypeText } from "@/components/ui/type-text";
 import type { HeroContent } from "@/data/mocks/home/hero";
 
 import { DepthLayer, HeroTilt } from "./hero-tilt";
-import { ProductWindow } from "./product-window";
+import { HeroBook } from "./hero-book";
 import { LOAD, TILT } from "./timeline";
 
 /**
@@ -31,8 +30,7 @@ export const Hero = ({
   title,
   subhead,
   actions,
-  note,
-  window: product,
+  book,
 }: HeroContent) => (
   <section
     id="hero"
@@ -67,17 +65,16 @@ export const Hero = ({
           (light re-content, ADR-0032): the Thinking Christian copy is ~3× the
           frame's, so it stacks instead of sitting on fixed Figma tops. Same
           column origin / width per frame as the original layout. */}
-        <div className="absolute top-20 left-20 flex w-132 flex-col items-start gap-6 w1024:top-24 w1024:left-12 w1024:w-95 w1024:gap-5 w768:top-10 w768:left-1/2 w768:w-136 w768:-translate-x-1/2 w768:items-center w768:text-center w390:top-8 w390:w-87.5 w390:gap-4">
+        <div className="absolute top-20 left-20 flex w-170 flex-col items-start gap-6 w1024:top-24 w1024:left-12 w1024:w-120 w1024:gap-5 w768:top-10 w768:left-1/2 w768:w-136 w768:-translate-x-1/2 w768:items-center w768:text-center w390:top-8 w390:w-87.5 w390:gap-4">
           {/* Release chip 3488:21930 — padding less the 1px border Figma draws inside. */}
           <Reveal delay={LOAD.copy.chip}>
             <p className="flex h-9 items-center gap-3 overflow-clip rounded-hero-chip border border-hero-chip-border bg-hero-chip-fill backdrop-blur-hero-chip py-1.75 pr-3.25 pl-2.75 w1024:pr-3.75">
               <span aria-hidden className="size-1.5 shrink-0 bg-accent" />
-              <TypeText
-                delay={LOAD.copy.chipType}
-                className="font-mono text-label leading-label whitespace-nowrap text-hero-ink"
-              >
+              {/* plain text: TypeText measures in monospace ch, which clips
+                  spaced Public Sans capitals */}
+              <span className="text-label leading-label font-medium tracking-eyebrow whitespace-nowrap text-hero-ink uppercase">
                 {chip}
-              </TypeText>
+              </span>
             </p>
           </Reveal>
 
@@ -86,8 +83,9 @@ export const Hero = ({
               tag="h1"
               delay={LOAD.copy.title}
               {...title}
-              className="text-hero-title leading-hero-title w768:text-center"
-              accentClassName="text-hero-title-accent"
+              className="text-hero-title leading-hero-title font-semibold! w768:text-center"
+              accentClassName="text-hero-title"
+              accentFamily="display"
             />
           </Reveal>
 
@@ -107,7 +105,7 @@ export const Hero = ({
             <PillButton
               href={actions.primary.href}
               size="lg"
-              className="w390:w-full w390:justify-center"
+              className="uppercase tracking-badge w390:w-full w390:justify-center"
             >
               {actions.primary.label}
             </PillButton>
@@ -115,7 +113,7 @@ export const Hero = ({
               href={actions.secondary.href}
               variant="glass"
               size="lg"
-              className="w390:w-full w390:justify-center"
+              className="uppercase tracking-badge w390:w-full w390:justify-center"
             >
               <Image
                 src="/assets/hero/hero-play-icon.svg"
@@ -128,17 +126,6 @@ export const Hero = ({
             </PillButton>
           </Reveal>
 
-          <Reveal delay={LOAD.copy.note} className="flex">
-            {/* Trailing nowrap space (collapses, no width): TypeText rounds
-              its ch width down and would shave the final character. */}
-            <TypeText
-              tag="p"
-              delay={LOAD.copy.noteType}
-              className="font-mono text-label leading-label whitespace-nowrap text-foreground-muted w390:text-hero-note w390:leading-hero-note"
-            >
-              {`${note} `}
-            </TypeText>
-          </Reveal>
         </div>
 
         {/* Tick 3488:21953 / 3603:2159 and field marks 3488:21954 / 3488:21956 —
@@ -164,7 +151,7 @@ export const Hero = ({
         {/* 768 / 390 stack the window under the copy; the longer copy pushes
           it down by --hero-copy-extra (hero.css). */}
         <div className="pointer-events-none absolute inset-0 translate-y-(--hero-copy-extra) [&>*]:pointer-events-auto">
-          <ProductWindow {...product} />
+          <HeroBook book={book} />
         </div>
       </HeroTilt>
     </div>

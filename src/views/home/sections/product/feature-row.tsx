@@ -10,6 +10,8 @@ export interface FeatureCopy {
   index: string;
   title: string;
   body: string;
+  /** Optional text link under the body (doc 2026-11-14). */
+  cta?: { label: string; href: string };
 }
 
 export interface FeatureRowProps extends FeatureCopy {
@@ -50,6 +52,7 @@ export const FeatureRow = ({
   index,
   title,
   body,
+  cta,
   visual,
   flip = false,
   className = "",
@@ -78,6 +81,15 @@ export const FeatureRow = ({
       >
         {body}
       </FocusText>
+      {cta && (
+        <a
+          href={cta.href}
+          className="mt-1 inline-flex items-center gap-2 text-label leading-label font-medium tracking-badge text-accent uppercase transition-colors duration-(--motion-fast) ease-entrance hover:text-foreground"
+        >
+          {cta.label}
+          <span aria-hidden="true">→</span>
+        </a>
+      )}
     </Reveal>
   );
   const card = (

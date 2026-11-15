@@ -14,6 +14,8 @@ import { Integrations } from "@/views/home/sections/integrations";
 import { integrationsMock } from "@/data/mocks/home/integrations";
 import { Product } from "@/views/home/sections/product";
 import { productMock } from "@/data/mocks/home/product";
+import { Story } from "@/views/home/sections/story";
+import { storyMock } from "@/data/mocks/home/story";
 import { Statement } from "@/views/home/sections/statement";
 import { statementMock } from "@/data/mocks/home/statement";
 import { Scale } from "@/views/home/sections/scale";
@@ -81,7 +83,34 @@ export const HomeView = ({ robot = false }: { robot?: boolean }) => (
           <Suspense>
             <HydrateNear id="product">
               <ScrollBlur enter>
-                <Product {...productMock} />
+                <Product
+                  id="product"
+                  label="Breaking from the world's patterns"
+                  head={productMock.patterns.head}
+                  graphics={productMock}
+                />
+              </ScrollBlur>
+            </HydrateNear>
+          </Suspense>
+          <div aria-hidden="true" className="h-section-gap" />
+          <Suspense>
+            <HydrateNear id="story">
+              <ScrollBlur enter>
+                <Story {...storyMock} />
+              </ScrollBlur>
+            </HydrateNear>
+          </Suspense>
+          <div aria-hidden="true" className="h-section-gap" />
+          <Suspense>
+            <HydrateNear id="framework">
+              <ScrollBlur enter>
+                <Product
+                  id="framework"
+                  label="The Thinking Christian Framework"
+                  head={productMock.framework.head}
+                  rows={productMock.framework.rows}
+                  graphics={productMock}
+                />
               </ScrollBlur>
             </HydrateNear>
           </Suspense>

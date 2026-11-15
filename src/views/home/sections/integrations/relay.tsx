@@ -484,6 +484,7 @@ export const IntegrationsRelay = ({
               key={app.name}
               name={app.name}
               initials={app.initials}
+              href={app.href}
               align={
                 lane === 0 ? "start" : lane === count - 1 ? "end" : "center"
               }
