@@ -36,12 +36,20 @@ Order and content of `src/views/home/index.tsx`, per the owner's change doc
   trace | approval | chart` plus copy and an optional `cta`) and the shared
   row graphics — one component for both "content service" sections.
 - **`FeatureRow`** — optional `cta` text link under the body.
+- **`Wordmark`** (`components/ui/wordmark.tsx`) — "Thinking" + italic orange
+  "Christian" as live Playfair text; paired with `assets/brand/tc-mark.svg`
+  in the nav and footer.
 - **`ContactLink`** (`footer/contact-link.tsx`) — mailto row that replaced the
   starter's non-functional signup form.
 
+## Brand assets
+
+`public/assets/brand/` — `tc-mark.svg` (bare orange mark), `tc-tile-orange.svg`
+(white mark on orange), `tc-tile-white.svg` (orange mark on white). Vector,
+measured from the owner's artwork; tile corner 6.125%.
+
 ## Waiting on the owner
 
-- Thinking Christian logo file → `navMock.brand.logo`
 - Digital Discernment cover → `heroMock.book.cover`
 - Portrait → `storyMock.photo`
 - Images for Framework rows 01–04 (rows show placeholder graphics)

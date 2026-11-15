@@ -15,7 +15,7 @@
   --raw-statement-color-stem-from: rgba(255, 255, 255, 0.85); /* Drop line 3488:22135 */
   --raw-statement-color-stem-to: rgba(255, 255, 255, 0.3); /* Drop line 3488:22135 */
   --raw-statement-radius-plate: 2rem; /* 32 */
-  --raw-statement-radius-mark: 1.5rem; /* 24 */
+  --raw-statement-radius-mark: 6.125%; /* Thinking Christian tile corner (98 / 1600, owner logo) */
   --raw-statement-font-size-12: 0.75rem; /* Kicker at 390 (3893:3603) */
   --raw-statement-line-height-16: 1rem; /* Kicker at 390 */
   --raw-statement-line-height-40: 2.5rem; /* Title lines at 768 (3832:7970) */

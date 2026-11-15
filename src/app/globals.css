@@ -430,7 +430,7 @@
   .logo-open-fly {
     display: block;
     overflow: hidden;
-    border-radius: 31.58%;
+    border-radius: var(--statement-corner-mark); /* the logo tile's corner */
     border: 1px solid var(--statement-mark-border);
     background: linear-gradient(
       135deg in srgb,

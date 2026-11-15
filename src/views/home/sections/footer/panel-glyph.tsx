@@ -26,7 +26,6 @@ const REST = 2080;
 /** The back chevron trails the front one by this share of the step. */
 const LAG = 0.3;
 const lead = (p: number) => Math.min(1, p / (1 - LAG));
-const trail = (p: number) => Math.max(0, (p - LAG) / (1 - LAG));
 
 /**
  * Panel glyph 3488:22873 — "Шаг вперёд", looping while the brand panel is on
@@ -38,8 +37,29 @@ const trail = (p: number) => Math.max(0, (p - LAG) / (1 - LAG));
  * One spring drives both. It waits for the footer entrance to settle
  * (`useLoopReady`), so it is the last thing to move; off screen it snaps to
  * rest and stops, and a return starts the cycle from its beginning.
- * Reduced motion keeps it static. Geometry is footer-panel-glyph.svg inlined.
+ * Reduced motion keeps it static. Geometry is the owner's mark (tc-mark.svg).
  */
+/** The owner's mark, in its source units (2000-px artboard). */
+const MARK_BARS = [
+  [524, 780, 127, 474],
+  [688, 649, 128, 737],
+  [853, 502, 127, 999],
+  [1018, 502, 127, 999],
+  [1184, 649, 127, 737],
+  [1349, 780, 128, 474],
+] as const;
+const MARK_BRIDGES = [
+  "M813 1242Q834 1260 855 1242L855 1298Q834 1280 813 1298Z",
+  "M1142 755Q1164 777 1186 755L1186 807Q1164 785 1142 807Z",
+] as const;
+/** 998-unit-tall mark → 150 px, the old chevrons' height. */
+const MARK_SCALE = 150 / 998;
+/** Bar i brightens as the step passes it (0 → 5, left → right). */
+const barWave = (p: number, i: number) => {
+  const d = Math.abs(p * 1.4 - 0.2 - i / 5);
+  return d >= 0.35 ? 0 : 1 - d / 0.35;
+};
+
 export const PanelGlyph = () => {
   const { ref, inView, reduced } = useLoopGate<SVGSVGElement>();
   const ready = useLoopReady();
@@ -85,24 +105,37 @@ export const PanelGlyph = () => {
       overflow="visible"
       className="absolute -top-10 left-74.75 block size-75 max-w-none w1024:-top-12 w1024:left-58.75 w768:-top-11 w768:left-119.25 w768:size-71.25 w768:[clip-path:inset(calc(var(--spacing)*17)_calc(var(--spacing)*24.5)_calc(var(--spacing)*16.75)_calc(var(--spacing)*12.25))] w390:-top-8.75 w390:[clip-path:inset(calc(var(--spacing)*13.75)_calc(var(--spacing)*19.25)_calc(var(--spacing)*13.25)_calc(var(--spacing)*10))] w390:left-44.75 w390:size-57"
     >
-      <animated.path
-        d="M64 84L124 150L64 216"
-        stroke="white"
-        strokeOpacity={p.to((v) => 0.06 + 0.05 * trail(v))}
-        strokeWidth="26"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        style={{ transform: p.to((v) => `translateX(${STRIDE * trail(v)}px)`) }}
-      />
-      <animated.path
-        d="M124 84L184 150L124 216"
-        stroke="white"
-        strokeOpacity={p.to((v) => 0.12 + 0.08 * lead(v))}
-        strokeWidth="26"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+      {/* Thinking Christian mark (owner logo) in place of the two chevrons:
+          the mark steps forward as the chevrons did, and its bars brighten
+          left → right with the step. Geometry: public/assets/brand/tc-mark.svg. */}
+      <defs>
+        <mask id="panel-glyph-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="2000" height="2000">
+          <rect width="2000" height="2000" fill="white" />
+          <rect x="902" y="872" width="196" height="48" rx="12" fill="black" />
+        </mask>
+      </defs>
+      <animated.g
         style={{ transform: p.to((v) => `translateX(${STRIDE * lead(v)}px)`) }}
-      />
+      >
+        <g transform={`translate(124 150) scale(${MARK_SCALE}) translate(-1000 -1001)`}>
+          <g mask="url(#panel-glyph-cut)" fill="white">
+            {MARK_BARS.map(([x, y, w, h], i) => (
+              <animated.rect
+                key={x}
+                x={x}
+                y={y}
+                width={w}
+                height={h}
+                rx={26}
+                fillOpacity={p.to((v) => 0.06 + 0.05 * barWave(v, i))}
+              />
+            ))}
+            {MARK_BRIDGES.map((d) => (
+              <path key={d} d={d} fillOpacity={0.06} />
+            ))}
+          </g>
+        </g>
+      </animated.g>
     </svg>
   );
 };

@@ -2,7 +2,9 @@ import Link from "next/link";
 
 import type { FooterContent } from "@/data/mocks/home/footer";
 
-import { LogoMark } from "./logo-mark";
+import Image from "next/image";
+
+import { Wordmark } from "@/components/ui/wordmark";
 import { PanelGlyph } from "./panel-glyph";
 import { CUE, CueFade, CueFocus, CueLine, CueRise } from "./stage";
 
@@ -32,10 +34,15 @@ export const BrandPanel = ({
       href={href}
       className="absolute top-7.75 left-7.75 flex items-center gap-3 w1024:top-5.75 w1024:left-5.75 w390:left-4.75"
     >
-      <LogoMark size="md" />
-      <span className="text-footer-wordmark leading-footer-wordmark font-medium tracking-wordmark text-foreground">
-        {name}
-      </span>
+      <Image
+        src="/assets/brand/tc-mark.svg"
+        alt=""
+        width={952}
+        height={998}
+        className="h-8 w-auto"
+      />
+      <Wordmark className="text-footer-wordmark leading-footer-wordmark" />
+      <span className="sr-only">{name}</span>
     </Link>
 
     <CueFocus

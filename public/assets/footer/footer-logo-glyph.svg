@@ -1,6 +1,1 @@
-<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Glyph">
-<path id="Vector" d="M8 8L14 14L8 20" stroke="#ffffff" stroke-opacity="0.4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_2" d="M14 8L20 14L14 20" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="200 200 1600 1600" fill="none"><mask id="tc-cut-footer-logo-glyph" maskUnits="userSpaceOnUse" x="0" y="0" width="2000" height="2000"><rect width="2000" height="2000" fill="#fff"/><rect x="902" y="872" width="196" height="48" rx="12" fill="#000"/></mask><g fill="#ffffff" mask="url(#tc-cut-footer-logo-glyph)"><rect x="524" y="780" width="127" height="474" rx="26"/><rect x="688" y="649" width="128" height="737" rx="26"/><rect x="853" y="502" width="127" height="999" rx="26"/><rect x="1018" y="502" width="127" height="999" rx="26"/><rect x="1184" y="649" width="127" height="737" rx="26"/><rect x="1349" y="780" width="128" height="474" rx="26"/><path d="M813 1242Q834.0 1260 855 1242L855 1298Q834.0 1280 813 1298Z"/><path d="M1142 755Q1164.0 777 1186 755L1186 807Q1164.0 785 1142 807Z"/></g></svg>

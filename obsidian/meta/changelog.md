@@ -16,6 +16,31 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-11-15 — Owner logo in place of the Relay chevron tile
+
+The owner's mark (six bars, a cross cut and two bridges) replaces the chevron
+"box arrow" everywhere, rebuilt as vector geometry measured from the owner's
+2000-px artwork — `scratchpad` generator, output in `public/assets/brand/`
+(`tc-mark.svg`, `tc-tile-orange.svg`, `tc-tile-white.svg`).
+
+- Same file names regenerated so components and motion are untouched:
+  `nav-logo-mark`, `scale-runtime`, `product-avatar`, `icon.svg` (orange tile,
+  white mark); `footer-logo-glyph` / `footer-labs-glyph` (white mark);
+  `statement-mark-glyph` (orange mark). The logo-open transition (tile pops,
+  plate grows, tile flies to the hub) runs as before.
+- Tile corners follow the owner's tile (98 / 1600 = 6.125%):
+  `--raw-statement-radius-mark`, `--raw-footer-radius-mark`, and the
+  `.logo-open-mark/-fly` rule now reads `--statement-corner-mark`.
+- Nav and footer show the full logo: bare mark + `Wordmark` ("Thinking" /
+  italic orange "Christian", live Playfair text). Nav shows the mark only at
+  768 and below.
+- Footer panel watermark: the two stepping chevrons became the mark, same
+  spring loop; its bars brighten left → right with the step.
+- Favicons, app icons, maskable icon and `open-graph.png` regenerated
+  (the OG image still showed Relay before this).
+
+---
+
 ## 2026-11-15 — Culture topic linked
 
 "Literature, Film, & Culture" now links to

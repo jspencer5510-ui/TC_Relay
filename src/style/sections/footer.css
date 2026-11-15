@@ -33,6 +33,7 @@
   --raw-footer-letter-spacing-1: 0.0625rem; /* stay in touch 3488:22881 */
 
   --raw-footer-radius-24: 1.5rem; /* panels 3888:7058 / 7082 */
+  --raw-footer-radius-mark: 6.125%; /* Thinking Christian tile corner (owner logo) */
   --raw-footer-radius-8: 0.5rem; /* logo marks 28 + 26, social chip */
   --raw-footer-radius-4: 0.25rem; /* social chip at 390 — 3954:713 */
 }
@@ -65,7 +66,7 @@
   --footer-letter-spacing-mono: var(--raw-footer-letter-spacing-1);
 
   --footer-corner-panel: var(--raw-footer-radius-24);
-  --footer-corner-mark: var(--raw-footer-radius-8);
+  --footer-corner-mark: var(--raw-footer-radius-mark);
   --footer-corner-chip: var(--raw-footer-radius-8);
 }
 

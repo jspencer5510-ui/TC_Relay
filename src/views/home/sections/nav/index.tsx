@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { Wordmark } from "@/components/ui/wordmark";
+
 import { TopicsMenu } from "./topics-menu";
 
 import { PillButton } from "@/components/ui/pill-button";
@@ -29,18 +31,16 @@ export const Nav = ({ brand, links, status, cta }: NavContent) => (
       variant="fade"
       className="relative z-10 mx-page flex h-22 w-page items-center justify-between px-page-inset w768:h-16 w768:px-8 w390:h-14 w390:px-page-inset"
     >
-      <Link href={brand.href} className="flex items-center gap-3">
+      <Link href={brand.href} aria-label={brand.name} className="flex items-center gap-2.5">
         <Image
           src={brand.logo}
           alt=""
-          width={28}
-          height={28}
-          className="size-7"
+          width={952}
+          height={998}
+          className="h-8 w-auto w390:h-7"
           priority
         />
-        <span className="whitespace-nowrap text-wordmark leading-lead font-medium w768:sr-only tracking-wordmark text-foreground">
-          {brand.name}
-        </span>
+        <Wordmark className="text-wordmark leading-lead w768:hidden" />
       </Link>
 
       <nav aria-label="Primary" className="w390:hidden">

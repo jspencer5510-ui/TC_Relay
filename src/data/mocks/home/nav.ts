@@ -17,8 +17,8 @@ export const navMock: {
   status: string;
   cta: { label: string; href: string };
 } = {
-  /** `logo` — swap in the Thinking Christian logo file when supplied. */
-  brand: { name: "Thinking Christian", href: "/", logo: "/assets/nav/nav-logo-mark.svg" },
+  /** `logo` — the owner's mark (bare, no tile); the wordmark is live text. */
+  brand: { name: "Thinking Christian", href: "/", logo: "/assets/brand/tc-mark.svg" },
   links: [
     { label: "Podcast", href: "https://www.thinkingchristian.org/podcast", code: "PO", note: "Long-form conversations" },
     {

@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import type { FooterContent } from "@/data/mocks/home/footer";
 
+import { Wordmark } from "@/components/ui/wordmark";
+
 import { LogoMark } from "./logo-mark";
 import { CUE, CueRise } from "./stage";
 
@@ -35,8 +37,9 @@ export const LinkArea = ({
       className="absolute top-133.25 left-20 w-100 w1024:top-98.75 w1024:left-12 w1024:w-75 w768:top-177.25 w768:left-10 w768:w-172 w390:top-198.5 w390:left-5 w390:w-87.5"
     >
       <LogoMark size="sm" />
-      <p className="absolute top-0.25 left-9 text-body leading-body font-medium whitespace-nowrap text-foreground w1024:left-9.5 w768:text-lead w390:text-body">
-        {company.name}
+      <p className="absolute top-0.25 left-9 text-body leading-body w1024:left-9.5 w768:text-lead w390:text-body">
+        <Wordmark />
+        <span className="sr-only">{company.name}</span>
       </p>
       <p className="absolute top-10.5 left-0 w-100 text-body leading-body text-foreground-muted w1024:w-62 w768:w-172 w390:w-87.5">
         {company.copy}
