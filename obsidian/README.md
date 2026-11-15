@@ -41,6 +41,7 @@ humans and AI agents (Claude Code, Cursor).
 - [[seo-metadata]] — metadata generation & bot detection
 - [[components/animation-springs|Spring components catalog]]
 - [[components/common|Common components catalog]]
+- [[components/home-sections|Home sections — page map and new components]]
 - [[hooks]] — custom hooks catalog
 - [[utils]] — utility functions catalog
 
