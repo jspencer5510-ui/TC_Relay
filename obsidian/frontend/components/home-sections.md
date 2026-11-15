@@ -45,7 +45,6 @@ Order and content of `src/views/home/index.tsx`, per the owner's change doc
 - Digital Discernment cover → `heroMock.book.cover`
 - Portrait → `storyMock.photo`
 - Images for Framework rows 01–04 (rows show placeholder graphics)
-- Link for "Literature, Film, & Culture"
 
 ## Related
 

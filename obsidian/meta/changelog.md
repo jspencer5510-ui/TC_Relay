@@ -16,6 +16,14 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-11-15 — Culture topic linked
+
+"Literature, Film, & Culture" now links to
+`https://www.thinkingchristian.org/culture` (owner-supplied), so all six
+topic tiles are links.
+
+---
+
 ## 2026-11-15 — Owner change doc applied (branch `content/thinking-christian`)
 
 Applied the owner's change table section by section. Map and new components:

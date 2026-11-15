@@ -9,14 +9,13 @@ export const integrationsMock = {
    */
   /**
    * Topic tiles (doc 2026-11-14) — each links to its topic page. `in1024`
-   * covers 1024 and 768; `in390` is the phone row (four fit). Literature has
-   * no page yet, so it renders without a link.
+   * covers 1024 and 768; `in390` is the phone row (four fit).
    */
   apps: [
     { name: "(Un)Biblical Masculinity", initials: "MA", href: "https://www.thinkingchristian.org/unmanly", active: false, in1024: true, in390: true },
     { name: "Christians & Politics", initials: "PO", href: "https://www.thinkingchristian.org/politics", active: true, in1024: true, in390: true },
     { name: "Technology & Media", initials: "TE", href: "https://www.thinkingchristian.org/technology", active: false, in1024: true, in390: true },
-    { name: "Literature, Film, & Culture", initials: "CU", href: "", active: false, in1024: true, in390: false },
+    { name: "Literature, Film, & Culture", initials: "CU", href: "https://www.thinkingchristian.org/culture", active: false, in1024: true, in390: false },
     { name: "Scripture & Theology", initials: "SC", href: "https://www.thinkingchristian.org/scripture", active: false, in1024: true, in390: true },
     { name: "Church History", initials: "CH", href: "https://www.thinkingchristian.org/reformation", active: false, in1024: true, in390: false },
   ],
