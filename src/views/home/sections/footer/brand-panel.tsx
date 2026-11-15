@@ -32,16 +32,16 @@ export const BrandPanel = ({
 
     <Link
       href={href}
-      className="absolute top-7.75 left-7.75 flex items-center gap-3 w1024:top-5.75 w1024:left-5.75 w390:left-4.75"
+      className="absolute top-7.75 left-7.75 flex items-center gap-1.5 w1024:top-5.75 w1024:left-5.75 w390:left-4.75"
     >
       <Image
         src="/assets/brand/tc-mark.svg"
         alt=""
         width={952}
         height={998}
-        className="h-8 w-auto"
+        className="h-12 w-auto"
       />
-      <Wordmark className="text-footer-wordmark leading-footer-wordmark" />
+      <Wordmark className="text-body leading-body" />
       <span className="sr-only">{name}</span>
     </Link>
 

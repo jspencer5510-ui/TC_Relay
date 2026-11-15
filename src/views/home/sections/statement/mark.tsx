@@ -64,7 +64,7 @@ export const StatementMark = () => {
               alt=""
               width={34}
               height={37}
-              className="absolute top-[calc(var(--spacing)*4.6175)] left-[calc(var(--spacing)*5.3675)] h-[calc(var(--spacing)*9.265)] w-[calc(var(--spacing)*8.3825)] max-w-none"
+              className="absolute top-[18.875%] left-[20.25%] h-[62.375%] w-[59.5%] max-w-none"
             />
           </animated.div>
         </div>

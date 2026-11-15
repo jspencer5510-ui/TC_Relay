@@ -5,7 +5,7 @@
  * Size, leading and visibility come from `className`.
  */
 export const Wordmark = ({ className = "" }: { className?: string }) => (
-  <span className={`font-display whitespace-nowrap text-foreground ${className}`}>
+  <span className={`font-display font-normal whitespace-nowrap text-foreground ${className}`}>
     Thinking <span className="text-title-accent italic">Christian</span>
   </span>
 );

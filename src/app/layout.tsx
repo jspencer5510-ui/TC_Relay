@@ -31,7 +31,7 @@ const publicSans = Public_Sans({
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
-  weight: ["500", "600"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",

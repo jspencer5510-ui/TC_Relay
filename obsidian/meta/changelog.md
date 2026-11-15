@@ -16,6 +16,23 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-11-15 — Logo fidelity pass (owner: "doesn't look quite right")
+
+Pixel-diffed the vector mark against the owner's 2000-px artwork and fixed
+what differed: bridge slots now end in the artwork's rounded notches, bar
+corners 28 (was 26), crossbar cut ends rx 20. Residual difference 0.23% of ink
+pixels (edge anti-aliasing only). `panel-glyph.tsx` carries the same geometry.
+
+- Tile glyph placement now matches the owner's tile (mark = 59.5% × 62.4% of
+  the tile at its exact offsets) in `statement/mark.tsx`, `logo-open.tsx`
+  and `preloader.tsx` (was ≈ 44% × 49%).
+- Wordmark set in Playfair Regular (400 now loaded), as in the owner's logo.
+- Nav / footer lockups follow the logo's proportions: mark ≈ 3× the text
+  size, tight gap (nav: 52 px mark, 18 px text at 1440).
+- Icons, favicon and `open-graph.png` regenerated from the corrected mark.
+
+---
+
 ## 2026-11-15 — Owner logo in place of the Relay chevron tile
 
 The owner's mark (six bars, a cross cut and two bridges) replaces the chevron

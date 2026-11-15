@@ -49,8 +49,8 @@ const MARK_BARS = [
   [1349, 780, 128, 474],
 ] as const;
 const MARK_BRIDGES = [
-  "M813 1242Q834 1260 855 1242L855 1298Q834 1280 813 1298Z",
-  "M1142 755Q1164 777 1186 755L1186 807Q1164 785 1142 807Z",
+  "M813 1234C817 1246 823 1251 834 1251C845 1251 851 1246 855 1234L855 1306C851 1294 845 1289 834 1289C823 1289 817 1294 813 1306Z",
+  "M1144 747C1148 760 1154 766 1164 766C1174 766 1180 760 1184 747L1184 815C1180 802 1174 796 1164 796C1154 796 1148 802 1144 815Z",
 ] as const;
 /** 998-unit-tall mark → 150 px, the old chevrons' height. */
 const MARK_SCALE = 150 / 998;
@@ -111,7 +111,7 @@ export const PanelGlyph = () => {
       <defs>
         <mask id="panel-glyph-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="2000" height="2000">
           <rect width="2000" height="2000" fill="white" />
-          <rect x="902" y="872" width="196" height="48" rx="12" fill="black" />
+          <rect x="902" y="872" width="196" height="49" rx="20" fill="black" />
         </mask>
       </defs>
       <animated.g
@@ -126,7 +126,7 @@ export const PanelGlyph = () => {
                 y={y}
                 width={w}
                 height={h}
-                rx={26}
+                rx={28}
                 fillOpacity={p.to((v) => 0.06 + 0.05 * barWave(v, i))}
               />
             ))}

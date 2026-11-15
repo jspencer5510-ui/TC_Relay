@@ -31,16 +31,16 @@ export const Nav = ({ brand, links, status, cta }: NavContent) => (
       variant="fade"
       className="relative z-10 mx-page flex h-22 w-page items-center justify-between px-page-inset w768:h-16 w768:px-8 w390:h-14 w390:px-page-inset"
     >
-      <Link href={brand.href} aria-label={brand.name} className="flex items-center gap-2.5">
+      <Link href={brand.href} aria-label={brand.name} className="flex items-center gap-1.5">
         <Image
           src={brand.logo}
           alt=""
           width={952}
           height={998}
-          className="h-8 w-auto w390:h-7"
+          className="h-13 w-auto w768:h-10 w390:h-9"
           priority
         />
-        <Wordmark className="text-wordmark leading-lead w768:hidden" />
+        <Wordmark className="text-lead leading-lead w768:hidden" />
       </Link>
 
       <nav aria-label="Primary" className="w390:hidden">

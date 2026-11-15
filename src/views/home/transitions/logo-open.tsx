@@ -33,7 +33,7 @@ const Glyph = () => (
     alt=""
     width={34}
     height={37}
-    className="absolute top-[24.3%] left-[28.25%] h-[48.76%] w-[44.1%] max-w-none"
+    className="absolute top-[18.875%] left-[20.25%] h-[62.375%] w-[59.5%] max-w-none"
   />
 );
 
