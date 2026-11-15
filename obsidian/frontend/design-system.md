@@ -175,7 +175,7 @@ Brightness and bloom are tuned down for paper (see `getlayers.json`).
 
 | Role | Typeface | Binding | Used by |
 |---|---|---|---|
-| Titles, h1/h2 | **Playfair Display Medium** (500) | `--font-playfair-display` → `--font-display` → `font-display` | `DisplayTitle`, statement title, footer CTA title, error / 404 |
+| Titles, h1/h2; the logo wordmark | **Playfair Display** — Medium 500 titles, Semibold 600 hero, Regular 400 wordmark (`Wordmark`), roman + italic | `--font-playfair-display` → `--font-display` → `font-display` | `DisplayTitle`, statement title, footer CTA title, error / 404 |
 | Subtitles, the italic accent word | **Cormorant Garamond** (400/500, roman + italic) | `--font-cormorant-garamond` → `--font-serif` → `font-serif` | accent word in every display title; hero subtitle (`text-subtitle`, 22 px — its small x-height reads like ~18 px sans) |
 | Paragraphs, UI | **Public Sans** (variable) | `--font-public-sans` → `--font-sans`; `body` default | everything else |
 | Data labels | Fragment Mono (kept from the template) | `--font-fragment-mono` → `--font-mono` | timestamps, chips, run ids |
