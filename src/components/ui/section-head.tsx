@@ -38,7 +38,8 @@ export const SectionHead = ({
     <Reveal
       className={`flex w-190 flex-col items-start gap-4 w1024:w-full w1024:items-center w1024:gap-6 w390:gap-3 ${stackClassName}`}
     >
-      <Badge label={badge} />
+      {/* centred text too: a long eyebrow wraps at 390 */}
+      <Badge label={badge} className="w1024:text-center" />
       <DisplayTitle
         {...title}
         className="text-section-title leading-section-title w1024:text-center"

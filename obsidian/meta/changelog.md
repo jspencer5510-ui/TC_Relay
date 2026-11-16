@@ -26,7 +26,8 @@ For *why* the conventions are what they are, see [[decisions-log]].
   `caption` prop; `ruler.tsx` no longer renders it).
 - **Eyebrows are plain text now** (owner: "same style as on the current site…
   No button"). `Badge` and the hero chip render orange uppercase text with
-  `tracking-eyebrow`, no pill, no border, no dot. `PulseDot` was only used by
+  `tracking-eyebrow`, no pill, no border, no dot (centred text in the stacked
+  section heads, where a long eyebrow wraps at 390). `PulseDot` was only used by
   those pills and was deleted.
 
 ## 2026-11-15 — Logo fidelity pass (owner: "doesn't look quite right")
