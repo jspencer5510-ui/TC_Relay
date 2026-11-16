@@ -28,10 +28,10 @@ export const Statement = ({
       <StatementType delay={TIMELINE.kicker}>{kicker}</StatementType>
     </p>
 
-    <StatementTitle lead={title.lead} accent={title.accent} tail={title.tail} />
+    <StatementTitle lead={title.lead} accent={title.accent} tail={title.tail} caption={caption} />
 
     <StatementMark />
 
-    <Ruler caption={caption} now={now} hours={hours} />
+    <Ruler now={now} hours={hours} />
   </StatementPlate>
 );

@@ -16,6 +16,19 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-11-16 — Cover, portrait, caption move, plain eyebrows
+
+- **Book cover and portrait in.** `public/assets/hero/digital-discernment-cover.jpg`
+  (1000×1500) and `public/assets/story/james-spencer.jpg`. The owner's photo had
+  a second person at the right edge; it was cropped to 1020×1275 (4:5) before use.
+- **"Biblically rooted, theologically savvy"** moved from the statement ruler to
+  directly under the statement heading at every width (`statement/title.tsx`
+  `caption` prop; `ruler.tsx` no longer renders it).
+- **Eyebrows are plain text now** (owner: "same style as on the current site…
+  No button"). `Badge` and the hero chip render orange uppercase text with
+  `tracking-eyebrow`, no pill, no border, no dot. `PulseDot` was only used by
+  those pills and was deleted.
+
 ## 2026-11-15 — Logo fidelity pass (owner: "doesn't look quite right")
 
 Pixel-diffed the vector mark against the owner's 2000-px artwork and fixed

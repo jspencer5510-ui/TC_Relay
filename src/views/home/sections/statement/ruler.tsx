@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 
 import { useFrame } from "@/hooks/use-frame";
 
-import { StatementType } from "./plate";
 import { POP, TIMELINE, useStatementSeen, WAVE } from "./use-statement-seen";
 
 /**
@@ -23,7 +22,7 @@ const HOUR_POSITIONS = [
   /* seven slots spaced evenly along the line (1280 / 928 / 688 wide);
      the centre slot is the "now" label */
   "left-20 w-36 text-left w1024:left-12 w1024:w-24 w768:left-10 w768:w-20",
-  "left-55.25 w-36 text-center w1024:left-38.75 w1024:w-24 w768:left-30.5 w768:w-20",
+  "left-55.25 w-36 text-center w1024:left-38.75 w1024:w-24 w768:left-33.75 w768:w-20",
   "left-108.75 w-36 text-center w1024:left-77.25 w1024:w-24 w768:left-57.25 w768:w-20",
   "left-215.25 w-36 text-center w1024:left-154.75 w1024:w-24 w768:left-114.75 w768:w-20",
   "left-268.75 w-36 text-center w1024:left-193.25 w1024:w-24 w768:left-141.5 w768:w-20",
@@ -58,7 +57,6 @@ const crest = (wave: number, p: number) => {
 };
 
 export interface RulerProps {
-  caption: string;
   now: string;
   hours: readonly string[];
 }
@@ -71,7 +69,7 @@ export interface RulerProps {
  * again every few seconds: ticks rise and darken as it passes, "now" pulses.
  * Between passes the ruler rests exactly at Figma.
  */
-export const Ruler = ({ caption, now, hours }: RulerProps) => {
+export const Ruler = ({ now, hours }: RulerProps) => {
   const { seen, inView, reduced } = useStatementSeen();
   const frame = useFrame();
   const span = RULER_WIDTH[frame] + 2;
@@ -146,9 +144,6 @@ export const Ruler = ({ caption, now, hours }: RulerProps) => {
 
   return (
     <>
-      <p className="absolute top-112 left-20 h-5 font-mono text-label leading-label whitespace-nowrap text-statement-ink-caption w1024:top-101.5 w1024:left-12 w768:top-99.5 w768:left-10 w390:top-[calc(var(--spacing)*61.25)] w390:left-5 w390:h-10 w390:w-19.75 w390:whitespace-normal">
-        <StatementType delay={TIMELINE.caption}>{caption}</StatementType>
-      </p>
       <svg
         aria-hidden="true"
         width={span}

@@ -13,7 +13,7 @@ export const storyMock = {
   },
   secondary: { label: "Order Digital Discernment", href: "https://link.amazon/B00xb3xPQ" },
   /** Path under public/ once the owner supplies the portrait. */
-  photo: null as string | null,
+  photo: "/assets/story/james-spencer.jpg" as string | null,
   photoAlt: "James Spencer",
 };
 

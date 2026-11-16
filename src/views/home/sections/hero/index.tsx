@@ -68,13 +68,9 @@ export const Hero = ({
         <div className="absolute top-20 left-20 flex w-170 flex-col items-start gap-6 w1024:top-24 w1024:left-12 w1024:w-120 w1024:gap-5 w768:top-10 w768:left-1/2 w768:w-136 w768:-translate-x-1/2 w768:items-center w768:text-center w390:top-8 w390:w-87.5 w390:gap-4">
           {/* Release chip 3488:21930 — padding less the 1px border Figma draws inside. */}
           <Reveal delay={LOAD.copy.chip}>
-            <p className="flex h-9 items-center gap-3 overflow-clip rounded-hero-chip border border-hero-chip-border bg-hero-chip-fill backdrop-blur-hero-chip py-1.75 pr-3.25 pl-2.75 w1024:pr-3.75">
-              <span aria-hidden className="size-1.5 shrink-0 bg-accent" />
-              {/* plain text: TypeText measures in monospace ch, which clips
-                  spaced Public Sans capitals */}
-              <span className="text-label leading-label font-medium tracking-eyebrow whitespace-nowrap text-hero-ink uppercase">
-                {chip}
-              </span>
+            {/* eyebrow: plain orange capitals, as the site's other eyebrows */}
+            <p className="text-label leading-label font-semibold tracking-eyebrow whitespace-nowrap text-accent uppercase">
+              {chip}
             </p>
           </Reveal>
 

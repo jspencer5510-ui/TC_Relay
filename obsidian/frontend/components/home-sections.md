@@ -12,7 +12,7 @@ Order and content of `src/views/home/index.tsx`, per the owner's change doc
 | # | Section (`id`) | Component | Content |
 |---|---|---|---|
 | 01 | Nav | `sections/nav` + `topics-menu.tsx` | Podcast · Topics ▾ · Questions · Articles · About · THE FRAMEWORK |
-| 02 | Hero (`hero`) | `sections/hero` + `hero-book.tsx` | chip, headline (Playfair semibold, last word italic orange), subhead, two CTAs, Digital Discernment cover |
+| 02 | Hero (`hero`) | `sections/hero` + `hero-book.tsx` | eyebrow (plain orange tracked caps, no pill), headline (Playfair semibold, last word italic orange), subhead, two CTAs, Digital Discernment cover |
 | 03 | Topics (`integrations`) | `sections/integrations` | six linked topic tiles |
 | 04 | Patterns (`product`) | `sections/product` (no rows) | "God doesn't live in our world. We live in His." |
 | 05 | Story (`story`) | `sections/story` | eyebrow, heading, three paragraphs, two CTAs, portrait |
@@ -60,8 +60,6 @@ Measured slot sizes (CSS px; the page scales up to 1920, so export ≈ 2× the
 | Framework row images | ≈ 2.3 : 1 | 760×328 → 1013×437 | 358 wide | 2000×864 |
 
 
-- Digital Discernment cover → `heroMock.book.cover`
-- Portrait → `storyMock.photo`
 - Images for Framework rows 01–04 (rows show placeholder graphics)
 
 ## Related

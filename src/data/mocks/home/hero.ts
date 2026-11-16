@@ -14,7 +14,7 @@ export const heroMock = {
     author: "James Spencer",
     note: "forthcoming",
     href: "https://www.thinkingchristian.org/digitaldiscernment",
-    cover: null as string | null,
+    cover: "/assets/hero/digital-discernment-cover.jpg" as string | null,
   },
   window: {
     label: "The Thinking Christian Framework",
