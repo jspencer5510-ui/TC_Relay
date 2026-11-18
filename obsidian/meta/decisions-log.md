@@ -17,6 +17,31 @@ Template: [[templates/adr-note]].
 
 ---
 
+## ADR-0034 — Hero window returns as a Featured carousel
+
+**Date:** 2026-11-18 · **Status:** accepted · **Supersedes:** the hero-book part of ADR-0033
+
+**Context.** ADR-0033 put the Digital Discernment cover in the product
+window's slot. The owner wants the original glass box back as a place to
+highlight launches (a book, a new series), with three items, a CTA each, and
+the box's own design and responsive behaviour.
+
+**Decision.** `FeatureWindow` keeps the window's box, ring, tilt and grid-wave
+entrance per frame and swaps the workflow canvas for a manual three-item
+carousel (arrows, dots, keyboard, touch swipe; `aria-roledescription`
+carousel/slide; inactive slides `inert`). Slide changes are a react-spring
+`useTransition`; the only CSS transitions are hover colours and the dot
+`scale`. No autoplay: auto-advancing content needs a pause control (WCAG
+2.2.2) and competes with the hero copy. The content lives in
+`heroMock.feature` so it moves cleanly into the CMS later. The 1024 hero
+buttons stack so the copy column clears the box.
+
+**Consequences.** The Relay workflow-canvas components are deleted.
+Featured images are 2 : 1 at 1600×800; until supplied, items show a
+typeset stand-in.
+
+---
+
 ## ADR-0033 — The owner's change doc supersedes the content mapping
 
 **Status:** Accepted · 2026-11-15 · supersedes the section mapping in ADR-0032

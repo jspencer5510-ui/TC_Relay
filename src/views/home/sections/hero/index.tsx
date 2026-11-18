@@ -6,7 +6,7 @@ import { Reveal } from "@/components/ui/reveal";
 import type { HeroContent } from "@/data/mocks/home/hero";
 
 import { DepthLayer, HeroTilt } from "./hero-tilt";
-import { HeroBook } from "./hero-book";
+import { FeatureWindow } from "./feature-window";
 import { LOAD, TILT } from "./timeline";
 
 /**
@@ -30,7 +30,7 @@ export const Hero = ({
   title,
   subhead,
   actions,
-  book,
+  feature,
 }: HeroContent) => (
   <section
     id="hero"
@@ -65,7 +65,7 @@ export const Hero = ({
           (light re-content, ADR-0032): the Thinking Christian copy is ~3× the
           frame's, so it stacks instead of sitting on fixed Figma tops. Same
           column origin / width per frame as the original layout. */}
-        <div className="absolute top-20 left-20 flex w-170 flex-col items-start gap-6 w1024:top-24 w1024:left-12 w1024:w-120 w1024:gap-5 w768:top-10 w768:left-1/2 w768:w-136 w768:-translate-x-1/2 w768:items-center w768:text-center w390:top-8 w390:w-87.5 w390:gap-4">
+        <div className="absolute top-20 left-20 flex w-170 flex-col items-start gap-6 w1024:top-24 w1024:left-12 w1024:w-110 w1024:gap-5 w768:top-10 w768:left-1/2 w768:w-136 w768:-translate-x-1/2 w768:items-center w768:text-center w390:top-8 w390:w-87.5 w390:gap-4">
           {/* Release chip 3488:21930 — padding less the 1px border Figma draws inside. */}
           <Reveal delay={LOAD.copy.chip}>
             {/* eyebrow: plain orange capitals, as the site's other eyebrows */}
@@ -96,7 +96,7 @@ export const Hero = ({
 
           <Reveal
             delay={LOAD.copy.actions}
-            className="mt-2 flex items-center gap-3 w390:w-full w390:flex-col"
+            className="mt-2 flex items-center gap-3 w1024:flex-col w1024:items-start w768:flex-row w768:items-center w390:w-full w390:flex-col"
           >
             <PillButton
               href={actions.primary.href}
@@ -144,10 +144,10 @@ export const Hero = ({
           />
         </div>
 
-        {/* 768 / 390 stack the window under the copy; the longer copy pushes
-          it down by --hero-copy-extra (hero.css). */}
-        <div className="pointer-events-none absolute inset-0 translate-y-(--hero-copy-extra) [&>*]:pointer-events-auto">
-          <HeroBook book={book} />
+        {/* Featured panel in the product window's box. 768 / 390 stack it
+          under the copy; the longer copy pushes it down by --hero-copy-extra. */}
+        <div className="pointer-events-none absolute inset-0 translate-y-(--hero-copy-extra)">
+          <FeatureWindow {...feature} />
         </div>
       </HeroTilt>
     </div>

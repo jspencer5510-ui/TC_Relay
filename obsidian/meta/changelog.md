@@ -16,6 +16,17 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-11-18 — Featured carousel in the hero window
+
+- The Relay glass product window is back in the hero as a **Featured panel**
+  (`hero/feature-window.tsx`): three items (book, podcast, series), each with
+  image, title, line and CTA; arrows, dots, keyboard and swipe. Replaces the
+  standalone book cover. ADR-0034.
+- Deleted the unused workflow-canvas parts (`product-window`, `live-runs`,
+  `window-node`) and `hero-book`; `heroMock.book` / `.window` → `.feature`.
+- 1024: hero buttons stack so the copy clears the panel.
+- Image spec: featured images 1600×800 (2 : 1).
+
 ## 2026-11-16 — Cover, portrait, caption move, plain eyebrows
 
 - **Book cover and portrait in.** `public/assets/hero/digital-discernment-cover.jpg`

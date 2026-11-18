@@ -12,7 +12,7 @@ Order and content of `src/views/home/index.tsx`, per the owner's change doc
 | # | Section (`id`) | Component | Content |
 |---|---|---|---|
 | 01 | Nav | `sections/nav` + `topics-menu.tsx` | Podcast · Topics ▾ · Questions · Articles · About · THE FRAMEWORK |
-| 02 | Hero (`hero`) | `sections/hero` + `hero-book.tsx` | eyebrow (plain orange tracked caps, no pill), headline (Playfair semibold, last word italic orange), subhead, two CTAs, Digital Discernment cover |
+| 02 | Hero (`hero`) | `sections/hero` + `feature-window.tsx` | eyebrow (plain orange tracked caps, no pill), headline (Playfair semibold, last word italic orange), subhead, two CTAs (stacked at 1024), Featured panel (3 items) |
 | 03 | Topics (`integrations`) | `sections/integrations` | six linked topic tiles |
 | 04 | Patterns (`product`) | `sections/product` (no rows) | "God doesn't live in our world. We live in His." |
 | 05 | Story (`story`) | `sections/story` | eyebrow, heading, three paragraphs, two CTAs, portrait |
@@ -26,9 +26,15 @@ Order and content of `src/views/home/index.tsx`, per the owner's change doc
 
 - **`TopicsMenu`** (`nav/topics-menu.tsx`) — native `<details>` drop-down; no
   client JS, keyboard and screen-reader accessible; opens on click/tap.
-- **`HeroBook`** (`hero/hero-book.tsx`) — book cover in the old product-window
-  slot, linking to the book page. Typeset stand-in until `heroMock.book.cover`
-  is set to an image under `public/`.
+- **`FeatureWindow`** (`hero/feature-window.tsx`, client) — the Relay product
+  window's glass box (same place, size and ring at every frame, cursor tilt,
+  grid-wave entrance) as a three-item showcase: image, kind, title, one line,
+  CTA. Arrows + dots in the top bar, ←/→ inside, touch swipe; spring
+  cross-fade; no autoplay. Content: `heroMock.feature.items` — edit there.
+  `image: null` shows an orange typeset stand-in; `fit: "contain"` for book
+  covers, `"cover"` for promo art. Replaced `HeroBook` and the workflow canvas
+  (`product-window`, `live-runs`, `window-node` deleted; `flow-live` kept for
+  `GridWave`). ADR-0034.
 - **`Story`** (`story/index.tsx`) — text + portrait section in normal flow
   (owner-edited copy, no fixed coordinates). Monogram stand-in until
   `storyMock.photo` is set.
@@ -57,7 +63,13 @@ Measured slot sizes (CSS px; the page scales up to 1920, so export ≈ 2× the
 |---|---|---|---|---|
 | Book cover (`heroMock.book.cover`) | 2 : 3 | 350×525 → 467×700 | 225×338 | 1000×1500 |
 | Portrait (`storyMock.photo`) | 4 : 5 | 460×575 → 613×767 | 358×448 | 1280×1600 |
+| Featured panel images | 2 : 1 (16 : 10 at 1024) | 602×301 → 802×401 | 312×156 | 1600×800 — keep text/faces in the middle 80 % |
 | Framework row images | ≈ 2.3 : 1 | 760×328 → 1013×437 | 358 wide | 2000×864 |
+
+Portrait framing: the 4:5 frame has no slack, so the photo itself needs
+~10 % headroom above the head and ~60 px of background either side (the rounded
+corners trim). The current portrait is cropped tight at the top and sides; a
+reshoot/recrop at 1280×1600 is pending from the owner (2026-11-18).
 
 
 - Images for Framework rows 01–04 (rows show placeholder graphics)

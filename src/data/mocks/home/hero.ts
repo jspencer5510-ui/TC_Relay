@@ -8,55 +8,41 @@ export const heroMock = {
     primary: { label: "Explore the Framework", href: "https://www.thinkingchristian.org/framework" },
     secondary: { label: "Listen to the Podcast", href: "https://www.thinkingchristian.org/podcast" },
   },
-  /** Hero book (doc 2026-11-14). `cover`: path under public/ once supplied. */
-  book: {
-    title: "Digital Discernment",
-    author: "James Spencer",
-    note: "forthcoming",
-    href: "https://www.thinkingchristian.org/digitaldiscernment",
-    cover: "/assets/hero/digital-discernment-cover.jpg" as string | null,
-  },
-  window: {
-    label: "The Thinking Christian Framework",
-    title: "The Framework",
-    meta: "4 practices",
-    status: "in action",
-    zoom: "100%",
-    tools: [
-      { name: "select", icon: "/assets/hero/hero-tool-select.svg" },
-      { name: "add", icon: "/assets/hero/hero-tool-add.svg" },
-      { name: "redirect", icon: "/assets/hero/hero-tool-redirect.svg" },
-      { name: "code", icon: "/assets/hero/hero-tool-extra.svg" },
+  /**
+   * Featured panel (owner, 2026-11-18) — the Relay product window's glass box,
+   * now a three-item showcase: a book launch, a new series, an episode. Edit
+   * these to change what is featured. `image`: path under public/ (1600×800,
+   * 2 : 1) or null for a typeset stand-in; `fit: "contain"` shows the whole
+   * image on a tinted panel (book covers), `"cover"` fills the frame.
+   */
+  feature: {
+    label: "Featured",
+    items: [
+      {
+        kind: "New book",
+        title: "Digital Discernment",
+        text: "Thinking Rightly in an Age of Misinformation — the forthcoming book from James Spencer.",
+        image: "/assets/hero/digital-discernment-cover.jpg" as string | null,
+        fit: "contain" as "contain" | "cover",
+        cta: { label: "Learn more", href: "https://www.thinkingchristian.org/digitaldiscernment" },
+      },
+      {
+        kind: "Podcast",
+        title: "Thinking Christian Podcast",
+        text: "Clear theology for a confusing world — long-form conversations on faith and culture.",
+        image: null as string | null,
+        fit: "cover" as "contain" | "cover",
+        cta: { label: "Listen now", href: "https://www.thinkingchristian.org/podcast" },
+      },
+      {
+        kind: "Series",
+        title: "The Framework in Action",
+        text: "Masculinity, politics, technology — the Thinking Christian Framework applied to the questions of the moment.",
+        image: null as string | null,
+        fit: "cover" as "contain" | "cover",
+        cta: { label: "Explore the series", href: "https://www.thinkingchristian.org/framework" },
+      },
     ],
-    /** The Framework's four practices (thinkingchristian.org/framework). */
-    trigger: { title: "God's Reality", source: "01 / recognizing" },
-    condition: { title: "Theological Disposition", source: "02 / cultivating" },
-    log: { title: "Theo-Logic", source: "03 / practicing" },
-    /** Labels on the fan-out from 01 to 02 and 03. */
-    branches: { yes: "and", no: "and" },
-    approval: { title: "Disciplined Inquiry", source: "04 / committing" },
-    wait: "the Quad",
-    runsLabel: "the framework in action",
-    /**
-     * "The Framework in Action" topics. `time` is the row's fixed index label
-     * (LiveRuns uses it as-is when it isn't a clock time).
-     */
-    runs: [
-      { time: "01", name: "masculinity", duration: "read", live: true },
-      { time: "02", name: "politics", duration: "explore", live: false },
-      { time: "03", name: "technology", duration: "read", live: false },
-    ],
-    /** The live feed keeps cycling the topics. */
-    runPool: [
-      { time: "04", name: "culture", duration: "listen" },
-      { time: "05", name: "scripture", duration: "explore" },
-      { time: "06", name: "church history", duration: "listen" },
-      { time: "01", name: "masculinity", duration: "read" },
-      { time: "02", name: "politics", duration: "explore" },
-      { time: "03", name: "technology", duration: "read" },
-    ],
-    /** Unused for index labels; kept for the feed's clock-time mode. */
-    runGaps: [47, 73, 38, 91, 56],
   },
 } as const;
 
