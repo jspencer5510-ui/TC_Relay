@@ -114,7 +114,7 @@ export const TierCard = ({
       <TypeLabel
         tag="h3"
         delay={delay}
-        className={`absolute! top-7.75 left-7.75 font-mono text-label leading-label whitespace-nowrap text-foreground-muted w1024:left-5.75 w390:left-4.75 ${head.name}`}
+        className={`absolute! top-7.75 left-7.75 font-sans tabular-nums text-label leading-label whitespace-nowrap text-foreground-muted w1024:left-5.75 w390:left-4.75 ${head.name}`}
       >
         {tier.name}
       </TypeLabel>
@@ -125,11 +125,11 @@ export const TierCard = ({
       >
         <FocusText
           delay={delay + STEP}
-          className="text-pricing-price leading-pricing-price font-semibold tracking-title text-foreground"
+          className="font-display text-pricing-price leading-pricing-price font-medium tracking-title text-foreground"
         >
           {tier.price}
         </FocusText>
-        <p className="font-mono text-label leading-label text-foreground-dim w768:mb-1.75 w390:mb-0">
+        <p className="font-sans tabular-nums text-label leading-label text-foreground-dim w768:mb-1.75 w390:mb-0">
           <TypeLabel
             delay={delay + 2 * STEP}
             trigger={card as RefObject<HTMLElement>}
@@ -147,7 +147,7 @@ export const TierCard = ({
           to={{ opacity: 1, scale: 1 }}
           config={POP}
           delayIn={delay + 4 * STEP}
-          className="absolute top-7.75 left-65 rounded-pricing-tag bg-accent px-3 py-1.5 font-mono text-label leading-label whitespace-nowrap text-on-accent w1024:top-5.75 w1024:left-38.25 w1024:py-2 w768:left-135.75 w390:left-52.25"
+          className="absolute top-7.75 left-65 rounded-pricing-tag bg-accent px-3 py-1.5 font-sans tabular-nums text-label leading-label whitespace-nowrap text-on-accent w1024:top-5.75 w1024:left-38.25 w1024:py-2 w768:left-135.75 w390:left-52.25"
         >
           {tier.tag}
         </InviewSeen>

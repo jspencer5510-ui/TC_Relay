@@ -13,19 +13,19 @@ export interface TypeTextProps {
   per?: number;
 }
 
-const cut = "round(down, calc(var(--typed) * 1ch), 1ch)";
-
 /**
- * Mono label that types itself in, letter by letter (motion brief,
- * shared.mono; the caret block was dropped at the designer's request).
+ * Label that writes itself in from the left (motion brief, shared.mono; the
+ * caret block was dropped at the designer's request).
  *
- * Fragment Mono is monospaced, so every glyph is exactly 1ch: a spring runs
- * `--typed` from 0 to the character count and the text is clipped to whole
- * characters with `round(down, …, 1ch)`. The copy stays one intact text node —
- * nothing is split, so screen readers and search see the plain label.
- * The spring overshoots the count by half a character so rounding never
- * drops the last glyph at rest.
+ * The labels are set in Public Sans since the brand-font pass (2026-11-18) —
+ * proportional, so the old whole-character `1ch` clip no longer fits. A spring
+ * runs `--typed` 0 → 1 and the clip wipes the label open left to right. The
+ * copy stays one intact text node — nothing is split, so screen readers and
+ * search see the plain label.
  */
+/** The wipe every typed label shares: `--typed` 0 → 1 opens it left to right. */
+export const TYPE_WIPE = "inset(0 calc((1 - var(--typed)) * 100%) 0 0)";
+
 export const TypeText = ({
   children,
   tag = "span",
@@ -38,10 +38,10 @@ export const TypeText = ({
     mode="once"
     className={`relative inline-block ${className}`}
     from={{ "--typed": 0 }}
-    to={{ "--typed": children.length + 0.5 }}
+    to={{ "--typed": 1 }}
     config={{ duration: children.length * per }}
     delayIn={delay}
-    style={{ clipPath: `inset(0 calc(100% - ${cut} - 0.1ch) 0 0)` }}
+    style={{ clipPath: TYPE_WIPE }}
   >
     {children}
   </InviewSeen>

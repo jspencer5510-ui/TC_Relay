@@ -61,7 +61,7 @@ export const StatusRow = ({ statuses }: Pick<FooterContent, "statuses">) => {
         return (
           <li
             key={status.label}
-            className={`absolute top-0 flex items-center gap-2 font-mono text-label leading-label whitespace-nowrap text-foreground-muted ${PLACE[i]}`}
+            className={`absolute top-0 flex items-center gap-2 font-sans tabular-nums text-label leading-label whitespace-nowrap text-foreground-muted ${PLACE[i]}`}
           >
             <Dot lit={lit} delay={at} />
             <CueFade stage="top" tag="span" delay={at + 60}>

@@ -66,7 +66,7 @@ export const Nav = ({ brand, links, status, cta }: NavContent) => (
         {status && (
           <p className="flex h-11 items-center w768:hidden gap-2 overflow-clip rounded-full border border-border-glass bg-surface-status px-4 shadow-float">
             <BreathingDot />
-            <span className="font-mono text-label leading-label whitespace-nowrap text-foreground">
+            <span className="font-sans tabular-nums text-label leading-label whitespace-nowrap text-foreground">
               {status}
             </span>
           </p>

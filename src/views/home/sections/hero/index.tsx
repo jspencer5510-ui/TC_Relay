@@ -74,7 +74,7 @@ export const Hero = ({
               tag="h1"
               delay={LOAD.copy.title}
               {...title}
-              className="text-hero-title leading-hero-title font-semibold! w768:text-center"
+              className="text-hero-title leading-hero-title w768:text-center"
               accentClassName="text-hero-title"
               accentFamily="display"
             />

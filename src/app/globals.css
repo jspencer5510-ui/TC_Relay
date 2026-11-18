@@ -241,7 +241,6 @@
   --font-sans: var(--font-public-sans);
   --font-display: var(--font-playfair-display);
   --font-serif: var(--font-cormorant-garamond);
-  --font-mono: var(--font-fragment-mono);
 
   --text-label: var(--type-label);
   --text-body: var(--type-body);

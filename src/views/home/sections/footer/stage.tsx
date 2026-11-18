@@ -12,6 +12,7 @@ import {
 } from "react";
 
 import { Inview } from "@/components/common/robot-inview";
+import { TYPE_WIPE } from "@/components/ui/type-text";
 import { useSeen } from "@/hooks/use-seen";
 import { FADE, REVEAL, SPRING, SPRING_SOFT } from "@/lib/motion";
 import type { Tags } from "@/types/springs";
@@ -228,9 +229,8 @@ export const CueLine = ({
   />
 );
 
-const cut = "round(down, calc(var(--typed) * 1ch), 1ch)";
 
-/** TypeText on the footer timeline (mono label typing in). */
+/** TypeText on the footer timeline (label wiping in). */
 export const CueType = ({
   stage,
   delay = 0,
@@ -250,10 +250,10 @@ export const CueType = ({
       mode="once"
       className="relative inline-block"
       from={{ "--typed": 0 }}
-      to={{ "--typed": children.length + 0.5 }}
+      to={{ "--typed": 1 }}
       config={{ duration: children.length * per }}
       delayIn={delay}
-      style={{ clipPath: `inset(0 calc(100% - ${cut} - 0.1ch) 0 0)` }}
+      style={{ clipPath: TYPE_WIPE }}
     >
       {children}
     </Inview>

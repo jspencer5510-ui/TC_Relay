@@ -62,7 +62,7 @@ export const BrandPanel = ({
     <CueFade stage="top" delay={CUE.social}>
       <p
         id="footer-social-label"
-        className="absolute top-66.75 left-7.75 font-mono text-label leading-label tracking-footer-mono whitespace-nowrap text-foreground-muted w1024:top-58.25 w1024:left-5.75 w768:top-58.25 w390:top-66 w390:left-4.75"
+        className="absolute top-66.75 left-7.75 font-sans tabular-nums text-label leading-label tracking-footer-mono whitespace-nowrap text-foreground-muted w1024:top-58.25 w1024:left-5.75 w768:top-58.25 w390:top-66 w390:left-4.75"
       >
         {socialLabel}
       </p>
@@ -77,7 +77,7 @@ export const BrandPanel = ({
               // The name carries the visible chip text too ("GitHub (gh)") —
               // label in name (WCAG 2.5.3): a speech user says what they see.
               aria-label={`${social.name} (${social.label})`}
-              className="flex size-8 items-center justify-center overflow-clip rounded-footer-chip border border-footer-social-border bg-footer-social-fill font-mono text-label leading-label text-footer-social-label transition-colors duration-(--motion-fast) ease-entrance hover:text-foreground"
+              className="flex size-8 items-center justify-center overflow-clip rounded-footer-chip border border-footer-social-border bg-footer-social-fill font-sans tabular-nums text-label leading-label text-footer-social-label transition-colors duration-(--motion-fast) ease-entrance hover:text-foreground"
             >
               {social.label}
             </Link>

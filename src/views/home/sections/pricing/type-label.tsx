@@ -1,16 +1,12 @@
 import type { RefObject } from "react";
 
 import { InviewSeen } from "@/components/ui/inview-seen";
-import { TypeText, type TypeTextProps } from "@/components/ui/type-text";
+import { TYPE_WIPE, TypeText, type TypeTextProps } from "@/components/ui/type-text";
 
-/** The shared clip, restated with +0.5px before rounding (see TypeLabel). */
-const CUT = "round(down, calc(var(--typed) * 1ch + 0.5px), 1ch)";
 
 /**
- * TypeText with a sub-pixel nudge on its clip. The shared clip rounds
- * `--typed × 1ch` down to whole characters, and at 8.645px/ch `7 × 1ch`
- * lands a hair under 7ch — so "a month" rests with its last glyph cut. The
- * important class restates the same clip with +0.5px before rounding.
+ * TypeText, optionally triggered elsewhere. (The old sub-pixel nudge on the
+ * 1ch clip went with the brand-font pass — the wipe needs none.)
  *
  * With `trigger`, the typing runs off that element being seen instead of the
  * label itself — TypeText's markup and timing, driven by the card: at 1440 the
@@ -26,7 +22,7 @@ export const TypeLabel = ({
     return (
       <TypeText
         {...props}
-        className={`[clip-path:inset(0_calc(100%_-_round(down,calc(var(--typed)*1ch_+_0.5px),1ch)_-_0.1ch)_0_0)]! ${className}`}
+        className={className}
       />
     );
 
@@ -38,10 +34,10 @@ export const TypeLabel = ({
       trigger={trigger}
       className={`relative inline-block ${className}`}
       from={{ "--typed": 0 }}
-      to={{ "--typed": children.length + 0.5 }}
+      to={{ "--typed": 1 }}
       config={{ duration: children.length * per }}
       delayIn={delay}
-      style={{ clipPath: `inset(0 calc(100% - ${CUT} - 0.1ch) 0 0)` }}
+      style={{ clipPath: TYPE_WIPE }}
     >
       {children}
     </InviewSeen>

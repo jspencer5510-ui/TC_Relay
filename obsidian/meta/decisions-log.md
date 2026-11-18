@@ -17,6 +17,33 @@ Template: [[templates/adr-note]].
 
 ---
 
+## ADR-0036 — Brand fonts only
+
+**Date.** 2026-11-18 · **Status.** Accepted (amends ADR-0031's typography).
+
+**Context.** The owner: "The page needs to conform to these fonts" — the brand
+sheet names three faces: Playfair Display Medium (title, heading 1), Cormorant
+Garamond (subtitle and select body), Public Sans (paragraphs). An audit of the
+rendered page found a fourth face, Fragment Mono, on 77 text runs (data labels,
+topic chips, indices, captions); the hero h1 at Playfair SemiBold; card and
+row h3s and the Listen/Watch/Read words in Public Sans.
+
+**Decision.**
+- Remove Fragment Mono: the loader, `--font-mono`, and every `font-mono`
+  class (→ `font-sans tabular-nums`, so digits still align).
+- Titles are Playfair Display **Medium** throughout: hero h1 loses
+  `font-semibold!`, h3s gain `font-display`, Listen/Watch/Read go
+  `font-display font-medium`; weight 600 is no longer loaded.
+- The typed-label reveal relied on monospace (`1ch` per glyph). It is now a
+  shared left-to-right wipe, `TYPE_WIPE` in `components/ui/type-text.tsx`,
+  used by `TypeText`, `ScaleType`, footer `CueType` and pricing `TypeLabel`;
+  the per-file `round(down, …1ch)` clips and their float-error workarounds
+  are gone.
+
+**Consequences.** The earlier owner request (2026-11-15 change table) for a
+semibold hero title is superseded by the brand sheet. Labels read as quiet
+sans text instead of "terminal" text; the template's code-like look is gone.
+
 ## ADR-0035 — Hero held still: cursor tilt removed
 
 **Date.** 2026-11-18 · **Status.** Accepted (supersedes the tilt/grid-wave part

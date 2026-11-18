@@ -77,7 +77,7 @@ export const Story = ({
         <span
           role="img"
           aria-label={photoAlt}
-          className="flex size-full items-center justify-center bg-linear-to-b from-surface-raised to-background font-display text-section-title-accent font-semibold text-title-accent"
+          className="flex size-full items-center justify-center bg-linear-to-b from-surface-raised to-background font-display text-section-title-accent font-medium text-title-accent"
         >
           JS
         </span>

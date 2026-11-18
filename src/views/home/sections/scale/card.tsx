@@ -39,7 +39,7 @@ export const ScaleCard = ({
     <FocusText
       tag="h3"
       delay={(index + 2) * REVEAL.step}
-      className="w-131 text-scale-card-title leading-scale-card-title font-medium tracking-scale-card-title text-foreground w1024:w-102.5 w768:w-160 w390:w-77.5"
+      className="w-131 font-display text-scale-card-title leading-scale-card-title font-medium tracking-scale-card-title text-foreground w1024:w-102.5 w768:w-160 w390:w-77.5"
     >
       {title}
     </FocusText>

@@ -160,7 +160,7 @@ export const FeatureWindow = ({ label, items }: FeatureWindowProps) => {
                 {label}
               </p>
               <span aria-hidden className="h-3.5 w-px bg-hero-bar-divider w390:hidden" />
-              <p className="font-mono text-label leading-label whitespace-nowrap text-hero-ink w390:hidden">
+              <p className="font-sans tabular-nums text-label leading-label whitespace-nowrap text-hero-ink w390:hidden">
                 {pad(index + 1)} / {pad(count)}
               </p>
               <div className="ml-auto flex items-center gap-3 w390:gap-2">

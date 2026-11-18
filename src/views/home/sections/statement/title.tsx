@@ -76,7 +76,7 @@ export const StatementTitle = ({ lead, accent, tail, caption }: StatementTitlePr
       </span>
     </h2>
     {caption && (
-      <p className="flex justify-center font-mono text-label leading-label text-statement-ink-caption">
+      <p className="flex justify-center font-sans tabular-nums text-label leading-label text-statement-ink-caption">
         <StatementType delay={TIMELINE.caption}>{caption}</StatementType>
       </p>
     )}

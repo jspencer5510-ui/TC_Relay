@@ -66,12 +66,12 @@ export const FeatureRow = ({
     >
       <RollIndex
         value={index}
-        className="font-mono text-label leading-label tracking-product-index text-product-index w390:-mb-2"
+        className="font-sans tabular-nums text-label leading-label tracking-product-index text-product-index w390:-mb-2"
       />
       <FocusText
         tag="h3"
         delay={STEP}
-        className={`text-product-row-title leading-product-row-title font-medium tracking-product-row-title text-foreground ${titleClassName}`}
+        className={`font-display text-product-row-title leading-product-row-title font-medium tracking-product-row-title text-foreground ${titleClassName}`}
       >
         {title}
       </FocusText>

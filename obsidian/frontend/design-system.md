@@ -175,13 +175,15 @@ Brightness and bloom are tuned down for paper (see `getlayers.json`).
 
 | Role | Typeface | Binding | Used by |
 |---|---|---|---|
-| Titles, h1/h2; the logo wordmark | **Playfair Display** — Medium 500 titles, Semibold 600 hero, Regular 400 wordmark (`Wordmark`), roman + italic | `--font-playfair-display` → `--font-display` → `font-display` | `DisplayTitle`, statement title, footer CTA title, error / 404 |
+| Titles, h1/h2/h3; the logo wordmark | **Playfair Display** — Medium 500 for every title (hero h1 included, per the brand sheet), Regular 400 wordmark (`Wordmark`), roman + italic. No 600 is loaded. | `--font-playfair-display` → `--font-display` → `font-display` | `DisplayTitle`, card/row h3s (`scale/card`, `product/feature-row`), Listen/Watch/Read, statement title, footer CTA title, error / 404 |
 | Subtitles, the italic accent word | **Cormorant Garamond** (400/500, roman + italic) | `--font-cormorant-garamond` → `--font-serif` → `font-serif` | accent word in every display title; hero subtitle (`text-subtitle`, 22 px — its small x-height reads like ~18 px sans) |
-| Paragraphs, UI | **Public Sans** (variable) | `--font-public-sans` → `--font-sans`; `body` default | everything else |
-| Data labels | Fragment Mono (kept from the template) | `--font-fragment-mono` → `--font-mono` | timestamps, chips, run ids |
+| Paragraphs, UI, small labels | **Public Sans** (variable) | `--font-public-sans` → `--font-sans`; `body` default | everything else; the template's data labels (timestamps, chips, indices) are `font-sans tabular-nums` |
 
-All four load through `next/font/google` in `src/app/layout.tsx` (self-hosted at
-build, no runtime request to Google).
+All three load through `next/font/google` in `src/app/layout.tsx` (self-hosted at
+build, no runtime request to Google). **Only the brand sheet's three faces** —
+no monospace: Fragment Mono and `font-mono` were removed 2026-11-18 (ADR-0036).
+Typed labels reveal with the shared `TYPE_WIPE` (`components/ui/type-text.tsx`),
+a left-to-right clip that works with proportional type.
 
 ## Motion: springs first, CSS for trivial state
 

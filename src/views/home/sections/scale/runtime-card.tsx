@@ -13,7 +13,7 @@ import { ScaleType } from "./scale-type";
 type RuntimeCardProps = ScaleContent["runtime"] & { index: number };
 
 const MONO_DIM =
-  "font-mono text-scale-mono leading-scale-mono text-foreground-dim";
+  "font-sans tabular-nums text-scale-mono leading-scale-mono text-foreground-dim";
 
 /**
  * Card / One runtime, every app — 3888:6454 (art 3888:6457), 3949:13127,

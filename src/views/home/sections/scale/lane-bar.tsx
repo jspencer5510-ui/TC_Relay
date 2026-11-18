@@ -106,7 +106,7 @@ export const LaneBar = ({
           }}
         />
       </span>
-      <span className="absolute top-0 right-0 text-right whitespace-nowrap font-mono text-scale-mono leading-scale-mono text-foreground tabular-nums w390:top-2.5">
+      <span className="absolute top-0 right-0 text-right whitespace-nowrap font-sans tabular-nums text-scale-mono leading-scale-mono text-foreground tabular-nums w390:top-2.5">
         <span className="sr-only">{share}</span>
         <animated.span aria-hidden="true">
           {numeric

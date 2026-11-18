@@ -27,12 +27,12 @@ export const Integrations = ({
     aria-label="Integrations"
     className="[content-visibility:auto] relative h-88.5 w1024:h-62 w768:h-64 w390:h-66 overflow-clip"
   >
-    <p className="absolute top-24 left-20 w1024:top-8 w1024:left-12 w768:top-10 w768:left-10 w390:hidden font-mono text-label leading-label whitespace-nowrap text-foreground-muted">
+    <p className="absolute top-24 left-20 w1024:top-8 w1024:left-12 w768:top-10 w768:left-10 w390:hidden font-sans tabular-nums text-label leading-label whitespace-nowrap text-foreground-muted">
       <TypeText>{caption}</TypeText>
     </p>
     {/* 390: the same copy centred on two lines (3893:3058); each line types in
         turn, since TypeText clips a single line. */}
-    <p className="absolute top-8 left-16.25 hidden w-65.25 w390:flex flex-col items-center font-mono text-label leading-label whitespace-nowrap text-foreground-muted">
+    <p className="absolute top-8 left-16.25 hidden w-65.25 w390:flex flex-col items-center font-sans tabular-nums text-label leading-label whitespace-nowrap text-foreground-muted">
       <TypeText>{captionLines390[0]}</TypeText>
       <TypeText delay={captionLines390[0].length * 30}>
         {captionLines390[1]}

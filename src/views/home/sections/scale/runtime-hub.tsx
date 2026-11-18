@@ -108,7 +108,7 @@ const BREATH_MS = 3_840;
 const WIRE_OFFSET = [0, 0.25, 0.5, 0.75] as const;
 
 const MONO_DIM =
-  "font-mono text-scale-mono leading-scale-mono text-foreground-dim";
+  "font-sans tabular-nums text-scale-mono leading-scale-mono text-foreground-dim";
 
 const smooth = (edge0: number, edge1: number, v: number) => {
   const x = Math.min(1, Math.max(0, (v - edge0) / (edge1 - edge0)));
@@ -300,7 +300,7 @@ export const RuntimeHub = ({ label, apps }: RuntimeHubProps) => {
           <li key={app.code}>
             <span
               aria-hidden="true"
-              className={`absolute flex size-10 items-center justify-center overflow-clip rounded-full border border-border-subtle bg-surface-badge font-mono text-scale-mono leading-scale-mono text-foreground-muted shadow-float w390:size-8.5 ${APP_LAYOUT[i].node}`}
+              className={`absolute flex size-10 items-center justify-center overflow-clip rounded-full border border-border-subtle bg-surface-badge font-sans tabular-nums text-scale-mono leading-scale-mono text-foreground-muted shadow-float w390:size-8.5 ${APP_LAYOUT[i].node}`}
             >
               {app.code}
             </span>

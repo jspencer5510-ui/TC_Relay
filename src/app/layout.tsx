@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import {
   Cormorant_Garamond,
-  Fragment_Mono,
   Playfair_Display,
   Public_Sans,
 } from "next/font/google";
@@ -31,7 +30,7 @@ const publicSans = Public_Sans({
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
   style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
@@ -41,13 +40,6 @@ const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant-garamond",
   weight: ["400", "500"],
   style: ["normal", "italic"],
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const fragmentMono = Fragment_Mono({
-  variable: "--font-fragment-mono",
-  weight: "400",
   subsets: ["latin"],
   display: "swap",
 });
@@ -83,7 +75,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${publicSans.variable} ${playfairDisplay.variable} ${cormorantGaramond.variable} ${fragmentMono.variable}`}
+        className={`${publicSans.variable} ${playfairDisplay.variable} ${cormorantGaramond.variable}`}
       >
         {/* Before anything is parsed: marks a returning visitor's choice so the
             server-rendered consent banner is hidden before its first paint. */}

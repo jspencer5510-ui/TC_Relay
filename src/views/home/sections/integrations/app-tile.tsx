@@ -99,7 +99,7 @@ export const AppTile = ({
           className="absolute inset-0 flex items-center justify-center rounded-integrations-tile border border-integrations-tile-border bg-linear-to-b/srgb from-integrations-tile-from to-integrations-tile-to bg-origin-border text-foreground-muted"
           style={{ opacity: idle }}
         >
-          <span className="font-mono text-label w390:text-integrations-initials-390 leading-label tracking-integrations-initials whitespace-nowrap">
+          <span className="font-sans tabular-nums text-label w390:text-integrations-initials-390 leading-label tracking-integrations-initials whitespace-nowrap">
             {initials}
           </span>
         </animated.span>
@@ -107,13 +107,13 @@ export const AppTile = ({
           className="absolute inset-0 flex items-center justify-center rounded-integrations-tile border border-integrations-active-border bg-(image:--integrations-active-fill) bg-origin-border text-accent"
           style={{ opacity: look.a }}
         >
-          <span className="font-mono text-label w390:text-integrations-initials-390 leading-label tracking-integrations-initials whitespace-nowrap">
+          <span className="font-sans tabular-nums text-label w390:text-integrations-initials-390 leading-label tracking-integrations-initials whitespace-nowrap">
             {initials}
           </span>
         </animated.span>
       </animated.div>
       <span
-        className={`absolute top-19.5 w1024:top-19 w390:top-17 w-28 w1024:w-24 w390:w-21 font-mono text-label leading-label w1024:text-hero-note w1024:leading-hero-note text-foreground-muted transition-colors duration-(--motion-fast) ease-entrance group-hover:text-accent ${LABEL_ALIGN[align]}`}
+        className={`absolute top-19.5 w1024:top-19 w390:top-17 w-28 w1024:w-24 w390:w-21 font-sans tabular-nums text-label leading-label w1024:text-hero-note w1024:leading-hero-note text-foreground-muted transition-colors duration-(--motion-fast) ease-entrance group-hover:text-accent ${LABEL_ALIGN[align]}`}
       >
         {name}
       </span>

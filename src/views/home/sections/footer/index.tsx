@@ -57,7 +57,7 @@ export const Footer = ({
       <CueFade
         stage="bottom"
         delay={CUE.legal}
-        className="absolute top-180 left-20 flex h-6.5 w-320 justify-between font-mono text-label leading-label text-foreground-dim w1024:top-150.5 w1024:left-12 w1024:h-5 w1024:w-232 w768:top-260 w768:left-10 w768:w-172 w390:top-292.25 w390:left-5 w390:h-12 w390:w-87.5 w390:flex-col w390:gap-2"
+        className="absolute top-180 left-20 flex h-6.5 w-320 justify-between font-sans tabular-nums text-label leading-label text-foreground-dim w1024:top-150.5 w1024:left-12 w1024:h-5 w1024:w-232 w768:top-260 w768:left-10 w768:w-172 w390:top-292.25 w390:left-5 w390:h-12 w390:w-87.5 w390:flex-col w390:gap-2"
       >
         <p>{legal.copyright}</p>
         <p className="text-right w390:text-left">{legal.origin}</p>

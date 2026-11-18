@@ -3,8 +3,8 @@
 import type { RefObject } from "react";
 
 import { InviewSeen } from "@/components/ui/inview-seen";
+import { TYPE_WIPE } from "@/components/ui/type-text";
 
-const cut = "round(down, calc(var(--typed) * 1ch), 1ch)";
 const PER = 30;
 
 /**
@@ -12,7 +12,7 @@ const PER = 30;
  * label itself. The art's bottom lines (caption, footnote) sit ~140 px above
  * the fold at a normal landing — below the VIEW_MARGIN line — so on their own
  * they showed a bare caret with no text. They now type once the art above
- * them is on screen. Same clip mechanics as `@/components/ui/type-text`.
+ * them is on screen. Same wipe as `@/components/ui/type-text`.
  */
 export const ScaleType = ({
   children,
@@ -29,10 +29,10 @@ export const ScaleType = ({
     trigger={trigger as RefObject<HTMLElement>}
     className="relative inline-block"
     from={{ "--typed": 0 }}
-    to={{ "--typed": children.length + 0.5 }}
+    to={{ "--typed": 1 }}
     config={{ duration: children.length * PER }}
     delayIn={delay}
-    style={{ clipPath: `inset(0 calc(100% - ${cut} - 0.1ch) 0 0)` }}
+    style={{ clipPath: TYPE_WIPE }}
   >
     {children}
   </InviewSeen>

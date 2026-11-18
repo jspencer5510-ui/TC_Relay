@@ -37,7 +37,7 @@ const FIELD_LAYOUT = [
   },
 ] as const;
 
-const MONO = "font-mono text-product-small leading-product-small";
+const MONO = "font-sans tabular-nums text-product-small leading-product-small";
 const MINI_BUTTON =
   "absolute top-62.75 flex items-center gap-2 overflow-clip rounded-product-button text-product-mini leading-product-mini font-medium whitespace-nowrap shadow-float w768:top-63 w390:top-60 w390:gap-1.5";
 

@@ -31,7 +31,7 @@ const BARS = [
   },
 ] as const;
 
-const MONO = "font-mono text-scale-mono leading-scale-mono";
+const MONO = "font-sans tabular-nums text-scale-mono leading-scale-mono";
 
 /** Footer line types in once the bars are under way. */
 const FOOTER_DELAY = 700;
@@ -75,9 +75,7 @@ export const RegionsCard = ({
       <p
         className={`absolute top-6 left-0 w-129.5 text-foreground-dim w1024:top-0 w1024:left-0 w1024:w-97.5 w768:top-6 w768:w-160 w390:top-0 w390:w-77.5 ${MONO}`}
       >
-        {/* Trailing space: TypeText's round(down, n × 1ch, 1ch) lands one ch short at
-          34 chars (float error) and clips the last glyph; the space absorbs it. */}
-        <TypeText delay={(index + 2) * REVEAL.step}>{`${label} `}</TypeText>
+        <TypeText delay={(index + 2) * REVEAL.step}>{label}</TypeText>
       </p>
 
       <ul
@@ -89,7 +87,7 @@ export const RegionsCard = ({
             key={row.region}
             className="relative h-18 w1024:h-17.25 w768:h-18 w390:h-15.25"
           >
-            <span className="absolute top-0 left-0 font-mono text-scale-region leading-scale-region whitespace-nowrap text-foreground">
+            <span className="absolute top-0 left-0 font-sans tabular-nums text-scale-region leading-scale-region whitespace-nowrap text-foreground">
               <TypeText delay={(index + 3 + i) * REVEAL.step}>
                 {`${row.region} `}
               </TypeText>

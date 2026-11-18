@@ -78,7 +78,7 @@ const RULE_LINE =
   "absolute left-7.75 h-px w-174 w1024:left-5.75 w1024:w-120 w390:left-4.75 w390:w-77.5";
 const ICON_SIZE = "size-4 w1024:size-2.75 w390:size-1.75";
 
-const MONO = "font-mono text-product-small leading-product-small";
+const MONO = "font-sans tabular-nums text-product-small leading-product-small";
 
 /** When each span starts growing, ms after the card enters view — a run in order. */
 const SPAN_AT = [120, 520, 680, 800].map((t) => CARD_START + t);

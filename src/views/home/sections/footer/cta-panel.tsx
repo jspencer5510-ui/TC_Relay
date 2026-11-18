@@ -22,7 +22,7 @@ export const CtaPanel = ({
     delay={CUE.panels}
     className="absolute top-24 left-157.5 h-80 w-182.5 overflow-clip rounded-footer-panel bg-accent shadow-float w1024:top-0 w1024:left-129.75 w1024:h-69.5 w1024:w-114.25 w768:top-82.5 w768:left-10 w768:w-172 w390:top-80.25 w390:left-5 w390:h-85 w390:w-87.5"
   >
-    <p className="absolute top-10 left-10 font-mono text-label leading-label whitespace-nowrap text-footer-ink-eyebrow w1024:top-6 w1024:left-6 w390:left-5">
+    <p className="absolute top-10 left-10 font-sans tabular-nums text-label leading-label whitespace-nowrap text-footer-ink-eyebrow w1024:top-6 w1024:left-6 w390:left-5">
       <CueType stage="top" delay={CUE.title}>
         {eyebrow}
       </CueType>

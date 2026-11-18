@@ -172,7 +172,7 @@ export const Ruler = ({ now, hours }: RulerProps) => {
           opacity: pop.scale.to((s) => Math.min(1, Math.max(0, s))),
           y: pop.scale.to((s) => (1 - Math.min(1, s)) * 6),
         }}
-        className="absolute top-127 left-156 w-48 text-center font-mono text-label leading-label text-on-accent w1024:top-119 w1024:left-110 w1024:w-36 w1024:text-hero-note w1024:leading-hero-note w768:top-117 w768:left-84 w768:w-24 w390:top-[calc(var(--spacing)*82.75)] w390:left-5 w390:w-87.5 w390:text-label w390:leading-label"
+        className="absolute top-127 left-156 w-48 text-center font-sans tabular-nums text-label leading-label text-on-accent w1024:top-119 w1024:left-110 w1024:w-36 w1024:text-hero-note w1024:leading-hero-note w768:top-117 w768:left-84 w768:w-24 w390:top-[calc(var(--spacing)*82.75)] w390:left-5 w390:w-87.5 w390:text-label w390:leading-label"
       >
         {now}
       </animated.p>
@@ -202,7 +202,7 @@ export const Ruler = ({ now, hours }: RulerProps) => {
             style={{
               opacity: wave.to((w) => reveal(w, LABEL_P[i] ?? 1)),
             }}
-            className={`absolute top-127 font-mono text-label leading-label text-statement-ink-muted w1024:top-119 w1024:text-hero-note w1024:leading-hero-note w768:top-117 w390:hidden ${HOUR_POSITIONS[i]}`}
+            className={`absolute top-127 font-sans tabular-nums text-label leading-label text-statement-ink-muted w1024:top-119 w1024:text-hero-note w1024:leading-hero-note w768:top-117 w390:hidden ${HOUR_POSITIONS[i]}`}
           >
             {hour}
           </animated.li>

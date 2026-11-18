@@ -68,7 +68,7 @@ const DAYS = [
 ] as const;
 
 const MONO =
-  "font-mono text-product-small leading-product-small w390:leading-4";
+  "font-sans tabular-nums text-product-small leading-product-small w390:leading-4";
 
 /** Cubes: 120 ms apart, a looser spring for a slight (~5%) overshoot. */
 const CUBE_STEP = 120;

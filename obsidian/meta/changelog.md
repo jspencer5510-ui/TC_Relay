@@ -16,6 +16,15 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-11-18 — Page conforms to the brand fonts (ADR-0036)
+
+- Only Playfair Display, Cormorant Garamond and Public Sans remain. Fragment
+  Mono removed (77 text runs → Public Sans with tabular figures).
+- Hero h1 SemiBold → Medium; card/row h3s and Listen/Watch/Read → Playfair
+  Medium; Playfair 600 no longer loaded.
+- Typed labels now wipe in left to right (`TYPE_WIPE`) instead of clipping by
+  monospace character width.
+
 ## 2026-11-18 — Hero box held still (ADR-0035)
 
 - Owner: "eliminate the motion on the box". The Featured window no longer tilts

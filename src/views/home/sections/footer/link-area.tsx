@@ -44,7 +44,7 @@ export const LinkArea = ({
       <p className="absolute top-10.5 left-0 w-100 text-body leading-body text-foreground-muted w1024:w-62 w768:w-172 w390:w-87.5">
         {company.copy}
       </p>
-      <p className="absolute top-27.5 left-0 font-mono text-label leading-label whitespace-nowrap text-foreground-dim w1024:w-59.25 w1024:whitespace-normal w768:top-21.5 w768:w-172 w390:top-27.5 w390:w-87.5">
+      <p className="absolute top-27.5 left-0 font-sans tabular-nums text-label leading-label whitespace-nowrap text-foreground-dim w1024:w-59.25 w1024:whitespace-normal w768:top-21.5 w768:w-172 w390:top-27.5 w390:w-87.5">
         {company.compliance}
       </p>
     </CueRise>
@@ -59,7 +59,7 @@ export const LinkArea = ({
         >
           <p
             id={`footer-col-${column.title}`}
-            className="font-mono text-label leading-label whitespace-nowrap text-foreground-dim"
+            className="font-sans tabular-nums text-label leading-label whitespace-nowrap text-foreground-dim"
           >
             {column.title}
           </p>
