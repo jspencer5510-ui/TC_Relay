@@ -16,9 +16,7 @@ import { Reveal } from "@/components/ui/reveal";
 import type { HeroContent } from "@/data/mocks/home/hero";
 import { SPRING } from "@/lib/motion";
 
-import { GridWave } from "./flow-live";
-import { DepthLayer, TiltGroup } from "./hero-tilt";
-import { LOAD, TILT } from "./timeline";
+import { LOAD } from "./timeline";
 
 type FeatureWindowProps = HeroContent["feature"];
 
@@ -69,7 +67,9 @@ const Arrow = ({
  * line, CTA. Arrows and dots in the top bar, ←/→ when focus is inside, a
  * horizontal swipe on touch. Slides cross-fade with a 24px slide on a spring;
  * reduced motion swaps them instantly. No autoplay — it moves only when asked.
- * The window keeps the hero's cursor tilt and grid-wave entrance.
+ * The box itself stays still (owner, 2026-11-18): no cursor tilt, no
+ * parallax layers, no grid-wave entrance — only the content fade on load and
+ * the slide change.
  */
 export const FeatureWindow = ({ label, items }: FeatureWindowProps) => {
   const [[index, dir], setState] = useState<[number, 1 | -1]>([0, 1]);
@@ -130,7 +130,7 @@ export const FeatureWindow = ({ label, items }: FeatureWindowProps) => {
   const current = items[index];
 
   return (
-    <TiltGroup className="pointer-events-none absolute inset-0">
+    <div className="pointer-events-none absolute inset-0">
       <div
         role="region"
         aria-roledescription="carousel"
@@ -141,17 +141,13 @@ export const FeatureWindow = ({ label, items }: FeatureWindowProps) => {
         <div
           className={`${BOX} overflow-clip border border-transparent [background:var(--hero-window-surface)] backdrop-blur-hero-window`}
         >
-          <DepthLayer depth={TILT.depth.grid} className="absolute inset-0">
-            <GridWave>
-              <Image
-                src="/assets/hero/hero-canvas-grid.svg"
-                alt=""
-                width={680}
-                height={624}
-                className="absolute -top-px -left-px h-156 w-170 max-w-none opacity-60 w1024:h-164.75 w1024:w-129 w768:-top-9 w768:h-147.5 w390:-top-18.25 w390:w-87.5"
-              />
-            </GridWave>
-          </DepthLayer>
+          <Image
+            src="/assets/hero/hero-canvas-grid.svg"
+            alt=""
+            width={680}
+            height={624}
+            className="absolute -top-px -left-px h-156 w-170 max-w-none opacity-60 w1024:h-164.75 w1024:w-129 w768:-top-9 w768:h-147.5 w390:-top-18.25 w390:w-87.5"
+          />
 
           <Reveal
             variant="fade"
@@ -213,7 +209,7 @@ export const FeatureWindow = ({ label, items }: FeatureWindowProps) => {
                       transform: style.x.to((x) => (x === 0 ? "none" : `translate3d(${x}px,0,0)`)),
                     }}
                   >
-                    <DepthLayer depth={TILT.depth.flow} className="w-full">
+                    <div className="w-full">
                       <div className={`relative aspect-2/1 w-full overflow-clip rounded-hero-node border border-hero-zoom-border w1024:aspect-16/10 w768:aspect-2/1 ${item.fit === "contain" ? "bg-background" : "bg-surface-raised"}`}>
                         {item.image ? (
                           <Image
@@ -232,7 +228,7 @@ export const FeatureWindow = ({ label, items }: FeatureWindowProps) => {
                           </span>
                         )}
                       </div>
-                    </DepthLayer>
+                    </div>
 
                     <p className="mt-5 text-label leading-label font-semibold tracking-eyebrow text-accent uppercase w390:mt-4">
                       {item.kind}
@@ -265,6 +261,6 @@ export const FeatureWindow = ({ label, items }: FeatureWindowProps) => {
           {`${current.kind}: ${current.title}, ${index + 1} of ${count}`}
         </span>
       </div>
-    </TiltGroup>
+    </div>
   );
 };

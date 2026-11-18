@@ -49,13 +49,3 @@ export const LIVE = {
   rowPitch: 2.125,
   rowPitch1024: 1.75,
 } as const;
-
-/** Cursor tilt ("3D-наклон"). */
-export const TILT = {
-  /** ±deg at the pointer's reach — raised from 3 (client: turn it more) */
-  deg: 12,
-  perspective: 1400,
-  bloom: 60,
-  /** Parallax depth per layer, px. */
-  depth: { grid: 10, flow: 22, front: 34 },
-} as const;

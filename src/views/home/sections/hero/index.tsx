@@ -5,9 +5,8 @@ import { PillButton } from "@/components/ui/pill-button";
 import { Reveal } from "@/components/ui/reveal";
 import type { HeroContent } from "@/data/mocks/home/hero";
 
-import { DepthLayer, HeroTilt } from "./hero-tilt";
 import { FeatureWindow } from "./feature-window";
-import { LOAD, TILT } from "./timeline";
+import { LOAD } from "./timeline";
 
 /**
  * 02 Hero — 1440 × 712 (Figma 3488:21055), directly under the nav.
@@ -39,14 +38,10 @@ export const Hero = ({
   >
     {/* the frame's own layout, centred in the viewport-tall section */}
     <div className="absolute inset-x-0 top-[calc(var(--hero-extra)/2)] h-(--hero-frame)">
-      <HeroTilt>
         {/* Window bloom 3488:21056 — ellipse at x640 y40, SVG padded 200 (1400 × 1020).
         Not clipped: Figma's render carries the bloom up into the nav.
-        Follows the cursor by up to 60px. */}
-        <DepthLayer
-          depth={TILT.bloom}
-          className="pointer-events-none absolute inset-0"
-        >
+        Still — the cursor tilt/parallax was removed (owner, 2026-11-18). */}
+        <div className="pointer-events-none absolute inset-0">
           <Image
             src="/assets/hero/hero-window-bloom.webp"
             alt=""
@@ -59,7 +54,7 @@ export const Hero = ({
             className="absolute -top-40 left-110 h-255 w-350 max-w-none object-cover w1024:-top-23.75 w1024:left-59 w1024:h-225.75 w1024:w-241.25 w768:-top-51.25 w768:-left-61.5 w768:h-312.5 w768:w-315 w390:-top-61.25 w390:-left-19.5 w390:w-136.5"
             priority
           />
-        </DepthLayer>
+        </div>
 
         {/* Copy column — chip, title, subhead, actions, note in normal flow
           (light re-content, ADR-0032): the Thinking Christian copy is ~3× the
@@ -149,7 +144,6 @@ export const Hero = ({
         <div className="pointer-events-none absolute inset-0 translate-y-(--hero-copy-extra)">
           <FeatureWindow {...feature} />
         </div>
-      </HeroTilt>
     </div>
   </section>
 );

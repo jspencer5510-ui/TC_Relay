@@ -17,6 +17,26 @@ Template: [[templates/adr-note]].
 
 ---
 
+## ADR-0035 — Hero held still: cursor tilt removed
+
+**Date.** 2026-11-18 · **Status.** Accepted (supersedes the tilt/grid-wave part
+of ADR-0034).
+
+**Context.** The owner asked to "eliminate the motion on the box". The hero
+carried Relay's cursor reaction: the whole window group tilted up to ±12°, its
+layers and the orange bloom behind it shifted with the pointer (parallax up to
+60px), and the window's grid rippled in on load.
+
+**Decision.** Remove all of it. `HeroTilt` / `TiltGroup` / `DepthLayer`
+(`hero/hero-tilt.tsx`) and `GridWave` (`hero/flow-live.tsx`) are deleted, the
+`TILT` constants dropped from `hero/timeline.ts`; the grid and bloom render as
+static images. Kept: the content fade on load (`Reveal`) and the slide
+cross-fade when a visitor changes slide — both one-off and user/entry driven.
+
+**Consequences.** The hero no longer reacts to the cursor anywhere. Bringing
+the tilt back means restoring `hero-tilt.tsx` and `flow-live.tsx` from git
+history (the commit "Hero: hold the Featured box still"), not re-deriving it.
+
 ## ADR-0034 — Hero window returns as a Featured carousel
 
 **Date:** 2026-11-18 · **Status:** accepted · **Supersedes:** the hero-book part of ADR-0033

@@ -27,14 +27,14 @@ Order and content of `src/views/home/index.tsx`, per the owner's change doc
 - **`TopicsMenu`** (`nav/topics-menu.tsx`) — native `<details>` drop-down; no
   client JS, keyboard and screen-reader accessible; opens on click/tap.
 - **`FeatureWindow`** (`hero/feature-window.tsx`, client) — the Relay product
-  window's glass box (same place, size and ring at every frame, cursor tilt,
-  grid-wave entrance) as a three-item showcase: image, kind, title, one line,
+  window's glass box (same place, size and ring at every frame; held still —
+  no cursor tilt, parallax or grid wave, owner 2026-11-18) as a three-item showcase: image, kind, title, one line,
   CTA. Arrows + dots in the top bar, ←/→ inside, touch swipe; spring
   cross-fade; no autoplay. Content: `heroMock.feature.items` — edit there.
   `image: null` shows an orange typeset stand-in; `fit: "contain"` for book
   covers, `"cover"` for promo art. Replaced `HeroBook` and the workflow canvas
-  (`product-window`, `live-runs`, `window-node` deleted; `flow-live` kept for
-  `GridWave`). ADR-0034.
+  (`product-window`, `live-runs`, `window-node` deleted; `flow-live` and
+  `hero-tilt` deleted with the tilt). ADR-0034, ADR-0035.
 - **`Story`** (`story/index.tsx`) — text + portrait section in normal flow
   (owner-edited copy, no fixed coordinates). Monogram stand-in until
   `storyMock.photo` is set.

@@ -16,6 +16,15 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-11-18 — Hero box held still (ADR-0035)
+
+- Owner: "eliminate the motion on the box". The Featured window no longer tilts
+  with the cursor, its layers and the orange bloom no longer follow the
+  pointer, and the grid no longer ripples in. `hero-tilt.tsx` and
+  `flow-live.tsx` deleted; `TILT` removed from `hero/timeline.ts`.
+- Still moving: the one-time fade-in of the window's content on load, and the
+  slide change when a visitor uses the arrows/dots/swipe.
+
 ## 2026-11-18 — Featured carousel in the hero window
 
 - The Relay glass product window is back in the hero as a **Featured panel**
