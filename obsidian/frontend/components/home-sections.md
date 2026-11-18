@@ -73,6 +73,7 @@ reshoot/recrop at 1280×1600 is pending from the owner (2026-11-18).
 
 
 - Images for Framework rows 01–04 (rows show placeholder graphics)
+- Featured items 02–03 images (1600×800) and confirmation of the three Featured CTA URLs (`/digitaldiscernment`, `/podcast`, `/framework` — unverified; thinkingchristian.org is unreachable from the build container)
 
 ## Related
 
