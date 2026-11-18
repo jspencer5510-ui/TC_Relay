@@ -66,8 +66,6 @@ Measured slot sizes (CSS px; the page scales up to 1920, so export ≈ 2× the
 | Featured panel images | 2 : 1 (16 : 10 at 1024) | 602×301 → 802×401 | 312×156 | 1600×800 — keep text/faces in the middle 80 % |
 | Framework row images | ≈ 2.3 : 1 | 760×328 → 1013×437 | 358 wide | 2000×864 |
 
-Portrait framing: the 4:5 frame has no slack, so the photo itself needs ~10 % headroom above the head and ~5 % background at each side (rounded corners trim the edges). The 2026-11-16 photo is cropped tight (head touches the top) — a re-shot or wider original was requested.
-
 Portrait framing: the 4:5 frame has no slack, so the photo itself needs
 ~10 % headroom above the head and ~60 px of background either side (the rounded
 corners trim). The current portrait is cropped tight at the top and sides; a
