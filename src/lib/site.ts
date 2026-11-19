@@ -43,5 +43,5 @@ export const siteConfig = {
     "faith and technology",
   ],
   /** Browser theme-color (address bar / PWA) — the page background. */
-  themeColor: "#e4e2dd", // brand paper — matches --background (ADR-0031)
+  themeColor: "#ffffff", // white — matches --background (ADR-0037)
 } as const;

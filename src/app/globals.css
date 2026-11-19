@@ -116,7 +116,7 @@
    no prefers-color-scheme override.
    --------------------------------------------------------------------------- */
 :root {
-  --background: var(--raw-color-paper);
+  --background: var(--raw-color-white); /* owner 2026-11-19: white page (ADR-0037) */
   --foreground: var(--raw-color-ink);
   --foreground-muted: var(--raw-color-ink-500);
   --foreground-dim: var(--raw-color-ink-450);
@@ -186,7 +186,7 @@
   /* same value; named so class strings don't read as the banned duration-fast utility */
   --motion-fast: var(--raw-duration-fast);
   --glass-stroke-active: var(--raw-color-ink-a40);
-  --nav-surface-scrolled: var(--raw-color-paper-a80);
+  --nav-surface-scrolled: var(--raw-color-white-a85);
   --nav-blur: var(--raw-blur-nav);
   --glass-blur: var(--raw-blur-2);
   --duration-normal: var(--raw-duration-normal);

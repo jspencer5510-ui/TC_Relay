@@ -17,6 +17,25 @@ Template: [[templates/adr-note]].
 
 ---
 
+## ADR-0037 — White page background
+
+**Date.** 2026-11-19 · **Status.** Accepted (amends ADR-0031's page colour).
+
+**Context.** The owner: "I'd like to make the background color ffffff". The
+page sat on brand paper `#E4E2DD`, with cards and glass in white on it.
+
+**Decision.** `--background` binds `--raw-color-white`. The scrolled-nav
+backing (`--nav-surface-scrolled`) moves from paper 80 % to white 85 %; the
+browser/app theme colour (`site.ts` themeColor, `manifest.json`,
+`browserconfig.xml`) is `#ffffff`. Paper stays in the palette as a decorative
+gradient stop (footer brand panel, statement mark, product cube art).
+
+**Consequences.** Cards are white on white and read by their hairline border
+and float shadow alone — fine on screenshots at 1440; if they need more
+separation, tint `--surface-raised` (e.g. paper at ~40 %) rather than
+reverting the page. Text contrast rises (tokens were tuned for paper). The
+stream canvas (invert + multiply) is unaffected by the change.
+
 ## ADR-0036 — Brand fonts only
 
 **Date.** 2026-11-18 · **Status.** Accepted (amends ADR-0031's typography).

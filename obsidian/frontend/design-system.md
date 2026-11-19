@@ -141,8 +141,8 @@ no `prefers-color-scheme` override — the design is light-only.
 
 | Brand colour | Tier 1 | Semantic roles it feeds |
 |---|---|---|
-| `#E4E2DD` paper | `--raw-color-paper` | `--background` (page) |
-| `#FFFFFF` white | `--raw-color-white` | `--surface-raised`, `--surface-badge`, `--on-accent`; glass is white at 40–85 % |
+| `#E4E2DD` paper | `--raw-color-paper` | decorative gradient stops only (footer brand panel, statement mark, product cubes) — no longer the page (ADR-0037) |
+| `#FFFFFF` white | `--raw-color-white` | `--background` (page, ADR-0037), `--surface-raised`, `--surface-badge`, `--on-accent`; glass is white at 40–85 %; scrolled nav `--nav-surface-scrolled` white 85 % |
 | `#1E1E1E` ink | `--raw-color-ink` | `--foreground`, title gradient top; borders are ink at 8–18 % |
 | `#ABA8A3` stone | `--raw-color-stone` | hairlines, dots, idle markers, the stream's second hue |
 | `#DB4A2B` brand orange | `--raw-color-rust-500` | `--title-accent` (large serif word), `--accent-marker`, logo, stream |

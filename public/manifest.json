@@ -4,8 +4,8 @@
   "description": "Calm, thoughtful, theological conversations.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#e4e2dd",
-  "theme_color": "#e4e2dd",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "/android-icon-36x36.png",

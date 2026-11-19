@@ -87,6 +87,6 @@
     "No typecheck script; `yarn build` runs the TypeScript check. `npx tsc --noEmit` works ad hoc.",
     "CMS/DB vendor for this project is Payload + Supabase (project AGENTS.md rule 12) — use the payload-cms / supabase-db / supabase-auth skills (/db) rather than the kit's generic headless-cms / database / auth skills.",
     "Node: .nvmrc pins 24.16.0; package.json engines >=20.19.0; works on 22.x.",
-    "Theme: light-only brand palette (ADR-0031) — paper/white/ink/stone/orange; Brand fonts only (ADR-0036): Playfair Display Medium (font-display, titles h1–h3), Cormorant Garamond (font-serif, subtitles/accent words), Public Sans (font-sans, paragraphs and labels). No monospace face. The stream canvas is invert + mix-blend-multiply with complemented --stream-* colours."
+    "Theme: light-only brand palette (ADR-0031) — white page (ADR-0037), paper/ink/stone/orange; Brand fonts only (ADR-0036): Playfair Display Medium (font-display, titles h1–h3), Cormorant Garamond (font-serif, subtitles/accent words), Public Sans (font-sans, paragraphs and labels). No monospace face. The stream canvas is invert + mix-blend-multiply with complemented --stream-* colours."
   ]
 }

@@ -16,6 +16,12 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-11-19 — White page background (ADR-0037)
+
+- Page background `#E4E2DD` → `#FFFFFF` (owner). Scrolled nav backing, theme
+  colour, web manifest and MS tile colour follow. Paper kept for decorative
+  gradient stops only.
+
 ## 2026-11-18 — Page conforms to the brand fonts (ADR-0036)
 
 - Only Playfair Display, Cormorant Garamond and Public Sans remain. Fragment
