@@ -16,6 +16,15 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-11-19 — Framework section as static numbered steps (ADR-0039)
+
+- The four-row Framework section (cards with animated graphics) is replaced by
+  `FrameworkSteps`, adapted from the owner's GetLayers "Numeral Steps"
+  section: eyebrow + "Explore the Framework" link, title and two paragraphs on
+  the left, the four practices with large orange numerals 01–04 on the right.
+  Brand colours and fonts; static (no pinned scroll or drifting numbers).
+- Framework row images (2000×864) are no longer needed.
+
 ## 2026-11-19 — Holiness card, new portrait (ADR-0038)
 
 - "A life patterned on God" card replaced by the static **"Refusing to Settle

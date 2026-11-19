@@ -17,7 +17,10 @@ export const productMock = {
       aside:
         "Much of what shapes us doesn't present itself as a formal argument, but appears in the form of institutions, symbols, slogans, and stories that encourage us to love on our own terms rather than God's. The Thinking Christian Framework is a way of identifying and analyzing the underlying patterns so that we can respond faithfully to God.",
     },
-    /** `kind` picks the row visual (to be replaced with the owner's images). */
+    /** Top-line link of the Numeral Steps layout (ADR-0039). */
+    link: { label: "Explore the Framework", href: "https://www.thinkingchristian.org/framework" },
+    /** The four practices, rendered by `FrameworkSteps` (ADR-0039). `kind` /
+        `cta` are left from the old row cards and are not shown. */
     rows: [
       { kind: "trace", index: "01", title: "Recognizing God's Reality", body: "The willingness to accept God's claim on our lives so that allegiance to him shapes our thought and action.", cta: { label: "Explore the Framework", href: "https://www.thinkingchristian.org/framework" } },
       { kind: "approval", index: "02", title: "Cultivating a Theological Disposition", body: "The pre-reflective, instinctual, theological sense of the way the world works.", cta: { label: "Explore the Framework", href: "https://www.thinkingchristian.org/framework" } },

@@ -1,0 +1,58 @@
+/* framework-steps section tokens — same three tiers as src/app/globals.css.
+   Prefix: --raw-steps-*, --steps-*, --<tw-namespace>-steps-*.
+   Adapted from the GetLayers "Numeral Steps" section (owner, 2026-11-19;
+   ADR-0039): its orange field, Hanken Grotesk and Newsreader are replaced by
+   the brand page, Playfair / Cormorant / Public Sans. Static — the original's
+   pinned scroll and drifting numerals are not used, so the numerals are
+   smaller than its 280 (the whole list sits beside the intro). */
+
+/* Tier 1 — primitives */
+:root {
+  --raw-steps-font-size-number: 10rem; /* 160 at 1440 */
+  --raw-steps-font-size-number-1024: 8.75rem; /* 140 */
+  --raw-steps-font-size-number-768: 7.5rem; /* 120 */
+  --raw-steps-font-size-number-390: 5rem; /* 80 */
+  --raw-steps-line-height-number: 0.84; /* digits sit on the row's bottom rule */
+  --raw-steps-letter-spacing-number: -0.04em;
+}
+
+/* Tier 2 — semantic */
+:root {
+  --steps-type-number: var(--raw-steps-font-size-number);
+  --steps-line-number: var(--raw-steps-line-height-number);
+  --steps-letter-spacing-number: var(--raw-steps-letter-spacing-number);
+  --steps-rule: var(--raw-color-ink-a18); /* the original's 55 % ink, softened for white */
+  --steps-rule-frame: var(--raw-color-ink-a40); /* window frame, top and bottom */
+  --steps-type-step-title: var(--raw-font-size-22);
+  --steps-line-step-title: var(--raw-line-height-28);
+}
+
+@media (width <= 1200px) {
+  :root {
+    --steps-type-number: var(--raw-steps-font-size-number-1024);
+    --steps-type-step-title: var(--raw-font-size-20);
+  }
+}
+
+@media (width <= 900px) {
+  :root {
+    --steps-type-number: var(--raw-steps-font-size-number-768);
+  }
+}
+
+@media (width <= 580px) {
+  :root {
+    --steps-type-number: var(--raw-steps-font-size-number-390);
+    --steps-type-step-title: var(--raw-font-size-18);
+  }
+}
+
+@theme inline {
+  --text-steps-number: var(--steps-type-number);
+  --leading-steps-number: var(--steps-line-number);
+  --tracking-steps-number: var(--steps-letter-spacing-number);
+  --color-steps-rule: var(--steps-rule);
+  --color-steps-rule-frame: var(--steps-rule-frame);
+  --text-steps-title: var(--steps-type-step-title);
+  --leading-steps-title: var(--steps-line-step-title);
+}

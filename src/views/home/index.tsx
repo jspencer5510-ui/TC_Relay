@@ -15,6 +15,7 @@ import { integrationsMock } from "@/data/mocks/home/integrations";
 import { Product } from "@/views/home/sections/product";
 import { productMock } from "@/data/mocks/home/product";
 import { Story } from "@/views/home/sections/story";
+import { FrameworkSteps } from "@/views/home/sections/framework-steps";
 import { storyMock } from "@/data/mocks/home/story";
 import { Statement } from "@/views/home/sections/statement";
 import { statementMock } from "@/data/mocks/home/statement";
@@ -101,19 +102,8 @@ export const HomeView = ({ robot = false }: { robot?: boolean }) => (
             </HydrateNear>
           </Suspense>
           <div aria-hidden="true" className="h-section-gap" />
-          <Suspense>
-            <HydrateNear id="framework">
-              <ScrollBlur enter>
-                <Product
-                  id="framework"
-                  label="The Thinking Christian Framework"
-                  head={productMock.framework.head}
-                  rows={productMock.framework.rows}
-                  graphics={productMock}
-                />
-              </ScrollBlur>
-            </HydrateNear>
-          </Suspense>
+          {/* Static, server-rendered (ADR-0039) — no hydration or scroll blur */}
+          <FrameworkSteps {...productMock.framework} />
           <div aria-hidden="true" className="h-section-gap" />
           {/* t3 + t4 — the lime plate grows out of the Relay logo and folds back into it */}
           <Suspense>

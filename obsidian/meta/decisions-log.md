@@ -17,6 +17,32 @@ Template: [[templates/adr-note]].
 
 ---
 
+## ADR-0039 — Framework section rebuilt as static "Numeral Steps"
+
+**Date.** 2026-11-19 · **Status.** Accepted.
+
+**Context.** The owner supplied a GetLayers section, "Numeral Steps" (one
+HTML file: orange field, Hanken Grotesk + Newsreader, a pinned scroll on
+≥1024 with the step list sliding inside a 576px window and numerals drifting),
+and asked to swap the four-row Framework section for it, adapted to the
+site's colours and fonts. They had also said the movement isn't needed — it
+can be static.
+
+**Decision.** New Server Component `FrameworkSteps` with the layout only:
+top line (eyebrow + link), 12-column grid with intro in columns 1–5 and the
+framed step list in 7–12, stacking below 900. Brand page and type: Playfair
+Medium title with the Cormorant italic accent, Public Sans copy, Playfair
+numerals in brand orange with **lining figures** (Playfair's default
+old-style 3/4 dip through the row rules). No pin, drift, reveals or scroll
+blur; it is no longer wrapped in `HydrateNear`/`ScrollBlur`. Numerals are
+160px at 1440 (not the original 280) so the whole static list sits beside the
+intro. Tokens: `src/style/sections/steps.css`.
+
+**Consequences.** The Framework rows' image slots and placeholder graphics are
+gone (the 2000×864 image request is obsolete). `Product`'s row path and its
+card components are now unused — remove them in a clean-up pass unless the
+owner wants rows back.
+
 ## ADR-0038 — Static "Holiness" card replaces the animated regions card
 
 **Date.** 2026-11-19 · **Status.** Accepted.
