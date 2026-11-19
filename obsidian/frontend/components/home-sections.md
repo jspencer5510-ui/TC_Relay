@@ -65,6 +65,15 @@ Measured slot sizes (CSS px; the page scales up to 1920, so export ≈ 2× the
 | Portrait (`storyMock.photo`) | 4 : 5 | 460×575 → 613×767 | 358×448 | 1280×1600 |
 | Featured panel images | 2 : 1 (16 : 10 at 1024) | 602×301 → 802×401 | 312×156 | 1600×800 — keep text/faces in the middle 80 % |
 | Framework row images | ≈ 2.3 : 1 | 760×328 → 1013×437 | 358 wide | 2000×864 |
+| Body Building card art (×2) | ≈ 1.7 : 1 | 566×336 → 755×448 | 317×257 | 1600×950 |
+
+Crop safe zones (measured 2026-11-19; the boxes change shape per width and
+images fill them with `object-cover`): Framework rows are 2.3:1 at desktop,
+≈1.65:1 at 1024/768 and 1.2–1.4:1 at 390 — keep text/faces in the **centre
+1040×864** of a 2000×864 image. Body Building art is 1.7:1 at desktop, 1.5:1 at
+1024, 2:1 at 768 and 1.2:1 at 390 — keep the subject in the **centre 1170×790**
+of a 1600×950 image. Both slots currently show the template's animated
+graphics; supplying an image replaces them.
 
 Portrait framing: the 4:5 frame has no slack, so the photo itself needs
 ~10 % headroom above the head and ~60 px of background either side (the rounded
