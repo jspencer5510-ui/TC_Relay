@@ -17,6 +17,28 @@ Template: [[templates/adr-note]].
 
 ---
 
+## ADR-0038 — Static "Holiness" card replaces the animated regions card
+
+**Date.** 2026-11-19 · **Status.** Accepted.
+
+**Context.** The owner asked to fit a long statement ("Refusing to Settle for
+Wholesomeness When Only Holiness Will Do", ~140 words, plus four episode
+links) into the "A life patterned on God" card, and said it "doesn't need the
+movement. It can be static". The card was a fixed 630×480 shell with a 566×336
+animated art box (son / scripture / spirit lane bars).
+
+**Decision.** New Server Component `HolinessCard` — no reveal, no art, no
+client JS. The Scale section stops using fixed heights: its head stays
+absolute, the cards sit in flow under it (top padding = the frames' card top),
+so the section grows with the content. `ScaleCard` heights become minimums and
+its art sinks to the bottom (`mt-auto`), so the row's two cards stay equal.
+The animated card and its helpers are deleted.
+
+**Consequences.** At 1440 both cards are 630×719 (was 480), leaving empty
+space above the "Four practices" art; at 1024 they are 895 tall. If that gap
+bothers, the next step is giving the left card more content or art, not
+shrinking the right card's copy.
+
 ## ADR-0037 — White page background
 
 **Date.** 2026-11-19 · **Status.** Accepted (amends ADR-0031's page colour).

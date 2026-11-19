@@ -37,7 +37,16 @@ Order and content of `src/views/home/index.tsx`, per the owner's change doc
   `hero-tilt` deleted with the tilt). ADR-0034, ADR-0035.
 - **`Story`** (`story/index.tsx`) — text + portrait section in normal flow
   (owner-edited copy, no fixed coordinates). Monogram stand-in until
-  `storyMock.photo` is set.
+  `storyMock.photo` is set. Current portrait:
+  `public/assets/story/james-spencer-portrait.jpg` (1280×1600, owner reshoot
+  2026-11-19 — a new file name so optimiser/CDN caches can't serve the old crop).
+- **`HolinessCard`** (`scale/holiness-card.tsx`, Server Component, static) —
+  Body Building's second card: title, paragraphs, "Start with one of these
+  episodes" list (`scaleMock.holiness`; `href: null` = plain text until a link
+  is supplied). Replaced the animated `RegionsCard` (`regions-card`,
+  `lane-bar`, `use-regions-cycle` deleted). The section now lays its cards out
+  in flow so it grows with this card; `ScaleCard` heights are minimums with the
+  art pinned to the bottom. ADR-0038.
 - **`Product`** now takes `id`, `head`, optional `rows` (each `kind:
   trace | approval | chart` plus copy and an optional `cta`) and the shared
   row graphics — one component for both "content service" sections.
@@ -65,23 +74,23 @@ Measured slot sizes (CSS px; the page scales up to 1920, so export ≈ 2× the
 | Portrait (`storyMock.photo`) | 4 : 5 | 460×575 → 613×767 | 358×448 | 1280×1600 |
 | Featured panel images | 2 : 1 (16 : 10 at 1024) | 602×301 → 802×401 | 312×156 | 1600×800 — keep text/faces in the middle 80 % |
 | Framework row images | ≈ 2.3 : 1 | 760×328 → 1013×437 | 358 wide | 2000×864 |
-| Body Building card art (×2) | ≈ 1.7 : 1 | 566×336 → 755×448 | 317×257 | 1600×950 |
+| "Four practices" card art | ≈ 1.7 : 1 | 566×336 → 755×448 | 317×257 | 1600×950 |
 
 Crop safe zones (measured 2026-11-19; the boxes change shape per width and
 images fill them with `object-cover`): Framework rows are 2.3:1 at desktop,
 ≈1.65:1 at 1024/768 and 1.2–1.4:1 at 390 — keep text/faces in the **centre
 1040×864** of a 2000×864 image. Body Building art is 1.7:1 at desktop, 1.5:1 at
 1024, 2:1 at 768 and 1.2:1 at 390 — keep the subject in the **centre 1170×790**
-of a 1600×950 image. Both slots currently show the template's animated
+of a 1600×950 image (only the "Four practices" card has art since ADR-0038). Both slots currently show the template's animated
 graphics; supplying an image replaces them.
 
 Portrait framing: the 4:5 frame has no slack, so the photo itself needs
 ~10 % headroom above the head and ~60 px of background either side (the rounded
-corners trim). The current portrait is cropped tight at the top and sides; a
-reshoot/recrop at 1280×1600 is pending from the owner (2026-11-18).
+corners trim). The 2026-11-19 portrait meets this.
 
 
 - Images for Framework rows 01–04 (rows show placeholder graphics)
+- Links for three "Start with one of these episodes" items (only *Faith in the Age of Reason* has one)
 - Featured items 02–03 images (1600×800) and confirmation of the three Featured CTA URLs (`/digitaldiscernment`, `/podcast`, `/framework` — unverified; thinkingchristian.org is unreachable from the build container)
 
 ## Related

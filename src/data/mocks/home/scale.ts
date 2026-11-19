@@ -1,6 +1,6 @@
 /** 06 The Framework (Scale layout) — thinkingchristian.org (ADR-0032). */
 export const scaleMock = {
-  /** Head per doc 2026-11-14; the two cards below stay as they are for now. */
+  /** Head per doc 2026-11-14. */
   head: {
     badge: "Body Building",
     title: { before: "Defying the World. ", accent: "Following", after: " Jesus." },
@@ -20,17 +20,30 @@ export const scaleMock = {
       { code: "04", name: "inquiry" },
     ],
   },
-  regions: {
-    title: "A life patterned on God",
-    copy: "Our aim is to cultivate a theological sense of the way the world works, and a life patterned on God's self-disclosure in Son, Scripture, and Spirit.",
-    label: "God's self-disclosure",
-    /** `share` is shown as written when it isn't a number (lane-bar). */
-    rows: [
-      { region: "son", city: "", share: "" },
-      { region: "scripture", city: "", share: "" },
-      { region: "spirit", city: "", share: "" },
+  /** Second card (owner, 2026-11-19): static — no art, no motion. The owner's
+      single paragraph is split at its sentence groups for readability; the
+      words are unchanged. `href: null` = link not supplied yet (rendered as
+      plain text until it is). */
+  holiness: {
+    title: "Refusing to Settle for Wholesomeness When Only Holiness Will Do",
+    paragraphs: [
+      "Thinking Christian is for believers committed to the work of building the body of Christ even when doing so requires us to unsettle the conventions we've inherited.",
+      "Wholesomeness tempts us to set aside our theological convictions and live according to human standards of goodness and respectability. Holiness calls us to be uncompromising as we strive to point to and glorify the Triune God.",
+      "If you want Scripture to endorse the right or the left without qualification, baptize slogans like \"family friendly,\" or provide a vision of progress that ends in something other than new creation, Thinking Christian will frustrate you. If you want to consider how God's word exposes the patterns keeping us from being conformed to the image of his Son, Thinking Christian is for you.",
     ],
-    footnote: "God doesn't live in our world. We live in his.",
+    episodesLabel: "Start with one of these episodes",
+    episodes: [
+      { title: "When Your Interpretation Becomes the Authority | The Diagnosis", href: null as string | null },
+      { title: "Why Do Christian Institutions Compromise to Stay Alive?", href: null as string | null },
+      {
+        title: "Shadow vs. Substance: How the Book of Hebrews Unlocks Old Testament Law (Rebekah Josberger and Renee Duffy)",
+        href: null as string | null,
+      },
+      {
+        title: "Faith in the Age of Reason: Navigating the Journey of Modern Theology",
+        href: "https://www.thinkingchristian.org/episodes/faith-in-the-age-of-reason-navigating-the-journey-of-modern-theology" as string | null,
+      },
+    ],
   },
 } as const;
 

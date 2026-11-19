@@ -22,6 +22,8 @@ export interface ScaleCardProps {
  * gap 32, art 410 × 276. 768 (3832:8118): 688 × 480, padding 24, title→copy 16,
  * copy→art 24, art 640 × 316. 390 (3893:3752): 350 wide, height from content,
  * same gaps, art 310 wide. Padding is one less than Figma for the 1px border.
+ * Heights are minimums: the row stretches to its taller card (ADR-0038) and
+ * the art sinks to the bottom (`mt-auto`).
  */
 export const ScaleCard = ({
   title,
@@ -34,7 +36,7 @@ export const ScaleCard = ({
   <Reveal
     tag="article"
     delay={(index + 2) * REVEAL.step}
-    className="flex h-120 w-157.5 flex-col items-start gap-3 overflow-clip rounded-scale-card border border-border-subtle bg-linear-to-b/srgb from-scale-card-from to-scale-card-to p-7.75 w1024:h-123 w1024:w-114.5 w1024:gap-8 w1024:p-5.75 w768:h-120 w768:w-172 w768:gap-4 w390:h-auto w390:w-87.5"
+    className="flex min-h-120 w-157.5 flex-col items-start gap-3 overflow-clip rounded-scale-card border border-border-subtle bg-linear-to-b/srgb from-scale-card-from to-scale-card-to p-7.75 w1024:min-h-123 w1024:w-114.5 w1024:gap-8 w1024:p-5.75 w768:min-h-120 w768:w-172 w768:gap-4 w390:min-h-0 w390:w-87.5"
   >
     <FocusText
       tag="h3"
@@ -50,7 +52,7 @@ export const ScaleCard = ({
       {copy}
     </FocusText>
     <div
-      className={`relative h-84 w-full shrink-0 w1024:h-69 w768:mt-2 w768:h-79 w390:w-77.5 ${artClassName} ${clipArt ? "overflow-clip" : ""}`}
+      className={`relative mt-auto h-84 w-full shrink-0 w1024:h-69 w768:mt-2 w768:h-79 w390:w-77.5 ${artClassName} ${clipArt ? "overflow-clip" : ""}`}
     >
       {children}
     </div>

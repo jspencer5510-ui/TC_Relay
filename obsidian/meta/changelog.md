@@ -16,6 +16,15 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-11-19 — Holiness card, new portrait (ADR-0038)
+
+- "A life patterned on God" card replaced by the static **"Refusing to Settle
+  for Wholesomeness When Only Holiness Will Do"** card: three paragraphs and a
+  "Start with one of these episodes" list (one link supplied so far). Scale
+  section now grows with its cards.
+- New owner portrait (1280×1600 with headroom) as
+  `assets/story/james-spencer-portrait.jpg`; the old tight crop is removed.
+
 ## 2026-11-19 — White page background (ADR-0037)
 
 - Page background `#E4E2DD` → `#FFFFFF` (owner). Scrolled nav backing, theme
