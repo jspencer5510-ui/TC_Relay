@@ -16,6 +16,20 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-11-19 — Statement plate: labels fixed, longer hold; fuller "Four practices" card
+
+- **Stray letters on the orange plate fixed.** The Statement labels (kicker,
+  caption, line words) still forced the old monospace clip (`TYPE_CLIP`,
+  `round(down, n·1ch)`) over `TypeText`; after ADR-0036 changed `--typed` to
+  0 → 1 that clip opened only ~1 character. The override is removed — they use
+  the shared `TYPE_WIPE`.
+- **Plate stays longer** (owner: "disappears too quickly"): pinned hold
+  `PIN` 240 → 480 design px, fold `CLOSE` 320 → 420
+  (`transitions/logo-open.tsx`; wrapper heights +15rem → +30rem).
+- **"Four practices, one response" fills its card**: the art box grows into
+  the stretched card (`flex-1`, Figma height as the minimum); the hub sits
+  centred, the label at the top and the caption at the bottom.
+
 ## 2026-11-19 — Framework section as static numbered steps (ADR-0039)
 
 - The four-row Framework section (cards with animated graphics) is replaced by

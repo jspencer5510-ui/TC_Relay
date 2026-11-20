@@ -45,8 +45,9 @@ Order and content of `src/views/home/index.tsx`, per the owner's change doc
   episodes" list (`scaleMock.holiness`; `href: null` = plain text until a link
   is supplied). Replaced the animated `RegionsCard` (`regions-card`,
   `lane-bar`, `use-regions-cycle` deleted). The section now lays its cards out
-  in flow so it grows with this card; `ScaleCard` heights are minimums with the
-  art pinned to the bottom. ADR-0038.
+  in flow so it grows with this card; `ScaleCard` heights are minimums and its
+  art box grows into the free space (`flex-1`) — `RuntimeCard` centres the hub,
+  label at the top, caption at the bottom. ADR-0038.
 - **`FrameworkSteps`** (`framework-steps/index.tsx`, Server Component,
   static) — adapted from GetLayers "Numeral Steps": top line (eyebrow +
   `productMock.framework.link`), intro column (title, aside split into two

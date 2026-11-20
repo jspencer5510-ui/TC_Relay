@@ -48,10 +48,3 @@ export const WAVE = { pass: 1600, hold: 3600 } as const;
 export const DROP = { tension: 260, friction: 15 } as const;
 export const POP = { tension: 420, friction: 14 } as const;
 
-/**
- * TypeText clips with `round(down, n·1ch, 1ch)`, which float error can land
- * one glyph short at rest ("one tick, one run" lost its "n"). Same clip with
- * a half-pixel nudge; `!` beats TypeText's inline clip-path.
- */
-export const TYPE_CLIP =
-  "[clip-path:inset(0_calc(100%_-_round(down,_calc(var(--typed)_*_1ch_+_0.5px),_1ch)_-_0.1ch)_0_0)]!";

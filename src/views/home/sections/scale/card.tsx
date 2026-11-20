@@ -12,7 +12,7 @@ export interface ScaleCardProps {
   children: ReactNode;
   /** Art 3888:6492 clips its children; Art 3888:6457 does not (only the card clips its glow). */
   clipArt?: boolean;
-  /** Art box height at 390, where the two cards differ (251 / 243). */
+  /** Art box minimum height at 390, where the two cards differed (251 / 243). */
   artClassName: string;
 }
 
@@ -23,7 +23,8 @@ export interface ScaleCardProps {
  * copy→art 24, art 640 × 316. 390 (3893:3752): 350 wide, height from content,
  * same gaps, art 310 wide. Padding is one less than Figma for the 1px border.
  * Heights are minimums: the row stretches to its taller card (ADR-0038) and
- * the art sinks to the bottom (`mt-auto`).
+ * the art box grows into the free space (`flex-1`, min = the Figma height);
+ * the card's children lay out inside it (see RuntimeCard).
  */
 export const ScaleCard = ({
   title,
@@ -52,7 +53,7 @@ export const ScaleCard = ({
       {copy}
     </FocusText>
     <div
-      className={`relative mt-auto h-84 w-full shrink-0 w1024:h-69 w768:mt-2 w768:h-79 w390:w-77.5 ${artClassName} ${clipArt ? "overflow-clip" : ""}`}
+      className={`relative min-h-84 w-full flex-1 w1024:min-h-69 w768:mt-2 w768:min-h-79 w390:w-77.5 ${artClassName} ${clipArt ? "overflow-clip" : ""}`}
     >
       {children}
     </div>

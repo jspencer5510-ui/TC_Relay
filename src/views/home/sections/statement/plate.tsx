@@ -6,7 +6,6 @@ import { TypeText } from "@/components/ui/type-text";
 
 import {
   StatementMotionContext,
-  TYPE_CLIP,
   useStatementSeen,
 } from "./use-statement-seen";
 
@@ -94,7 +93,7 @@ export const StatementPlate = ({
   );
 };
 
-/** Mono label that types in on the plate's timeline, not on its own observer. */
+/** Label that wipes in on the plate's timeline, not on its own observer. */
 export const StatementType = ({
   children,
   delay,
@@ -105,7 +104,7 @@ export const StatementType = ({
   const { seen } = useStatementSeen();
   if (!seen) return <span className="invisible">{children}</span>;
   return (
-    <TypeText delay={delay} className={TYPE_CLIP}>
+    <TypeText delay={delay}>
       {children}
     </TypeText>
   );

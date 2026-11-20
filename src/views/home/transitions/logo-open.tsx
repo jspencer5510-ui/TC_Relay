@@ -5,12 +5,13 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 import { fold } from "./fold";
 
-/** Scroll the plate stays pinned for, design px (15rem in the wrapper's
- *  height class below) — a short reading hold; 420 read as a stall. */
-const PIN = 240;
+/** Scroll the plate stays pinned for, design px (30rem in the wrapper's
+ *  height class below). Owner 2026-11-19: 240 "disappears too quickly" —
+ *  doubled so the plate's labels and line have time to be read. */
+const PIN = 480;
 /** Circle opening / closing length, design px of scroll. */
 const OPEN = 300;
-const CLOSE = 320;
+const CLOSE = 420; /* was 320 — a slower fold back into the logo (owner, 2026-11-19) */
 /** The close starts this much before the pin releases, design px. */
 const CLOSE_LEAD = 0;
 /** Logo pop length, design px of scroll. */
@@ -218,7 +219,7 @@ export const LogoOpen = ({ children }: { children: ReactNode }) => {
       data-open="false"
       /* the plate (552 at 1440, 528 at 1024 and 768, 371 at 390) plus the
          pinned hold (PIN) — spelled out so Tailwind can see the classes */
-      className="logo-open-wrap relative h-[calc(34.5rem+15rem)] w1024:h-[calc(33rem+15rem)] w390:h-[calc(23.1875rem+15rem)]"
+      className="logo-open-wrap relative h-[calc(34.5rem+30rem)] w1024:h-[calc(33rem+30rem)] w390:h-[calc(23.1875rem+30rem)]"
     >
       <div ref={plate} className="logo-open sticky top-[calc(50lvh-16.875rem)]">
         {children}
