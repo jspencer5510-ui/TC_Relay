@@ -122,7 +122,7 @@ export const Hero = ({ content }: HeroProps) => {
               clears the fixed site header. See hero-title.tsx. */}
           <HeroTitle
             lines={titleLines}
-            className="mt-24 text-4xl font-light leading-[0.95] tracking-tight sm:text-6xl lg:text-8xl"
+            className="mt-24 text-4xl font-display font-medium leading-[1.05] tracking-tight sm:text-6xl lg:text-8xl"
           />
 
           {/* Bottom band: stats (left) | insight + CTAs (right) */}
@@ -134,7 +134,7 @@ export const Hero = ({ content }: HeroProps) => {
                   style={revealStyle(i)}
                   className="border-l border-white pl-5 [will-change:transform,opacity]"
                 >
-                  <span className="block text-5xl font-light leading-none sm:text-7xl">
+                  <span className="block font-display text-5xl font-medium lining-nums leading-none sm:text-7xl">
                     {s.value}
                   </span>
                   <span className="mt-3 block text-sm text-white">
@@ -165,7 +165,7 @@ export const Hero = ({ content }: HeroProps) => {
               >
                 <a
                   href="#"
-                  className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black hover:bg-white/90"
+                  className="rounded-full bg-white px-6 py-3 text-sm font-medium text-ink hover:bg-white/90"
                 >
                   {cta}
                 </a>

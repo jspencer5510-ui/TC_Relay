@@ -154,7 +154,7 @@ export const Works = ({ content }: WorksProps) => {
 
         <AnimatedHeading
           as="h2"
-          className="absolute inset-x-0 top-24 z-30 text-center text-[2rem] font-light leading-[0.95] tracking-tight sm:text-[2.5rem] lg:text-[4rem]"
+          className="absolute inset-x-0 top-24 z-30 text-center text-[2rem] font-display font-medium leading-[1.05] tracking-tight sm:text-[2.5rem] lg:text-[4rem]"
         >
           {heading}
         </AnimatedHeading>
@@ -184,7 +184,7 @@ export const Works = ({ content }: WorksProps) => {
               <animated.div
                 aria-hidden="true"
                 suppressHydrationWarning
-                className="absolute inset-0 bg-black"
+                className="absolute inset-0 bg-ink"
                 style={{ opacity: f.to((v) => scrimOpacity(i, v)) }}
               />
             </animated.div>

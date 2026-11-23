@@ -29,20 +29,20 @@ export const Product = ({ content }: ProductProps) => {
   return (
     <section
       aria-labelledby={labelId}
-      className="relative z-20 bg-hero-page px-6 py-24 text-black md:px-12 lg:px-page-gutter"
+      className="relative z-20 bg-hero-page px-6 py-24 text-ink md:px-12 lg:px-page-gutter"
     >
       {/* Heading + CTA, centred */}
       <div className="mb-14 flex flex-col items-center text-center">
         <AnimatedHeading
           as="h2"
           id={labelId}
-          className="text-[2rem] font-light leading-[0.95] tracking-tight text-black sm:text-[2.5rem] lg:text-[4rem]"
+          className="text-[2rem] font-display font-medium leading-[1.05] tracking-tight text-ink sm:text-[2.5rem] lg:text-[4rem]"
         >
           {heading}
         </AnimatedHeading>
         <button
           type="button"
-          className="mt-8 rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+          className="mt-8 rounded-full bg-ink px-6 py-3 text-sm font-medium text-white hover:bg-ink/90"
         >
           {cta}
         </button>
@@ -52,7 +52,7 @@ export const Product = ({ content }: ProductProps) => {
       <div ref={rootRef} className="grid gap-5 lg:grid-cols-4">
         <animated.article
           style={cardStyle(0)}
-          className="relative flex min-h-[26rem] flex-col justify-between overflow-hidden rounded-3xl p-8 text-black lg:col-span-2 [will-change:transform,opacity]"
+          className="relative flex min-h-[26rem] flex-col justify-between overflow-hidden rounded-3xl p-8 text-ink lg:col-span-2 [will-change:transform,opacity]"
         >
           <Image
             src="/assets/images/6th.png"
@@ -64,29 +64,29 @@ export const Product = ({ content }: ProductProps) => {
           <h3 className="relative text-2xl leading-snug tracking-tight">
             {cards.grow.title}
           </h3>
-          <p className="relative max-w-xs text-lg text-black/70">
+          <p className="relative max-w-xs text-lg text-ink/70">
             {cards.grow.body}
           </p>
         </animated.article>
 
         <animated.article
           style={cardStyle(1)}
-          className="flex min-h-[26rem] flex-col justify-between rounded-3xl bg-card-gray p-8 text-black [will-change:transform,opacity]"
+          className="flex min-h-[26rem] flex-col justify-between rounded-3xl bg-card-gray p-8 text-ink [will-change:transform,opacity]"
         >
           <h3 className="text-2xl leading-snug tracking-tight">
             {cards.liquid.title}
           </h3>
-          <p className="text-lg text-black/70">{cards.liquid.body}</p>
+          <p className="text-lg text-ink/70">{cards.liquid.body}</p>
         </animated.article>
 
         <animated.article
           style={cardStyle(2)}
-          className="flex min-h-[26rem] flex-col justify-between rounded-3xl bg-card-gray p-8 text-black [will-change:transform,opacity]"
+          className="flex min-h-[26rem] flex-col justify-between rounded-3xl bg-card-gray p-8 text-ink [will-change:transform,opacity]"
         >
           <h3 className="text-2xl leading-snug tracking-tight">
             {cards.hands.title}
           </h3>
-          <p className="text-lg text-black/70">{cards.hands.body}</p>
+          <p className="text-lg text-ink/70">{cards.hands.body}</p>
         </animated.article>
       </div>
     </section>

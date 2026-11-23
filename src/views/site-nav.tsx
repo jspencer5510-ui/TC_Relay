@@ -28,7 +28,7 @@ const BoltIcon = () => (
 
 // Shared pill shell — brand and links pills sit in their own rounded plaques.
 const PILL =
-  "flex h-11 items-center rounded-full border border-white/10 bg-black/30 backdrop-blur-md";
+  "flex h-11 items-center rounded-full border border-white/10 bg-ink/30 backdrop-blur-md";
 
 export const SiteNav = ({
   brand,
@@ -56,7 +56,7 @@ export const SiteNav = ({
     </div>
     <a
       href="#"
-      className="inline-flex h-11 items-center rounded-full bg-white px-6 text-sm font-medium text-plum shadow-sm hover:bg-white/90"
+      className="inline-flex h-11 items-center rounded-full bg-white px-6 text-sm font-medium text-ink shadow-sm hover:bg-white/90"
     >
       {cta}
     </a>

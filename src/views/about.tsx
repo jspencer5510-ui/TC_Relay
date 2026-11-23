@@ -144,7 +144,7 @@ export const About = ({ content, labelId }: AboutProps) => {
         config={{ tension: 260, friction: 30 }}
         className="mb-6 block text-xs font-semibold uppercase tracking-[0.35em] text-muted-small"
       >
-        <span className="mr-2 inline-block h-1.5 w-1.5 -translate-y-[0.15em] rounded-full bg-plum align-middle" />
+        <span className="mr-2 inline-block h-1.5 w-1.5 -translate-y-[0.15em] rounded-full bg-ink align-middle" />
         {content.eyebrow}
       </Inview>
 
@@ -152,13 +152,13 @@ export const About = ({ content, labelId }: AboutProps) => {
         ref={rootRef}
         id={labelId}
         aria-label={`${lead} ${mutedLead}`}
-        className="mx-auto block max-w-4xl text-[2rem] font-light leading-[0.95] tracking-tight text-black sm:text-[2.5rem] lg:text-[4rem]"
+        className="mx-auto block max-w-4xl text-[2rem] font-display font-medium leading-[1.05] tracking-tight text-ink sm:text-[2.5rem] lg:text-[4rem]"
       >
         {leadRun.nodes}
-        {chip(chip1Idx, "bg-accent-blue", <ChartIcon />)}{" "}
+        {chip(chip1Idx, "bg-accent", <ChartIcon />)}{" "}
         <span className="text-muted">
           {mutedRun.nodes}
-          {chip(chip2Idx, "bg-accent-lime text-black", <BoltIcon />)}
+          {chip(chip2Idx, "bg-accent-soft text-ink", <BoltIcon />)}
         </span>
       </h2>
     </section>

@@ -28,7 +28,7 @@ export interface ChainMaterialConfig {
 }
 
 export const defaultChainMaterial: ChainMaterialConfig = {
-  color: "#a5ade3",
+  color: "#e6ddd3", // warm chrome (was a blue-violet tint)
   metalness: 1,
   roughness: 0.1,
   envMapIntensity: 2.8,

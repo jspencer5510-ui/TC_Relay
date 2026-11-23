@@ -43,7 +43,7 @@ const AVATARS = [
 
 // Numbers share the block heading's display scale (see about.tsx `.lead`).
 const STAT_NUM =
-  "font-light leading-none tracking-tight text-[2rem] sm:text-[2.5rem] lg:text-[4rem]";
+  "font-display font-medium lining-nums leading-none tracking-tight text-[2rem] sm:text-[2.5rem] lg:text-[4rem]";
 
 export const Stats = ({ content }: StatsProps) => {
   const { brand, collab, commitment, data, reach } = content;
@@ -62,7 +62,7 @@ export const Stats = ({ content }: StatsProps) => {
         {/* Collaboration — blue */}
         <animated.article
           style={cardStyle(0)}
-          className="relative flex min-h-[32rem] flex-col justify-end overflow-hidden rounded-3xl bg-card-blue p-7 text-black [will-change:transform,opacity]"
+          className="relative flex min-h-[32rem] flex-col justify-end overflow-hidden rounded-3xl bg-card-accent p-7 text-ink [will-change:transform,opacity]"
         >
           <Image
             src="/assets/images/2nd/people.png"
@@ -72,18 +72,18 @@ export const Stats = ({ content }: StatsProps) => {
             className="object-cover"
           />
           <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 to-black/25"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 to-ink/25"
             aria-hidden="true"
           />
           <span className="absolute left-7 top-7 text-2xl font-extrabold italic tracking-tight">
             {brand}
           </span>
-          <span className="absolute right-7 top-7 flex h-11 w-11 items-center justify-center rounded-xl bg-white text-card-blue">
+          <span className="absolute right-7 top-7 flex h-11 w-11 items-center justify-center rounded-xl bg-white text-card-accent">
             <BarsIcon />
           </span>
-          <div className="relative rounded-2xl bg-white p-6 text-black">
+          <div className="relative rounded-2xl bg-white p-6 text-ink">
             <div className={STAT_NUM}>{collab.value}</div>
-            <p className="mt-3 max-w-xs text-base leading-relaxed text-black/60">
+            <p className="mt-3 max-w-xs text-base leading-relaxed text-ink/60">
               {collab.desc}
             </p>
           </div>
@@ -92,9 +92,9 @@ export const Stats = ({ content }: StatsProps) => {
         {/* Commitment — grey with quote */}
         <animated.article
           style={cardStyle(1)}
-          className="flex min-h-[32rem] flex-col rounded-3xl bg-card-gray p-8 text-black [will-change:transform,opacity]"
+          className="flex min-h-[32rem] flex-col rounded-3xl bg-card-gray p-8 text-ink [will-change:transform,opacity]"
         >
-          <p className="text-base leading-relaxed text-black/55">
+          <p className="text-base leading-relaxed text-ink/55">
             {commitment.eyebrow}
           </p>
           <div className={`mt-4 ${STAT_NUM}`}>{commitment.value}</div>
@@ -109,7 +109,7 @@ export const Stats = ({ content }: StatsProps) => {
                 </span>
               ))}
             </div>
-            <blockquote className="max-w-md text-2xl leading-snug tracking-tight text-black/80">
+            <blockquote className="max-w-md text-2xl leading-snug tracking-tight text-ink/80">
               &ldquo;{commitment.quote}&rdquo;
             </blockquote>
           </div>
@@ -119,7 +119,7 @@ export const Stats = ({ content }: StatsProps) => {
         <div className="flex flex-col gap-6">
           <animated.article
             style={cardStyle(2)}
-            className="flex flex-1 flex-col rounded-3xl bg-card-blue p-8 text-white [will-change:transform,opacity]"
+            className="flex flex-1 flex-col rounded-3xl bg-card-accent p-8 text-white [will-change:transform,opacity]"
           >
             <p className="text-sm text-white">{data.label}</p>
             <div className={`mt-4 ${STAT_NUM}`}>{data.value}</div>

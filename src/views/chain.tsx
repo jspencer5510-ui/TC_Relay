@@ -31,8 +31,9 @@ import { useRobot } from "@/components/common/robot-view";
 const SHOW_CONTROLS = false;
 
 // Same gradient palette as the hero default; a different seed → different pattern.
-const BASE = "#1c3ee6";
-const LIGHT = "#eef3ff";
+/* Thinking Christian palette: brand orange field, pale-orange glow. */
+const BASE = "#db4a2b";
+const LIGHT = "#f7e4de";
 const SEED = 3.7;
 const MODEL_URL = "/assets/chain.glb";
 
@@ -170,7 +171,7 @@ export const Chain = ({ content }: ChainProps) => {
           <AnimatedHeading
             as="h2"
             id="chain-title"
-            className="mt-24 max-w-[15ch] text-5xl font-light leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-8xl"
+            className="mt-24 max-w-[15ch] text-5xl font-display font-medium leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-8xl"
             alpha={(f) => 1 - f * 0.65}
           >
             {heading}
@@ -180,7 +181,7 @@ export const Chain = ({ content }: ChainProps) => {
             <p className="max-w-md text-base leading-relaxed text-white">
               {tagline}
             </p>
-            <p className="hidden max-w-xl text-right text-8xl font-light leading-[0.95] tracking-tight text-white/40 lg:block">
+            <p className="hidden max-w-xl text-right text-8xl font-display font-medium leading-[1.05] tracking-tight text-white/40 lg:block">
               {aside}
             </p>
           </div>

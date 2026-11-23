@@ -150,12 +150,12 @@ export const MirrorHall = ({ content }: MirrorHallProps) => {
           <AnimatedHeading
             as="h2"
             id={labelId}
-            className="text-[2rem] font-light leading-none tracking-wide text-mh-fg sm:text-[3rem] lg:text-[4.125rem]"
+            className="text-[2rem] font-display font-medium leading-[1.1] text-mh-fg sm:text-[3rem] lg:text-[4.125rem]"
           >
             {heading}
           </AnimatedHeading>
           <animated.p
-            className="mx-auto mt-4 max-w-2xl text-sm font-light tracking-wide text-mh-muted/60"
+            className="mx-auto mt-4 max-w-2xl text-sm tracking-wide text-mh-muted/60"
             style={{ opacity: p.to((v) => localProg(v, 1)) }}
           >
             {tagline}
@@ -181,7 +181,7 @@ export const MirrorHall = ({ content }: MirrorHallProps) => {
             <span className="text-mh-muted/50">{pad(items.length)}</span>
           </p>
           <animated.p
-            className="text-xl font-light uppercase tracking-[0.12em] text-mh-fg sm:text-2xl lg:text-[2.125rem]"
+            className="text-xl uppercase tracking-[0.12em] text-mh-fg sm:text-2xl lg:text-[2.125rem]"
             style={{
               opacity: swap,
               transform: swap.to((v) => `translateY(${(1 - v) * 0.5625}rem)`),

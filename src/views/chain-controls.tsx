@@ -59,7 +59,7 @@ export const ChainControls = ({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed left-4 top-4 z-50 rounded-lg bg-black/80 px-3 py-2 text-xs font-medium text-white shadow-lg backdrop-blur"
+        className="fixed left-4 top-4 z-50 rounded-lg bg-ink/80 px-3 py-2 text-xs font-medium text-white shadow-lg backdrop-blur"
       >
         ⚙ Material
       </button>
@@ -69,7 +69,7 @@ export const ChainControls = ({
   return (
     <aside
       aria-label="Chain material controls"
-      className="fixed left-4 top-4 z-50 flex max-h-[calc(100dvh-2rem)] w-64 flex-col gap-3 overflow-y-auto rounded-xl bg-black/85 p-4 text-xs text-white shadow-2xl backdrop-blur-md"
+      className="fixed left-4 top-4 z-50 flex max-h-[calc(100dvh-2rem)] w-64 flex-col gap-3 overflow-y-auto rounded-xl bg-ink/85 p-4 text-xs text-white shadow-2xl backdrop-blur-md"
     >
       <div className="flex items-center justify-between">
         <span className="text-sm font-semibold">Chrome material</span>
@@ -118,7 +118,7 @@ export const ChainControls = ({
         <button
           type="button"
           onClick={copy}
-          className="flex-1 rounded-lg bg-white px-3 py-2 font-medium text-black hover:bg-white/90"
+          className="flex-1 rounded-lg bg-white px-3 py-2 font-medium text-ink hover:bg-white/90"
         >
           {copied ? "Copied ✓" : "Copy config"}
         </button>
@@ -135,7 +135,7 @@ export const ChainControls = ({
         readOnly
         value={json}
         onFocus={(e) => e.currentTarget.select()}
-        className="h-28 w-full resize-none rounded-lg bg-black/60 p-2 font-mono text-[10px] leading-tight text-white/80"
+        className="h-28 w-full resize-none rounded-lg bg-ink/60 p-2 font-mono text-[10px] leading-tight text-white/80"
       />
     </aside>
   );

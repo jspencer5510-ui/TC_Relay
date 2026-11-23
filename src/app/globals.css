@@ -1,45 +1,58 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Thinking Christian brand palette (owner brand sheet): paper #E4E2DD,
+     orange #DB4A2B, stone #ABA8A3, ink #1E1E1E, white #FFFFFF — light page.
+     Two derived tones are used where the brand five fail contrast:
+     orange-600 #C8462A (white text on it 4.81:1; the brand orange gives 4.18:1)
+     and ink-500 #5D5C5A (small grey text on white). */
+  --raw-paper: #e4e2dd;
+  --raw-orange: #db4a2b;
+  --raw-orange-600: #c8462a;
+  --raw-orange-50: #f7e4de;
+  --raw-stone: #aba8a3;
+  --raw-ink: #1e1e1e;
+  --raw-ink-500: #5d5c5a;
+  --raw-white: #ffffff;
+
+  --background: var(--raw-white);
+  --foreground: var(--raw-ink);
 
   /* Home hero — full-bleed WebGL backdrop (see src/views/plasma-burst.tsx and the
-     `hero-gradient` utility below, kept only as a no-WebGL fallback). Kept explicit
-     (not tied to --background) so it holds regardless of scheme. */
-  --hero-base: #04070f; /* near-black base */
-  --hero-stage: #1246e2; /* blue (fallback gradient + WebGL base tint) */
-  --hero-glow: #2ad4ff; /* cyan side glows (fallback) */
-  --hero-page: #ffffff; /* white shown in the gap when the hero shrinks into a card */
+     `hero-gradient` utility below, kept only as a no-WebGL fallback): ink base,
+     orange stage, pale-orange glows. */
+  --hero-base: var(--raw-ink);
+  --hero-stage: var(--raw-orange);
+  --hero-glow: var(--raw-orange-50);
+  --hero-page: var(--raw-white); /* shown in the gap when the hero shrinks into a card */
 
-  /* Logo marquee — one flat light-grey for every logo. */
-  --logo: #c6ccd6;
+  /* Topic marquee — one flat stone grey. */
+  --logo: var(--raw-stone);
 
   /* About heading — inline icon-chip accents. */
-  --accent-blue: #2e9bff;
-  --accent-lime: #b6f13a;
-  --muted: #9aa1ad; /* de-emphasised heading words */
-  --muted-small: #69707c; /* the same grey, darkened for small text (eyebrows): 4.99:1 on white — --muted is 2.6:1, fine only as large display words */
+  --accent: var(--raw-orange);
+  --accent-soft: var(--raw-paper);
+  --muted: var(--raw-stone); /* de-emphasised large heading words */
+  --muted-small: var(--raw-ink-500); /* small grey text: 6.6:1 on white */
 
   /* Stats bento cards. */
-  --card-blue: #2b72e2; /* was #2f7cf6 — darkened ~8 % so white copy on it reads 4.56:1 (D-029: A11y 100; #2f7cf6 caps white at 3.94:1) */
-  --card-gray: #ededf0;
-  --card-dark: #0a0c12;
+  --card-accent: var(--raw-orange-600); /* white copy 4.81:1 */
+  --card-gray: var(--raw-paper);
+  --card-dark: var(--raw-ink);
 
-  /* Product explainer bento (purple). */
-  --plum: #241c3a; /* deep purple — dark cards, button, headings */
-  --lilac: #d7d1f2; /* light lavender card */
-  --paper: #f5f4f8; /* section background */
+  /* Ink — dark cards, buttons, headings (the template's deep purple). */
+  --ink: var(--raw-ink);
+  --paper: var(--raw-paper);
 
-  /* Site footer — blue "mesh gradient" (WebGL) with a chrome heart; slides over
-     the contact form. --footer is the solid no-WebGL fallback behind the shader. */
-  --footer: #0a1533; /* dark navy fallback behind the gradient */
-  --footer-fg: #f2f4f1; /* near-white primary text */
-  --footer-muted: #aeb9d8; /* de-emphasised labels / secondary text (cool) */
+  /* Site footer — WebGL mesh gradient in the brand colours with a chrome heart;
+     --footer is the solid no-WebGL fallback behind the shader. */
+  --footer: var(--raw-ink);
+  --footer-fg: var(--raw-white);
+  --footer-muted: var(--raw-stone);
 
-  /* Preloader progress bar — pale blue → royal blue, left→right. */
-  --preloader-from: #d7e0ff; /* pale blue (bar left / wipe start) */
-  --preloader-to: #1b34e8; /* deep royal blue (bar right / wipe end) */
+  /* Preloader progress bar — paper → orange. */
+  --preloader-from: var(--raw-paper);
+  --preloader-to: var(--raw-orange);
 }
 
 @theme inline {
@@ -50,19 +63,20 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-mulish);
+  --font-sans: var(--font-public-sans);
+  --font-display: var(--font-playfair-display);
+  --font-serif: var(--font-cormorant-garamond);
 
   --color-hero-page: var(--hero-page);
   --color-logo: var(--logo);
-  --color-accent-blue: var(--accent-blue);
-  --color-accent-lime: var(--accent-lime);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
   --color-muted: var(--muted);
   --color-muted-small: var(--muted-small);
-  --color-card-blue: var(--card-blue);
+  --color-card-accent: var(--card-accent);
   --color-card-gray: var(--card-gray);
   --color-card-dark: var(--card-dark);
-  --color-plum: var(--plum);
-  --color-lilac: var(--lilac);
+  --color-ink: var(--ink);
   --color-paper: var(--paper);
   --color-preloader-from: var(--preloader-from);
   --color-preloader-to: var(--preloader-to);
@@ -81,19 +95,12 @@
     radial-gradient(92% 70% at 50% 118%, var(--hero-stage), transparent 72%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   min-height: 100vh;
-  /* Mulish (next/font/local) — the --font-mulish var is set on <body>. */
-  font-family: var(--font-mulish), ui-sans-serif, system-ui, sans-serif;
+  /* Public Sans (next/font/google) — paragraphs; titles use font-display. */
+  font-family: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Lenis smooth scroll — official integration CSS (see src/layouts/scroll-layout.tsx).

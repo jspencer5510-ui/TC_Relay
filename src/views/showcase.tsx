@@ -65,7 +65,7 @@ const Column = ({ prefix, name, image }: ShowcaseItem) => {
           a white scrim that scales up from the base on hover. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent lg:hidden"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/70 via-ink/30 to-transparent lg:hidden"
       />
       <Hover
         trigger={ref}
@@ -77,10 +77,10 @@ const Column = ({ prefix, name, image }: ShowcaseItem) => {
       />
 
       <div className="pointer-events-none absolute inset-x-5 bottom-6 lg:inset-x-6 lg:bottom-8">
-        <span className="block text-2xl font-normal leading-[1.05] tracking-tight text-white lg:text-4xl lg:text-black">
+        <span className="block text-2xl font-normal leading-[1.05] tracking-tight text-white lg:text-4xl lg:text-ink">
           {prefix}
         </span>
-        <span className="block text-2xl font-normal leading-[1.05] tracking-tight text-white lg:text-4xl lg:text-black">
+        <span className="block text-2xl font-normal leading-[1.05] tracking-tight text-white lg:text-4xl lg:text-ink">
           {name}
         </span>
       </div>
@@ -93,7 +93,7 @@ export const Showcase = ({ content }: ShowcaseProps) => {
   return (
     <section
       aria-labelledby="showcase-title"
-      className="relative overflow-hidden border-y border-plum/10 bg-hero-page text-black"
+      className="relative overflow-hidden border-y border-ink/10 bg-hero-page text-ink"
     >
       {/* Heading + CTA. In normal flow above the cards on mobile/tablet; on lg it's
           overlaid on the right half, inset equally (px-12) from the centre line and the
@@ -103,13 +103,13 @@ export const Showcase = ({ content }: ShowcaseProps) => {
         <AnimatedHeading
           as="h2"
           id="showcase-title"
-          className="text-[2rem] font-light leading-[0.95] tracking-tight sm:text-[2.5rem] lg:text-[3rem]"
+          className="text-[2rem] font-display font-medium leading-[1.05] tracking-tight sm:text-[2.5rem] lg:text-[3rem]"
         >
           {heading}
         </AnimatedHeading>
         <button
           type="button"
-          className="pointer-events-auto mt-8 rounded-full border border-black/30 px-6 py-3 text-sm font-medium text-black hover:bg-black hover:text-hero-page"
+          className="pointer-events-auto mt-8 rounded-full border border-ink/30 px-6 py-3 text-sm font-medium text-ink hover:bg-ink hover:text-hero-page"
         >
           {cta}
         </button>
@@ -117,7 +117,7 @@ export const Showcase = ({ content }: ShowcaseProps) => {
 
       {/* Cards: a 2-column grid with gaps on mobile/tablet; full-height, edge-to-edge,
           lined columns on lg (the hover showcase). */}
-      <div className="grid grid-cols-2 gap-4 px-6 pb-6 sm:gap-5 md:px-10 lg:grid-cols-4 lg:gap-0 lg:px-0 lg:pb-0 lg:divide-x lg:divide-plum/10">
+      <div className="grid grid-cols-2 gap-4 px-6 pb-6 sm:gap-5 md:px-10 lg:grid-cols-4 lg:gap-0 lg:px-0 lg:pb-0 lg:divide-x lg:divide-ink/10">
         {items.map((item) => (
           <Column
             key={item.name}

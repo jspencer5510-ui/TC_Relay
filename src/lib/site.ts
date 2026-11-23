@@ -45,5 +45,5 @@ export const siteConfig = {
     "money management",
   ],
   /** Browser theme-color (address bar / PWA) — the dark hero backdrop the page opens on. */
-  themeColor: "#04070f",
+  themeColor: "#1e1e1e", // brand ink — the hero is dark
 } as const;

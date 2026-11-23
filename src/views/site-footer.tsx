@@ -52,7 +52,7 @@ export const SiteFooter = ({ content }: SiteFooterProps) => {
         <AnimatedHeading
           as="h2"
           id={labelId}
-          className="mx-auto max-w-[14ch] text-[2rem] font-light leading-[1.05] tracking-tight sm:text-[2.5rem] lg:max-w-none lg:text-[4rem]"
+          className="mx-auto max-w-[14ch] text-[2rem] font-display font-medium leading-[1.1] tracking-tight sm:text-[2.5rem] lg:max-w-none lg:text-[4rem]"
         >
           {heading}
         </AnimatedHeading>

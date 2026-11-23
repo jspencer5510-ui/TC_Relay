@@ -30,13 +30,13 @@ export const ContactForm = ({ content }: ContactFormProps) => {
   // A filled field lights its trailing status dot.
   const dot = (filled: boolean) =>
     `pointer-events-none absolute right-0 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full ${
-      filled ? "bg-black" : "bg-black/25"
+      filled ? "bg-ink" : "bg-ink/25"
     }`;
 
   const fieldWrap =
-    "relative border-b border-black/25 pb-3 focus-within:border-black";
+    "relative border-b border-ink/25 pb-3 focus-within:border-ink";
   const input =
-    "w-full bg-transparent pr-6 text-lg text-black outline-none placeholder:uppercase placeholder:tracking-wide placeholder:text-black/40";
+    "w-full bg-transparent pr-6 text-lg text-ink outline-none placeholder:uppercase placeholder:tracking-wide placeholder:text-ink/40";
 
   return (
     <section
@@ -47,7 +47,7 @@ export const ContactForm = ({ content }: ContactFormProps) => {
       <AnimatedHeading
         as="h2"
         id={labelId}
-        className="mx-auto mb-16 max-w-2xl text-center text-2xl leading-snug tracking-tight text-black"
+        className="mx-auto mb-16 max-w-2xl text-center text-2xl leading-snug tracking-tight text-ink"
       >
         {heading}
       </AnimatedHeading>
@@ -113,14 +113,14 @@ export const ContactForm = ({ content }: ContactFormProps) => {
         <div className="mt-10 flex flex-col items-center gap-4">
           <button
             type="submit"
-            className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+            className="rounded-full bg-ink px-6 py-3 text-sm font-medium text-white hover:bg-ink/90"
           >
             {cta}
           </button>
           <p
             role="status"
             aria-live="polite"
-            className="min-h-5 text-sm text-black/60"
+            className="min-h-5 text-sm text-ink/60"
           >
             {sent ? "Thanks — we'll be in touch shortly." : ""}
           </p>

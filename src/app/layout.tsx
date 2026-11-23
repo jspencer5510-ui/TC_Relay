@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
+import { Cormorant_Garamond, Playfair_Display, Public_Sans } from "next/font/google";
 
 import {
   generateMetadata,
@@ -17,14 +17,29 @@ import { ScrollLayout } from "@/layouts/scroll-layout";
 
 import "@/app/globals.css";
 
-const mulish = localFont({
-  variable: "--font-mulish",
+// Thinking Christian brand type: Public Sans for paragraphs and UI, Playfair
+// Display Medium for titles, Cormorant Garamond for subtitles / the italic
+// accent word (replaces the template's Mulish).
+const publicSans = Public_Sans({
+  variable: "--font-public-sans",
+  subsets: ["latin"],
   display: "swap",
-  src: [
-    { path: "./fonts/Mulish-Light.woff2", weight: "300", style: "normal" },
-    { path: "./fonts/Mulish-Regular.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/Mulish-Medium.woff2", weight: "500", style: "normal" },
-  ],
+});
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant-garamond",
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
 });
 
 // Homepage title carries the brand + tagline (keyword-rich); subpages pass their own.
@@ -41,7 +56,9 @@ export default function RootLayout({
   return (
     // `data-consent` is set on <html> by CONSENT_FLAG_SCRIPT before hydration.
     <html suppressHydrationWarning lang="en">
-      <body className={`${mulish.variable}`}>
+      <body
+        className={`${publicSans.variable} ${playfairDisplay.variable} ${cormorantGaramond.variable}`}
+      >
         {/* Before anything is parsed: marks a returning visitor's choice so the
             server-rendered consent banner is hidden before its first paint. */}
         <script dangerouslySetInnerHTML={{ __html: CONSENT_FLAG_SCRIPT }} />

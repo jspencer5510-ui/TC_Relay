@@ -13,7 +13,7 @@ import * as THREE from "three";
 import { skipShaderStatusReads, whenIdle } from "./gl-steps";
 
 export interface GradientBackgroundColors {
-  base: string; // blue field (`#rrggbb`)
+  base: string; // field colour (`#rrggbb`) — brand orange
   light: string; // bright glow (`#rrggbb`)
   /** Shifts the blob layout for a different pattern (same style). Default 0. */
   seed?: number;
@@ -42,8 +42,10 @@ float blob(vec2 uv, vec2 c, vec2 r){ vec2 d = (uv - c) / r; return exp(-dot(d, d
 
 void main(){
   vec2 uv = vUv;                       // 0..1, (0,0) bottom-left
-  vec3 navy   = vec3(0.015, 0.028, 0.085); // deep blue-black (keeps a blue hue, not grey)
-  vec3 ltblue = vec3(0.42, 0.60, 1.0);
+  // Thinking Christian palette (was navy / light blue): a warm near-black from
+  // brand ink #1E1E1E, and pale orange #F7E4DE.
+  vec3 navy   = vec3(0.060, 0.045, 0.040); // warm ink-black (keeps a warm hue, not grey)
+  vec3 ltblue = vec3(0.969, 0.894, 0.871);
 
   // Base: vivid blue, only a gentle vertical falloff (stays saturated).
   vec3 col = mix(uBase * 0.88, uBase * 1.08, smoothstep(0.0, 1.0, uv.y));

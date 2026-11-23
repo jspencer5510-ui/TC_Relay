@@ -98,7 +98,7 @@ export const Preloader = () => {
       style={{ transform: exit.to((e) => `translateY(${-e * 100}%)`) }}
     >
       {/* Centre logo. */}
-      <div className="absolute inset-0 flex items-center justify-center text-black">
+      <div className="absolute inset-0 flex items-center justify-center text-ink">
         <span className="flex items-center gap-2 text-3xl font-medium">
           <BoltIcon />
           Stride
@@ -116,7 +116,7 @@ export const Preloader = () => {
       >
         <span
           ref={pctRef}
-          className="block whitespace-nowrap pr-6 text-5xl font-light leading-[0.95] tracking-tight text-black sm:text-6xl lg:text-8xl"
+          className="block whitespace-nowrap pr-6 text-5xl font-display font-medium leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-8xl"
         >
           0%
         </span>

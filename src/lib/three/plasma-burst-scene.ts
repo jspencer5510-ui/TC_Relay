@@ -70,8 +70,9 @@ export interface PlasmaConfig {
 
 /** Current tuned defaults (the values shipped in the hero). */
 export const defaultPlasmaConfig: PlasmaConfig = {
-  stageColor: "#1c3ee6",
-  glowColor: "#eef3ff",
+  // Thinking Christian palette: orange stage, pale-orange glow (was blue).
+  stageColor: "#db4a2b",
+  glowColor: "#f7e4de",
   cameraZ: 4,
   rotateSpeed: 0.24,
   coreSize: 0.39,
@@ -87,12 +88,13 @@ export const defaultPlasmaConfig: PlasmaConfig = {
   sparkBrightness: 0.32,
   sparkSize: 0.05,
   twinkle: 0.1,
+  // Filaments in warm tones from the brand orange (were violet / indigo).
   colCore: "#ffffff",
-  colInner: "#c2c6ff",
-  colMid: "#5c7cff",
-  colOuter: "#242c9e",
-  coreColor: "#a3a6ff",
-  coreHalo: "#5f5cff",
+  colInner: "#f7e4de",
+  colMid: "#ec8a6e",
+  colOuter: "#8f2a14",
+  coreColor: "#f4b9a8",
+  coreHalo: "#db4a2b",
   filaments: 60,
   sparks: 700,
   spread: 2.65,
@@ -147,7 +149,7 @@ export interface PlasmaBurstHandle {
 // Filament + core colours are configurable (see PlasmaConfig). Particles are white
 // shades only (project request) — their colours stay fixed here, no violet tint.
 const colSpark = "#ffffff";
-const colPink = "#e6ecff";
+const colPink = "#f7e4de";
 
 const segments = 64; // points per filament
 const bendCfg = 0.55;

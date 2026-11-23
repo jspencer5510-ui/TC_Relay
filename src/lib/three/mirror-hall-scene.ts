@@ -59,7 +59,7 @@ export interface MirrorHallHandle {
 // look is final, so they stay module-private rather than becoming a config prop.
 const P = {
   bgColor: "#000000",
-  skyTop: "#01002e", // near-black blue zenith — the only non-black in the room
+  skyTop: "#1a0d08", // near-black warm zenith (brand ink/orange) — the only non-black in the room
   skyHorizon: "#000000",
   skyBottom: "#000000",
   // ring
@@ -205,7 +205,7 @@ export function createMirrorHall(
   const starGeo = new THREE.BufferGeometry();
   starGeo.setAttribute("position", new THREE.BufferAttribute(starPos, 3));
   const starMat = new THREE.PointsMaterial({
-    color: 0x6f8bb8,
+    color: 0xaba8a3, // brand stone (was a cool blue)
     size: 0.16,
     sizeAttenuation: true,
     transparent: true,
