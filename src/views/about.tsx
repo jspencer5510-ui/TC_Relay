@@ -40,17 +40,19 @@ const Chip = ({
   </span>
 );
 
-const ChartIcon = () => (
-  <svg viewBox="0 0 24 24" className="h-[0.5em] w-[0.5em]" fill="currentColor" aria-hidden="true">
-    <rect x="4" y="12" width="4" height="8" rx="1" />
-    <rect x="10" y="7" width="4" height="13" rx="1" />
-    <rect x="16" y="3" width="4" height="17" rx="1" />
+/* Chip icons (Thinking Christian): an open book beside "Reading the Bible…",
+   a question mark beside "questioning the assumptions…" (were a bar chart and
+   a lightning bolt). */
+const BookIcon = () => (
+  <svg viewBox="0 0 24 24" className="h-[0.55em] w-[0.55em]" fill="currentColor" aria-hidden="true">
+    <path d="M3 5.5c2.9-1 5.9-.8 8.25.8v13c-2.35-1.4-5.35-1.6-8.25-.6zM20.99 5.5v13.2c-2.9-1-5.9-.8-8.24.6v-13c2.35-1.6 5.34-1.8 8.24-.8z" />
   </svg>
 );
 
-const BoltIcon = () => (
-  <svg viewBox="0 0 24 24" className="h-[0.55em] w-[0.55em]" fill="currentColor" aria-hidden="true">
-    <path d="M13 2 4 14h6l-1 8 9-12h-6z" />
+const QuestionIcon = () => (
+  <svg viewBox="0 0 24 24" className="h-[0.55em] w-[0.55em]" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" aria-hidden="true">
+    <path d="M8.5 8.5a3.5 3.5 0 1 1 5.2 3.06c-1.08.6-1.7 1.4-1.7 2.44v.5" />
+    <path d="M12 19h.01" />
   </svg>
 );
 
@@ -142,9 +144,8 @@ export const About = ({ content, labelId }: AboutProps) => {
         from={{ opacity: 0, y: 12 }}
         to={{ opacity: 1, y: 0 }}
         config={{ tension: 260, friction: 30 }}
-        className="mb-6 block text-xs font-semibold uppercase tracking-[0.35em] text-muted-small"
+        className="mb-6 block text-xs font-semibold uppercase tracking-[0.35em] text-accent-text"
       >
-        <span className="mr-2 inline-block h-1.5 w-1.5 -translate-y-[0.15em] rounded-full bg-ink align-middle" />
         {content.eyebrow}
       </Inview>
 
@@ -155,10 +156,10 @@ export const About = ({ content, labelId }: AboutProps) => {
         className="mx-auto block max-w-4xl text-[2rem] font-display font-medium leading-[1.05] tracking-tight text-ink sm:text-[2.5rem] lg:text-[4rem]"
       >
         {leadRun.nodes}
-        {chip(chip1Idx, "bg-accent", <ChartIcon />)}{" "}
+        {chip(chip1Idx, "bg-accent text-white", <BookIcon />)}{" "}
         <span className="text-muted">
           {mutedRun.nodes}
-          {chip(chip2Idx, "bg-accent-soft text-ink", <BoltIcon />)}
+          {chip(chip2Idx, "bg-accent-soft text-ink", <QuestionIcon />)}
         </span>
       </h2>
     </section>

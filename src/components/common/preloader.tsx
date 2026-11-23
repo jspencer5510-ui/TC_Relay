@@ -12,6 +12,7 @@
 // imperatively so the component never re-renders mid-animation.
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { animated, useSpring } from "@react-spring/web";
+import Image from "next/image";
 import { subscribeToTicker } from "@/lib/animation/ticker";
 import { usePreloader } from "@/hooks/use-preloader";
 import { isRobotView } from "@/components/common/robot-view";
@@ -30,10 +31,9 @@ const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
 const easeInOutQuart = (t: number) =>
   t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
 
-const BoltIcon = () => (
-  <svg viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor" aria-hidden="true">
-    <path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z" />
-  </svg>
+/* Thinking Christian mark (was the template's bolt). */
+const BrandMark = () => (
+  <Image src="/assets/brand/tc-mark.svg" alt="" width={32} height={34} className="h-8 w-auto" priority />
 );
 
 export const Preloader = () => {
@@ -99,9 +99,11 @@ export const Preloader = () => {
     >
       {/* Centre logo. */}
       <div className="absolute inset-0 flex items-center justify-center text-ink">
-        <span className="flex items-center gap-2 text-3xl font-medium">
-          <BoltIcon />
-          Stride
+        <span className="flex items-center gap-3 font-display text-3xl">
+          <BrandMark />
+          <span>
+            Thinking <span className="italic text-accent-text">Christian</span>
+          </span>
         </span>
       </div>
 

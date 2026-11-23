@@ -4,10 +4,17 @@
 // sides). White text works over the dark hero/chain stages; the pills' dark backdrop
 // keeps them legible over light sections too. Rendered once near the app root — see
 // home.tsx.
+import Image from "next/image";
+
+export interface NavLink {
+  label: string;
+  href: string;
+}
+
 export interface SiteNavContent {
   brand: string;
-  items: string[];
-  cta: string;
+  items: NavLink[];
+  cta: NavLink;
 }
 
 export interface SiteNavProps extends SiteNavContent {
@@ -15,16 +22,6 @@ export interface SiteNavProps extends SiteNavContent {
   navLabel?: string;
 }
 
-const BoltIcon = () => (
-  <svg
-    aria-hidden="true"
-    viewBox="0 0 24 24"
-    className="h-4 w-4"
-    fill="currentColor"
-  >
-    <path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z" />
-  </svg>
-);
 
 // Shared pill shell — brand and links pills sit in their own rounded plaques.
 const PILL =
@@ -38,27 +35,31 @@ export const SiteNav = ({
 }: SiteNavProps) => (
   <header className="fixed inset-x-4 top-4 z-50 flex items-center justify-between gap-4 text-white md:inset-x-6 md:top-6">
     <div className="flex items-center gap-3">
-      <span className={`${PILL} gap-2 px-5 font-medium`}>
-        <BoltIcon />
-        {brand}
-      </span>
+      {/* Brand: the Thinking Christian mark + Playfair wordmark, "Christian"
+          in italic (as the logo lockup). */}
+      <a href="#top" className={`${PILL} gap-2 pl-3 pr-5`}>
+        <Image src="/assets/brand/tc-mark.svg" alt="" width={24} height={24} className="h-6 w-6" />
+        <span className="font-display text-base">
+          {brand.split(" ")[0]} <span className="italic">{brand.split(" ").slice(1).join(" ")}</span>
+        </span>
+      </a>
       <nav aria-label={navLabel} className={`${PILL} hidden px-2 md:flex`}>
         {items.map((item) => (
           <a
-            key={item}
-            href="#"
+            key={item.label}
+            href={item.href}
             className="rounded-full px-4 py-2 text-sm text-white/80 hover:text-white"
           >
-            {item}
+            {item.label}
           </a>
         ))}
       </nav>
     </div>
     <a
-      href="#"
+      href={cta.href}
       className="inline-flex h-11 items-center rounded-full bg-white px-6 text-sm font-medium text-ink shadow-sm hover:bg-white/90"
     >
-      {cta}
+      {cta.label}
     </a>
   </header>
 );

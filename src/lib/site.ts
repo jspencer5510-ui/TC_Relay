@@ -14,11 +14,11 @@ import { getServerEnv, publicEnv } from "@/env";
 const vercelProduction = getServerEnv().VERCEL_PROJECT_PRODUCTION_URL;
 
 export const siteConfig = {
-  name: "Stride",
+  name: "Thinking Christian",
   /** Short brand promise — used in the page title, PWA, and JSON-LD slogan. */
-  tagline: "Modern banking for people and businesses",
+  tagline: "Unsettling convention. Cultivating conviction.",
   description:
-    "Stride is modern banking for people and businesses — a fintech platform that moves money smarter, settles payments faster, and turns balance into momentum.",
+    "Calm, thoughtful, theological conversations. Reading the Bible as the final authority for life and faith means questioning the assumptions of our culture, even our Christian culture.",
   /**
    * Public origin, no trailing slash. Drives canonical URLs, OG tags, the
    * sitemap, and JSON-LD. Set `NEXT_PUBLIC_SITE_URL` in production.
@@ -30,19 +30,18 @@ export const siteConfig = {
    *  1200×630 capture of the hero (optimization-pipeline scaffold-brand). */
   ogImage: "/open-graph.jpg",
   ogImageAlt:
-    "Stride — “Turn balance into momentum”: a blue plasma burst on the dark hero",
+    "Thinking Christian — “Unsettling convention. Cultivating conviction.”",
   /** No real handle on the site (its X link is a placeholder) — no twitter:site tags. */
   twitterHandle: undefined as string | undefined,
-  author: "Stride",
+  author: "James Spencer",
   /** Search keywords, from the page's own copy. */
   keywords: [
-    "Stride",
-    "fintech platform",
-    "modern banking",
-    "business banking",
-    "payments",
-    "automated saving",
-    "money management",
+    "Thinking Christian",
+    "James Spencer",
+    "Christian podcast",
+    "theology",
+    "Digital Discernment",
+    "Thinking Christian Framework",
   ],
   /** Browser theme-color (address bar / PWA) — the dark hero backdrop the page opens on. */
   themeColor: "#1e1e1e", // brand ink — the hero is dark

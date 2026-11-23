@@ -1,5 +1,6 @@
-// Placeholder content for the contact form + site footer. Original copy — swap for
-// real messaging, links and contact details when available.
+// Contact form + site footer — Thinking Christian copy and links (main site's
+// footer content). No street address or phone is published, so those are empty
+// and the footer skips them.
 
 export interface ContactContent {
   labelId: string;
@@ -13,7 +14,7 @@ export interface ContactContent {
 export const contactContent: ContactContent = {
   labelId: "contact-title",
   heading:
-    "Stride is always looking to connect with sharp, curious people. Feel free to drop us a line.",
+    "If you want to consider how God's word exposes the patterns keeping us from being conformed to the image of his Son, Thinking Christian is for you.",
   fields: { name: "Name", phone: "Phone number", email: "Email" },
   cta: "Send",
 };
@@ -49,37 +50,43 @@ export interface FooterContent {
   credit: string;
 }
 
+const TC = "https://www.thinkingchristian.org";
+
 export const footerContent: FooterContent = {
-  tagline: "Modern banking for people and businesses.",
+  tagline: "Calm, thoughtful, theological conversations.",
   labelId: "footer-title",
-  heading: "Have questions? Let's talk.",
-  cta: { label: "Fill in the form", href: "#contact" },
+  heading: "Thinking Christian is for you.",
+  cta: { label: "Contact us", href: "mailto:info@thinkingchristian.org" },
   backToTop: { label: "Back to top", href: "#top" },
   linksLabel: "Links",
   sitemap: {
-    title: "Sitemap",
+    title: "Explore",
     links: [
-      { label: "Product", href: "#" },
-      { label: "Pricing", href: "#" },
-      { label: "Security", href: "#" },
-      { label: "About", href: "#" },
-      { label: "Careers", href: "#" },
+      { label: "Podcast", href: `${TC}/podcast` },
+      { label: "Framework", href: `${TC}/framework` },
+      { label: "Questions", href: `${TC}/questions` },
+      { label: "Articles", href: `${TC}/articles` },
+      { label: "About", href: `${TC}/about` },
     ],
   },
   contact: {
     title: "Contact",
-    address: "20 Harbour Street, Suite 300, London EC2 1AB",
-    phone: "+44 (0)20 7946 0182",
-    email: "hello@stride.finance",
+    address: "",
+    phone: "",
+    email: "info@thinkingchristian.org",
   },
   social: {
-    title: "Follow us",
+    title: "Listen & watch",
     links: [
-      { label: "X (Twitter)", href: "https://x.com", external: true },
-      { label: "LinkedIn", href: "https://linkedin.com", external: true },
-      { label: "Instagram", href: "https://instagram.com", external: true },
+      { label: "YouTube", href: "https://www.youtube.com/@thinking_christian?sub_confirmation=1", external: true },
+      {
+        label: "Apple Podcasts",
+        href: "https://podcasts.apple.com/us/podcast/thinking-christian-clear-theology-for-a-confusing-world/id1712162582",
+        external: true,
+      },
+      { label: "Spotify", href: "https://open.spotify.com/show/3PCi6K1PjPXzhrNVGAPTLX", external: true },
     ],
   },
-  copyright: "© 2026 Stride. All rights reserved.",
-  credit: "Built by the Stride team",
+  copyright: "© 2026 Thinking Christian",
+  credit: "Unsettling convention. Cultivating conviction.",
 };

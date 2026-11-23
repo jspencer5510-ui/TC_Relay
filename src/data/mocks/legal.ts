@@ -17,7 +17,7 @@ export const privacyPolicy: {
   sections: readonly LegalSection[];
 } = {
   title: "Privacy Policy",
-  intro: "This policy explains what Stride collects when you use this website, why we collect it, and the choices you have.",
+  intro: "This policy explains what Thinking Christian collects when you use this website, why we collect it, and the choices you have.",
   sections: [
     {
       heading: "What we collect",

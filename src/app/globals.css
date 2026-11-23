@@ -32,6 +32,7 @@
   /* About heading — inline icon-chip accents. */
   --accent: var(--raw-orange);
   --accent-soft: var(--raw-paper);
+  --accent-text: var(--raw-orange-600); /* small orange text: 4.81:1 on white */
   --muted: var(--raw-stone); /* de-emphasised large heading words */
   --muted-small: var(--raw-ink-500); /* small grey text: 6.6:1 on white */
 
@@ -71,6 +72,7 @@
   --color-logo: var(--logo);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-text: var(--accent-text);
   --color-muted: var(--muted);
   --color-muted-small: var(--muted-small);
   --color-card-accent: var(--card-accent);

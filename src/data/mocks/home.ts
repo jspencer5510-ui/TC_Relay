@@ -1,5 +1,5 @@
-// Placeholder content for the home view. Real copy should replace this (or come
-// from a CMS/hook). Kept out of components per the data rules — passed in as props.
+// Content for the home view. Kept out of components per the data rules — passed
+// in as props.
 // See obsidian/frontend/component-conventions.md (Data rules).
 import type { HeroContent } from "@/views/hero";
 import type { AboutContent } from "@/views/about";
@@ -15,7 +15,7 @@ export interface HomeContent {
   hero: HeroContent;
   logos: {
     label: string;
-    /** Placeholder partner/customer names — rendered as one flat grey. */
+    /** The six topics — rendered as one flat grey in the marquee. */
     items: string[];
   };
   about: AboutContent & { labelId: string };
@@ -25,100 +25,124 @@ export interface HomeContent {
   chain: ChainContent;
 }
 
-// The marketing nav is shared across the hero and chain stages.
+// Thinking Christian mockup content (owner request 2026-11-23). Copy and links
+// come from the main site's content (TC_Relay `content/thinking-christian`,
+// src/data/mocks/home/*) — nothing here is invented: numbers are counts of real
+// things (4 framework practices, 6 topics, 3 ways in), and every link points at
+// thinkingchristian.org or the show's real podcast / video pages.
+const TC = "https://www.thinkingchristian.org";
+
+// The site nav is shared across the hero and chain stages.
 const siteNav: SiteNavContent = {
-  brand: "Stride",
-  items: ["Services", "How it works", "About us", "Testimonials"],
-  cta: "Request a demo",
+  brand: "Thinking Christian",
+  items: [
+    { label: "Podcast", href: `${TC}/podcast` },
+    { label: "Questions", href: `${TC}/questions` },
+    { label: "Articles", href: `${TC}/articles` },
+    { label: "About", href: `${TC}/about` },
+  ],
+  cta: { label: "The Framework", href: `${TC}/framework` },
 };
 
 export const homeContent: HomeContent = {
   nav: siteNav,
   hero: {
-    titleLines: ["Turn balance into", "momentum"],
+    titleLines: ["Unsettling convention.", "Cultivating conviction."],
     sectionLabel: "Hero",
-    sceneLabel: "Animated plasma burst",
-    cta: siteNav.cta,
-    secondaryCta: "Learn more",
+    sceneLabel: "Animated burst of light",
+    cta: { label: "Explore the Framework", href: `${TC}/framework` },
+    secondaryCta: { label: "Listen to the Podcast", href: `${TC}/podcast` },
     insightTitle:
-      "Get the insight and control to act with confidence, exactly when it counts.",
+      "Reading the Bible as the final authority for life and faith.",
     insightBody:
-      "Watch your money work as hard as you do. Automated saving, real returns, and a clear view of where every dollar goes — no jargon, no guesswork.",
+      "Reading the Bible as the final authority for life and faith means questioning the assumptions of our culture, even our Christian culture, so that we don't settle for a narrower vision than God's word offers.",
     stats: [
-      { value: "4.9", label: "User Reviews" },
-      { value: "30k", label: "Active clients" },
-      { value: "15k", label: "Good Feedback" },
+      { value: "4", label: "Framework practices" },
+      { value: "6", label: "Topics, one at a time" },
+      { value: "3", label: "Ways in: listen, watch, read" },
     ],
   },
   logos: {
-    label: "Trusted by finance teams",
+    label: "Unsettling conventions, one topic at a time",
     items: [
-      "Northwind",
-      "Ledgerly",
-      "Vaulted",
-      "Paycore",
-      "Finova",
-      "Quanta",
-      "Settle",
-      "Corvus",
+      "(Un)Biblical Masculinity",
+      "Christians & Politics",
+      "Technology & Media",
+      "Literature, Film, & Culture",
+      "Scripture & Theology",
+      "Church History",
     ],
   },
   about: {
     labelId: "about-title",
-    eyebrow: "About us",
-    lead: "A fintech platform built to move money",
-    mutedLead: "smarter and settle payments faster",
+    eyebrow: "Calm, thoughtful, theological",
+    lead: "God doesn't live in our world.",
+    mutedLead: "We live in His.",
   },
   stats: {
-    label: "By the numbers",
-    brand: "LEDGERLY",
+    label: "Thinking Christian at a glance",
+    brand: "James Spencer",
     collab: {
-      value: "120+",
-      desc: "Partnered with leading banks and payment networks.",
+      value: "2018",
+      desc: "Where the story starts: a simple narrative displacing a complicated reality.",
     },
     commitment: {
-      eyebrow: "Commitment to uptime",
-      value: "99.99%",
+      eyebrow: "Calm, thoughtful, theological.",
+      value: "Not left. Not right.",
       quote:
-        "Their payment rails completely reshaped how we move money. It's fast, reliable, and secure.",
+        "Faithful Christian witness depends on that kind of discernment.",
     },
     data: {
-      label: "Data points",
-      value: "520k+",
-      desc: "Analyzed every day to power smarter financial decisions.",
+      label: "The Thinking Christian Framework",
+      value: "4",
+      desc: "Practices for identifying the underlying patterns so that we can respond faithfully to God.",
     },
-    reach: { label: "Countries", value: "60+" },
+    reach: { label: "Topics", value: "6" },
   },
   chain: {
-    heading: "Financial momentum",
+    heading: "Defying the world",
     tagline:
-      "Watch your money work as hard as you do. Automated saving, real returns, and a clear view of where every dollar goes — no jargon, no guesswork.",
-    aside: "when it matters most",
+      "Refusing to love the world on the world's terms requires us to read Scripture as the final authority for life and faith.",
+    aside: "following Jesus",
   },
   showcase: {
-    heading: "Thoughtful engineering behind every detail",
-    cta: "Explore the platform",
+    heading: "How we think is as important as what we think",
+    cta: "Explore the Framework",
     items: [
-      { prefix: "Our", name: "Approach", image: "/assets/images/3rd/approach.png" },
+      { prefix: "Recognizing", name: "God's Reality", image: "/assets/images/3rd/approach.jpg" },
       {
-        prefix: "Our",
-        name: "Technology",
+        prefix: "Cultivating",
+        name: "a Theological Disposition",
         image: "/assets/images/3rd/technology.jpg",
       },
-      { prefix: "Our", name: "Security", image: "/assets/images/3rd/security.jpg" },
-      { prefix: "Our", name: "Team", image: "/assets/images/3rd/team.jpg" },
+      { prefix: "Practicing", name: "Theo-Logic", image: "/assets/images/3rd/security.jpg" },
+      { prefix: "Committing", name: "to Disciplined Inquiry", image: "/assets/images/3rd/team.jpg" },
     ],
   },
   works: {
-    heading: "Our Portfolio",
-    viewLabel: "View project",
+    heading: "Start with these episodes",
+    viewLabel: "Listen",
     items: [
-      { name: "Northwind", year: "2026", image: "/assets/images/portfolio/1.jpg" },
-      { name: "Ledgerly", year: "2025", image: "/assets/images/portfolio/2.jpg" },
-      { name: "Vaulted", year: "2025", image: "/assets/images/portfolio/3.jpg" },
-      { name: "Paycore", year: "2024", image: "/assets/images/portfolio/4.jpg" },
-      { name: "Finova", year: "2024", image: "/assets/images/portfolio/5.jpg" },
-      { name: "Corvus", year: "2023", image: "/assets/images/portfolio/6.jpg" },
+      {
+        name: "When Your Interpretation Becomes the Authority",
+        year: "The Diagnosis",
+        image: "/assets/images/portfolio/1.jpg",
+      },
+      {
+        name: "Why Do Christian Institutions Compromise to Stay Alive?",
+        year: "Episode",
+        image: "/assets/images/portfolio/2.jpg",
+      },
+      {
+        name: "Shadow vs. Substance: How the Book of Hebrews Unlocks Old Testament Law",
+        year: "Episode",
+        image: "/assets/images/portfolio/3.jpg",
+      },
+      {
+        name: "Faith in the Age of Reason: Navigating the Journey of Modern Theology",
+        year: "Episode",
+        image: "/assets/images/portfolio/4.jpg",
+      },
     ],
   },
 };

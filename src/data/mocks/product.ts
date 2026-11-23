@@ -1,5 +1,5 @@
-// Placeholder content for the product explainer section. Original copy — swap for
-// real product messaging (and a real card image) when available.
+// "What is Thinking Christian?" explainer — copy from the owner's statement
+// ("Refusing to Settle for Wholesomeness When Only Holiness Will Do").
 export interface ProductContent {
   labelId: string;
   heading: string;
@@ -14,22 +14,22 @@ export interface ProductContent {
 
 export const productContent: ProductContent = {
   labelId: "product-title",
-  heading: "What is Northwind?",
-  cta: "Explore now",
+  heading: "What is Thinking Christian?",
+  cta: "Read the full story",
   description:
-    "Northwind is a smart yield account that puts idle cash to work — compounding around the clock while staying liquid and dollar-steady.",
+    "Thinking Christian is for believers committed to the work of building the body of Christ even when doing so requires us to unsettle the conventions we've inherited.",
   cards: {
     grow: {
-      title: "Capital that compounds",
-      body: "Your balance earns automatically as it's routed into vetted, high-yield lending markets.",
+      title: "Holiness, not wholesomeness",
+      body: "Holiness calls us to be uncompromising as we strive to point to and glorify the Triune God.",
     },
     liquid: {
-      title: "Always liquid, always steady",
-      body: "Move your money the moment you need it — fully backed, with no lockups or waiting.",
+      title: "Not left. Not right.",
+      body: "If you want Scripture to endorse the right or the left without qualification, Thinking Christian will frustrate you.",
     },
     hands: {
-      title: "Fully hands-off",
-      body: "Nothing to manage. Northwind rebalances in the background, day and night.",
+      title: "Thinking Christian is for you",
+      body: "If you want to consider how God's word exposes the patterns keeping us from being conformed to the image of his Son.",
     },
   },
 };

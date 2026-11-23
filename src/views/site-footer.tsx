@@ -103,13 +103,16 @@ export const SiteFooter = ({ content }: SiteFooterProps) => {
             {/* gap-3, not gap-2: the phone and email links sat 8 px apart — under the
                 24 px target spacing (WCAG 2.5.8); 12 px puts their centres 32 px apart. */}
             <address className="flex flex-col gap-3 text-sm not-italic text-footer-fg/80">
-              <span>{contact.address}</span>
-              <a
-                href={`tel:${contact.phone.replace(/[^+\d]/g, "")}`}
-                className="hover:text-footer-fg"
-              >
-                {contact.phone}
-              </a>
+              {/* address / phone are optional — rendered only when set */}
+              {contact.address && <span>{contact.address}</span>}
+              {contact.phone && (
+                <a
+                  href={`tel:${contact.phone.replace(/[^+\d]/g, "")}`}
+                  className="hover:text-footer-fg"
+                >
+                  {contact.phone}
+                </a>
+              )}
               <a href={`mailto:${contact.email}`} className="hover:text-footer-fg">
                 {contact.email}
               </a>

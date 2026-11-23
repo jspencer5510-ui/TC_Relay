@@ -28,8 +28,8 @@ export interface HeroContent {
   sectionLabel: string;
   /** Accessible label for the decorative canvas. */
   sceneLabel: string;
-  cta: string;
-  secondaryCta: string;
+  cta: { label: string; href: string };
+  secondaryCta: { label: string; href: string };
   insightTitle: string;
   insightBody: string;
   stats: HeroStat[];
@@ -164,16 +164,16 @@ export const Hero = ({ content }: HeroProps) => {
                 className="mt-16 flex items-center gap-6 [will-change:transform,opacity]"
               >
                 <a
-                  href="#"
+                  href={cta.href}
                   className="rounded-full bg-white px-6 py-3 text-sm font-medium text-ink hover:bg-white/90"
                 >
-                  {cta}
+                  {cta.label}
                 </a>
                 <a
-                  href="#"
+                  href={secondaryCta.href}
                   className="text-sm text-white underline underline-offset-4 hover:text-white/80"
                 >
-                  {secondaryCta}
+                  {secondaryCta.label}
                 </a>
               </animated.div>
             </div>
