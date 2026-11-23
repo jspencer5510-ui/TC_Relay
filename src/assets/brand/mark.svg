@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Stride mark: the nav's bolt (site-nav.tsx BoltIcon), white on the brand blue (#1c3ee6, the hero/chain/footer gradient base) -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2f52f0"/>
+      <stop offset="1" stop-color="#1c3ee6"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="url(#g)"/>
+  <path transform="translate(256 256) scale(16.5) translate(-12 -12)" d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z" fill="#ffffff"/>
+</svg>
