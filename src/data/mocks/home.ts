@@ -52,8 +52,7 @@ export const homeContent: HomeContent = {
     sceneLabel: "Animated burst of light",
     cta: { label: "Explore the Framework", href: `${TC}/framework` },
     secondaryCta: { label: "Listen to the Podcast", href: `${TC}/podcast` },
-    insightTitle:
-      "Reading the Bible as the final authority for life and faith.",
+    insightTitle: "Calm, thoughtful, theological conversations.",
     insightBody:
       "Reading the Bible as the final authority for life and faith means questioning the assumptions of our culture, even our Christian culture, so that we don't settle for a narrower vision than God's word offers.",
     stats: [

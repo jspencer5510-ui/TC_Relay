@@ -1,12 +1,32 @@
 ---
 tags: [meta, changelog]
-updated: 2026-10-06
+updated: 2026-11-23
 ---
 
 # Changelog
 
 Chronological log of notable changes to the project. Newest first.
 This is a human-curated log — not a mirror of `git log`.
+
+## 2026-11-23 — Thinking Christian mockup (ADR-0017)
+
+- **Dependencies:** `next` 16.2.0 → 16.4.6, `react`/`react-dom` 19.2.4 → 19.2.8,
+  `eslint-config-next` → 16.4.6 (same patched versions as the main TC site).
+- **Fonts:** Mulish (local) removed; Public Sans, Playfair Display and
+  Cormorant Garamond via `next/font/google` (`app/layout.tsx`).
+- **Theme:** brand palette tokens in `app/globals.css`; WebGL scene colours in
+  `lib/three/*` and `views/chain.tsx` / `footer-scene.tsx`; theme colour, web
+  manifest and MS tile colour; favicons / app icons from the main site.
+- **Content:** `data/mocks/{home,product,contact,legal}.ts` rewritten with the
+  main site's copy and links; `lib/site.ts` SEO config; loading screen and nav
+  carry the TC mark (`public/assets/brand/tc-mark.svg`) and wordmark.
+- **Components:** `SiteNav` items/CTA and `Hero` CTAs take `{ label, href }`;
+  About chips are a book and a question mark; the stats host card shows the
+  owner's portrait, no avatar stack; footer address/phone optional; Works
+  titles wrap to two lines instead of overflowing.
+- **Assets:** stock photos duotoned; explainer ribbon recoloured
+  (`holiness-ribbon.png`); robot-view hero stills and `open-graph.jpg`
+  re-captured from the new hero.
 
 ## 2026-10-06 — owner review 2 (pipeline D-036): gyroscope hero, loader numbers off on phones
 

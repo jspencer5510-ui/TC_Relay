@@ -93,35 +93,37 @@ shader backdrop). The dev controls panel tints `--hero-stage`/`--hero-glow` live
 Note: the WebGL hero's *scene* colours are artwork constants baked into the scene
 factory, **not** tokens — see [[decisions-log]] ADR-0014.
 
-Home-page section tokens: `--hero-page` (white — the card gap when the hero shrinks,
-and the section backgrounds), `--logo` (flat light-grey for every marquee logo),
-`--accent-blue` / `--accent-lime` (about-heading icon chips), `--muted` (de-emphasised
-heading words), `--card-blue` / `--card-gray` / `--card-dark` (stats bento cards),
-and `--spacing-page-gutter` (`120px` — wide-section edge inset → `px-page-gutter`);
-plus the product explainer's purple set `--plum` / `--lilac` (card fills; its section
-now uses `bg-hero-page` so it can occlude the pinned chain layer, so `--paper` is
-currently unused but retained); and the **site-footer** set `--footer` (dark-navy
-solid fallback behind the footer's blue WebGL mesh-gradient backdrop), `--footer-fg`
-(near-white text) and `--footer-muted` (cool labels / secondary). The oversized
-wordmark uses `text-footer-fg/15` (no dedicated token). All bound in `@theme` →
-`bg-hero-page`, `text-logo`, `bg-accent-blue`, `bg-accent-lime`, `text-muted`,
-`bg-card-blue`/`-gray`/`-dark`, `bg-plum`/`text-plum`, `bg-lilac`, `bg-paper`,
-`bg-footer`/`text-footer`, `text-footer-fg`, `text-footer-muted`; and the **preloader**
-bar gradient `--preloader-from` (pale blue) / `--preloader-to` (royal blue) →
-`from-preloader-from` / `to-preloader-to`.
-Note: the contact form is inked with `--plum` / `bg-hero-page` (not `--foreground`/
-`--background`, which flip under `prefers-color-scheme: dark` — the light sections
-pin explicit tokens to stay stable across schemes).
+Brand palette (ADR-0017) — `--raw-*` primitives in `globals.css` (paper #E4E2DD,
+orange #DB4A2B, orange-600 #C8462A, orange-50 #F7E4DE, stone #ABA8A3, ink #1E1E1E,
+ink-500 #5D5C5A, white) with role tokens on top:
+`--hero-page` (white — the card gap when the hero shrinks, and section backgrounds),
+`--logo` (stone — topic marquee), `--accent` / `--accent-soft` (About icon chips),
+`--accent-text` (small orange text, 4.81:1 on white), `--muted` (stone — large
+de-emphasised heading words), `--muted-small` (ink-500), `--card-accent` /
+`--card-gray` / `--card-dark` (stats cards), `--ink` (dark buttons, text, rules),
+`--paper`, the **footer** set `--footer` (ink fallback behind the orange WebGL
+gradient), `--footer-fg` (white), `--footer-muted` (stone), and the **preloader**
+bar `--preloader-from` (paper) / `--preloader-to` (orange); plus
+`--spacing-page-gutter` (`120px` → `px-page-gutter`). Bound in `@theme` →
+`bg-accent`, `bg-accent-soft`, `text-accent-text`, `bg-card-accent`/`-gray`/`-dark`,
+`bg-ink`/`text-ink`, `bg-paper`, `text-logo`, `text-muted`, `bg-footer`,
+`text-footer-fg`, `text-footer-muted`, `from-preloader-from` / `to-preloader-to`.
+Note: the contact form is inked with `--ink` / `bg-hero-page`. The site is
+light-only since ADR-0017 (the dark-scheme override was removed).
 
 ## Typography
 
-Font: **Mulish** (`next/font/local`, files in `src/app/fonts/`), weights **300 / 400 /
-500** only. Loaded in `src/app/layout.tsx` (variable `--font-mulish`) and exposed on
-`<body>`; `globals.css` sets `body { font-family: var(--font-mulish) … }` directly and
-binds `--font-sans: var(--font-mulish)` in `@theme` for the `font-sans` utility.
-Note: since `@theme inline` inlines `--font-sans` (it isn't a live CSS var), the body
-rule references `--font-mulish` directly. Only up to weight 500 ships, so
-`font-semibold`/`font-bold` (600/700) synthesise — prefer `font-light`/`font-medium`.
+Thinking Christian brand type (ADR-0017), all via `next/font/google` in
+`src/app/layout.tsx`, variables on `<body>`:
+
+| Role | Face | Utility |
+|---|---|---|
+| Paragraphs, UI | **Public Sans** (`--font-public-sans`) | `font-sans` (body default) |
+| Display headings, stat numbers | **Playfair Display** Medium 500 (`--font-playfair-display`) | `font-display font-medium` (`lining-nums` on numbers) |
+| Italic quote / accent | **Cormorant Garamond** (`--font-cormorant-garamond`) | `font-serif italic` |
+
+Display headings use `leading-[1.05]`–`[1.1]`: Playfair's tall ascenders clip at the
+template's 0.95. Only 400/500 are loaded for the serifs.
 
 ## Buttons
 

@@ -25,21 +25,14 @@ export interface StatsProps {
 const CARD_RISE = 24; // px cards rise from
 const CARD_BLUR = 12; // px soft start blur
 
-const BarsIcon = () => (
-  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
-    <rect x="4" y="12" width="4" height="8" rx="1" />
-    <rect x="10" y="7" width="4" height="13" rx="1" />
-    <rect x="16" y="3" width="4" height="17" rx="1" />
+/* Microphone — the host card (was a bar chart). The template's stock avatar
+   stack is gone: on this site it would read as endorsements nobody gave. */
+const MicIcon = () => (
+  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+    <rect x="9" y="3" width="6" height="11" rx="3" />
+    <path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21" />
   </svg>
 );
-
-// Avatar photos for the commitment card's stack (public paths).
-const AVATARS = [
-  "/assets/images/2nd/avatars/1.png",
-  "/assets/images/2nd/avatars/2.png",
-  "/assets/images/2nd/avatars/3.png",
-  "/assets/images/2nd/avatars/4.png",
-];
 
 // Numbers share the block heading's display scale (see about.tsx `.lead`).
 const STAT_NUM =
@@ -65,21 +58,21 @@ export const Stats = ({ content }: StatsProps) => {
           className="relative flex min-h-[32rem] flex-col justify-end overflow-hidden rounded-3xl bg-card-accent p-7 text-ink [will-change:transform,opacity]"
         >
           <Image
-            src="/assets/images/2nd/people.png"
+            src="/assets/images/2nd/james-spencer.jpg"
             alt=""
             fill
             sizes="(max-width: 1024px) 100vw, 33vw"
-            className="object-cover"
+            className="object-cover object-top"
           />
           <div
             className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 to-ink/25"
             aria-hidden="true"
           />
-          <span className="absolute left-7 top-7 text-2xl font-extrabold italic tracking-tight">
+          <span className="absolute left-7 top-7 font-display text-2xl italic text-ink">
             {brand}
           </span>
           <span className="absolute right-7 top-7 flex h-11 w-11 items-center justify-center rounded-xl bg-white text-card-accent">
-            <BarsIcon />
+            <MicIcon />
           </span>
           <div className="relative rounded-2xl bg-white p-6 text-ink">
             <div className={STAT_NUM}>{collab.value}</div>
@@ -99,17 +92,7 @@ export const Stats = ({ content }: StatsProps) => {
           </p>
           <div className={`mt-4 ${STAT_NUM}`}>{commitment.value}</div>
           <div className="mt-auto">
-            <div className="mb-6 flex">
-              {AVATARS.map((src, i) => (
-                <span
-                  key={i}
-                  className="relative -ml-3 h-11 w-11 overflow-hidden rounded-full border-2 border-card-gray first:ml-0"
-                >
-                  <Image src={src} alt="" fill sizes="44px" className="object-cover" />
-                </span>
-              ))}
-            </div>
-            <blockquote className="max-w-md text-2xl leading-snug tracking-tight text-ink/80">
+            <blockquote className="max-w-md font-serif text-3xl italic leading-snug text-ink/80">
               &ldquo;{commitment.quote}&rdquo;
             </blockquote>
           </div>

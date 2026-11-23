@@ -72,7 +72,7 @@ export interface PlasmaConfig {
 export const defaultPlasmaConfig: PlasmaConfig = {
   // Thinking Christian palette: orange stage, pale-orange glow (was blue).
   stageColor: "#db4a2b",
-  glowColor: "#f7e4de",
+  glowColor: "#db4a2b", // brand orange — a pale glow washed out the white stats over it
   cameraZ: 4,
   rotateSpeed: 0.24,
   coreSize: 0.39,

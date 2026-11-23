@@ -1,11 +1,11 @@
 {
-  "name": "Stride",
-  "short_name": "Stride",
-  "description": "Stride is modern banking for people and businesses — a fintech platform that moves money smarter, settles payments faster, and turns balance into momentum.",
+  "name": "Thinking Christian",
+  "short_name": "Thinking Christian",
+  "description": "Calm, thoughtful, theological conversations. Unsettling convention. Cultivating conviction.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#04070f",
-  "theme_color": "#04070f",
+  "background_color": "#ffffff",
+  "theme_color": "#1e1e1e",
   "icons": [
     {
       "src": "/android-icon-36x36.png",

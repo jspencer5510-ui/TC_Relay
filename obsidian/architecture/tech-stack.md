@@ -12,8 +12,8 @@ Package name: `next16-claude-starter` · version `0.1.0` · private.
 
 | Package | Version | Role |
 |---------|---------|------|
-| `next` | `16.2.0` | App Router framework. ⚠️ See warning below. |
-| `react` / `react-dom` | `19.2.4` | UI runtime |
+| `next` | `16.4.6` | App Router framework. ⚠️ See warning below. |
+| `react` / `react-dom` | `19.2.8` | UI runtime |
 | `typescript` | `^5` | Type system — `any` is banned |
 
 > [!warning] This is not the Next.js you may know

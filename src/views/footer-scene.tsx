@@ -21,9 +21,9 @@ import { runAfterLoad } from "@/lib/three/after-load";
 import { mountChainScene, mountGradientBackground } from "@/lib/three/scene-host";
 
 // Same blue palette as the hero/chain; a new seed → a different blob pattern.
-/* Thinking Christian palette: brand orange field, pale-orange glow. */
+/* Thinking Christian palette: brand orange field and glow. */
 const BASE = "#db4a2b";
-const LIGHT = "#f7e4de";
+const LIGHT = "#db4a2b"; // full orange: a pale glow washed out white text over it
 const SEED = 7.2;
 const MODEL_URL = "/assets/heart.glb";
 

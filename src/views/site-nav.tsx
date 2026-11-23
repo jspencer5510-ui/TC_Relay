@@ -25,7 +25,7 @@ export interface SiteNavProps extends SiteNavContent {
 
 // Shared pill shell — brand and links pills sit in their own rounded plaques.
 const PILL =
-  "flex h-11 items-center rounded-full border border-white/10 bg-ink/30 backdrop-blur-md";
+  "flex h-11 items-center rounded-full border border-white/10 bg-ink/70 backdrop-blur-md"; // 70 %: white text stays readable over the white sections
 
 export const SiteNav = ({
   brand,

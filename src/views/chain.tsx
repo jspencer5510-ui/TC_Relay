@@ -31,9 +31,9 @@ import { useRobot } from "@/components/common/robot-view";
 const SHOW_CONTROLS = false;
 
 // Same gradient palette as the hero default; a different seed → different pattern.
-/* Thinking Christian palette: brand orange field, pale-orange glow. */
+/* Thinking Christian palette: brand orange field and glow. */
 const BASE = "#db4a2b";
-const LIGHT = "#f7e4de";
+const LIGHT = "#db4a2b"; // full orange: a pale glow washed out white text over it
 const SEED = 3.7;
 const MODEL_URL = "/assets/chain.glb";
 

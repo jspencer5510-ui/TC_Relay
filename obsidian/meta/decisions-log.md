@@ -10,6 +10,41 @@ consequences. Use [[templates/adr-note]] for new entries. Newest first.
 
 ---
 
+## ADR-0017 — Thinking Christian mockup on the Stride template
+
+**Date.** 2026-11-23 · **Status.** Accepted (mockup; branch `mockup/stride` of
+TC_Relay).
+
+**Context.** The owner of Thinking Christian asked for a second mockup of their
+site built on this template, kept separate from the Relay-based site (branch
+`content/thinking-christian`) and keeping the template's signature motion.
+
+**Decision.**
+- **Brand.** Palette from the owner's brand sheet — white page; ink #1E1E1E,
+  orange #DB4A2B, stone #ABA8A3, paper #E4E2DD — as `--raw-*` primitives with
+  role tokens on top; colour-named tokens renamed by role (`accent`,
+  `accent-soft`, `accent-text`, `card-accent`, `ink`). Two derived tones where
+  the brand five fail contrast: orange-600 #C8462A (white on it, small orange
+  text) and ink-500 #5D5C5A. Light-only (dark-scheme override removed).
+- **Type.** Mulish → Public Sans (paragraphs), Playfair Display Medium
+  (display headings, stat numbers with lining figures), Cormorant Garamond
+  (italic quote).
+- **Scenes.** Plasma, gradient backdrops (hero, chain, footer), chain chrome
+  tint and the portfolio hall recoloured to ink/orange. Glows are full orange:
+  a pale glow washed out the white stats and footer links over it.
+- **Content.** All copy and links come from the main site's content; numbers
+  are counts of real things (4 practices, 6 topics, 3 ways in). Stock avatars
+  removed (they would read as endorsements); office stock photos duotoned to
+  the palette as placeholders; the owner's portrait in the host card.
+- **Links.** Nav and hero buttons now take `{ label, href }`.
+
+**Consequences.** Placeholder imagery (framework columns, episode cards,
+explainer ribbon) awaits the owner's images; the privacy page is the
+template's boilerplate with the name swapped. Known dev-only issue: under
+React 19.2.8 StrictMode's double mount, the hero canvases stay blank after the
+forced context loss on the first dispose — production builds (and Vercel) are
+unaffected.
+
 ## ADR-0016 — WebGL scenes render only while on-screen (visibility-gated loops + shader precompile)
 
 - **Status:** Accepted

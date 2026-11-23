@@ -198,7 +198,7 @@ export const Works = ({ content }: WorksProps) => {
           </span>
           <span
             ref={nameElRef}
-            className="justify-self-center truncate text-lg leading-snug tracking-tight text-white sm:text-2xl"
+            className="line-clamp-2 min-w-0 max-w-full justify-self-center text-center text-lg leading-snug tracking-tight text-white sm:text-2xl"
           >
             {items[0].name}
           </span>
